@@ -1,0 +1,138 @@
+# -*- coding: utf-8 -*-
+"""
+管理后台 - 服务端异常
+容错测试 自动化测试
+自动生成自 Excel 用例，共 4 条
+生成命令: python generate_test_skeleton.py
+
+使用方法：
+  1. 在每个 test_ 函数的 TODO 处填写自动化操作代码
+  2. 填完后删除 pytest.skip("待实现")
+  3. 运行: pytest admin-web/tests/generated\test_admin_服务端异常_容错测试.py -v --headed
+"""
+import pytest
+import sys
+sys.path.insert(0, '..')
+from utils.case_mapping import case
+
+
+class Test服务端异常容错测试:
+    """管理后台 - 服务端异常
+容错测试 (4条用例)"""
+
+    @case("fwq-001", title="验证第三方API（骑士）超时时虚拟商品发货的容错处理", priority="P1")
+    def test_fwq_001(self, page):
+        """
+        [fwq-001] 验证第三方API（骑士）超时时虚拟商品发货的容错处理
+        优先级: P1
+        """
+        # 前置条件:
+        #   1. 用户已购买通用券并支付成功
+    #   2. 骑士API响应时间>10秒
+        #
+        # 测试步骤:
+        #   1. 支付成功后系统调用骑士API发货。
+    #   2. API超时（模拟或实际遇到）。
+    #   3. 检查订单状态。
+    #   4. 检查用户端展示。
+    #   5. 检查后台运营可操作性
+        #
+        # 预期结果:
+        #   1. 订单状态变为FAIL。
+    #   2. 用户端显示"发货中"或"发货失败"。
+    #   3. 后台显示"重试发货"和"退款"按钮。
+    #   4. 不出现"已扣款但无订单记录"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("fwq-002", title="验证第三方API重复回调的幂等处理", priority="P1")
+    def test_fwq_002(self, page):
+        """
+        [fwq-002] 验证第三方API重复回调的幂等处理
+        优先级: P1
+        """
+        # 前置条件:
+        #   1. 一笔通用券订单支付成功
+    #   2. 骑士API可能重复发送发货成功回调
+        #
+        # 测试步骤:
+        #   1. 第一次回调：发货成功，卡密下发。
+    #   2. 模拟第二次相同回调。
+    #   3. 检查是否重复发放卡密。
+    #   4. 检查订单状态
+        #
+        # 预期结果:
+        #   1. 第一次回调正常处理，卡密展示。
+    #   2. 第二次回调被识别为重复，不处理。
+    #   3. 卡密不重复发放（仍是同一个）。
+    #   4. 订单状态不变
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("fwq-003", title="验证OSS服务不可用时的降级处理", priority="P1")
+    def test_fwq_003(self, page):
+        """
+        [fwq-003] 验证OSS服务不可用时的降级处理
+        优先级: P1
+        """
+        # 前置条件:
+        #   1. 选品仓库执行一键同步
+    #   2. 阿里云OSS不可用（模拟）
+        #
+        # 测试步骤:
+        #   1. 点击一键同步。
+    #   2. 同步过程中OSS上传失败。
+    #   3. 检查同步结果。
+    #   4. 检查商品数据
+        #
+        # 预期结果:
+        #   1. 商品文本数据（名称/价格/库存）正常入库。
+    #   2. 图片标记为"待重新转存"。
+    #   3. 前端展示默认占位图。
+    #   4. 提示"部分资源上传失败"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("fwq-005", title="验证微信订阅消息API限流时的降级处理", priority="P1")
+    def test_fwq_005(self, page):
+        """
+        [fwq-005] 验证微信订阅消息API限流时的降级处理
+        优先级: P1
+        """
+        # 前置条件:
+        #   1. 运营审核通过人工辅助订单
+    #   2. 微信API限流/不可用
+        #
+        # 测试步骤:
+        #   1. 运营下发验证码。
+    #   2. 订阅消息发送失败（微信API限流）。
+    #   3. 检查是否降级为短信。
+    #   4. 短信也失败时检查兜底方案
+        #
+        # 预期结果:
+        #   1. 订阅消息失败后自动尝试短信。
+    #   2. 短信也失败后提示运营"通知发送失败"。
+    #   3. 验证码仍可在用户订单详情页查看（兜底）。
+    #   4. 不影响订单正常流程
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")

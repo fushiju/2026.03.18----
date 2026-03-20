@@ -1,0 +1,303 @@
+# -*- coding: utf-8 -*-
+"""
+管理后台 - 安全测试增强 自动化测试
+自动生成自 Excel 用例，共 10 条
+生成命令: python generate_test_skeleton.py
+
+使用方法：
+  1. 在每个 test_ 函数的 TODO 处填写自动化操作代码
+  2. 填完后删除 pytest.skip("待实现")
+  3. 运行: pytest admin-web/tests/generated\test_admin_安全测试增强.py -v --headed
+"""
+import pytest
+import sys
+sys.path.insert(0, '..')
+from utils.case_mapping import case
+
+
+class Test安全测试增强:
+    """管理后台 - 安全测试增强 (10条用例)"""
+
+    @case("aq-zq-001", title="验证支付回调签名验证（防伪造支付成功）", priority="P0")
+    def test_aq_zq_001(self, page):
+        """
+        [aq-zq-001] 验证支付回调签名验证（防伪造支付成功）
+        优先级: P0
+        """
+        # 前置条件:
+        #   1. Postman/抓包工具
+    #   2. 已知微信支付回调URL
+        #
+        # 测试步骤:
+        #   1. 使用Postman构造一个伪造的微信支付成功回调报文。
+    #   2. 发送到系统的支付回调接口。
+    #   3. 检查系统是否处理了该伪造请求。
+    #   4. 检查是否有订单状态被错误修改
+        #
+        # 预期结果:
+        #   1. 系统验证签名失败，拒绝处理。
+    #   2. 返回错误状态码。
+    #   3. 无任何订单状态被修改。
+    #   4. 日志记录该异常请求
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("aq-zq-002", title="验证支付回调幂等性（防重复处理）", priority="P0")
+    def test_aq_zq_002(self, page):
+        """
+        [aq-zq-002] 验证支付回调幂等性（防重复处理）
+        优先级: P0
+        """
+        # 前置条件:
+        #   1. 一笔已完成支付的订单
+    #   2. 已有合法的支付回调记录
+        #
+        # 测试步骤:
+        #   1. 模拟微信重发支付成功回调（同一订单号）。
+    #   2. 连续发送3次相同回调。
+    #   3. 检查订单和卡密
+        #
+        # 预期结果:
+        #   1. 第一次回调正常处理。
+    #   2. 后续重复回调被识别为重复，不再处理。
+    #   3. 不重复发放卡密。
+    #   4. 不重复计算分佣
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("aq-zq-003", title="验证通过API绕过前端直接退款虚拟商品被拦截", priority="P0")
+    def test_aq_zq_003(self, page):
+        """
+        [aq-zq-003] 验证通过API绕过前端直接退款虚拟商品被拦截
+        优先级: P0
+        """
+        # 前置条件:
+        #   1. 一笔已完成的通用券订单（COMPLETED）
+    #   2. 前端无退款按钮
+    #   3. Postman工具
+        #
+        # 测试步骤:
+        #   1. 使用Postman直接调用退款接口。
+    #   2. 传入该虚拟商品订单ID。
+    #   3. 观察后端响应
+        #
+        # 预期结果:
+        #   1. 后端返回拒绝："该订单类型不支持退款"或返回403。
+    #   2. 订单状态不变。
+    #   3. 不产生退款记录
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("aq-zq-004", title="验证SQL注入防护", priority="P0")
+    def test_aq_zq_004(self, page):
+        """
+        [aq-zq-004] 验证SQL注入防护
+        优先级: P0
+        """
+        # 前置条件:
+        #   1. 登录管理后台
+    #   2. 找到各搜索/输入框
+        #
+        # 测试步骤:
+        #   1. 在订单搜索框输入：' OR 1=1 --。
+    #   2. 在登录密码框输入：' OR '1'='1。
+    #   3. 在商家名称输入框输入：'; DROP TABLE orders; --。
+    #   4. 观察各响应
+        #
+        # 预期结果:
+        #   1. 搜索框：返回空结果或正常结果，无SQL错误信息暴露。
+    #   2. 登录框：登录失败，无异常。
+    #   3. 商家名称：保存成功但作为纯文本存储。
+    #   4. 无任何数据库错误信息泄露到前端
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("aq-zq-005", title="验证XSS跨站脚本攻击防护", priority="P0")
+    def test_aq_zq_005(self, page):
+        """
+        [aq-zq-005] 验证XSS跨站脚本攻击防护
+        优先级: P0
+        """
+        # 前置条件:
+        #   1. 管理后台已登录
+    #   2. 准备XSS payload
+        #
+        # 测试步骤:
+        #   1. 在商家名称输入：<script>alert("xss")</script>。
+    #   2. 在退款原因输入：<img src=x onerror=alert(1)>。
+    #   3. 在驳回理由输入：<svg onload=alert(1)>。
+    #   4. 保存后在各端查看显示
+        #
+        # 预期结果:
+        #   1. 所有输入内容被HTML转义后存储/展示。
+    #   2. 不执行任何脚本。
+    #   3. 在用户端/商家端查看时也不会触发XSS。
+    #   4. 特殊字符作为纯文本显示
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("aq-zq-006", title="验证水平越权防护——用户A操作用户B的订单", priority="P0")
+    def test_aq_zq_006(self, page):
+        """
+        [aq-zq-006] 验证水平越权防护——用户A操作用户B的订单
+        优先级: P0
+        """
+        # 前置条件:
+        #   1. 用户A和用户B各有一笔订单
+    #   2. 用户A已登录
+        #
+        # 测试步骤:
+        #   1. 抓包获取用户A查看订单详情的请求。
+    #   2. 将请求中的订单ID替换为用户B的订单ID。
+    #   3. 发送请求。
+    #   4. 同理尝试对用户B的订单执行退款
+        #
+        # 预期结果:
+        #   1. 查看请求返回403"无权限"或404。
+    #   2. 不返回用户B的订单数据。
+    #   3. 退款请求被拒绝。
+    #   4. 日志记录越权尝试
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("aq-zq-007", title="验证垂直越权防护——普通用户调管理后台API", priority="P0")
+    def test_aq_zq_007(self, page):
+        """
+        [aq-zq-007] 验证垂直越权防护——普通用户调管理后台API
+        优先级: P0
+        """
+        # 前置条件:
+        #   1. 普通用户token
+    #   2. 管理后台API地址
+        #
+        # 测试步骤:
+        #   1. 使用普通用户token调用后台"修改分佣比例"接口。
+    #   2. 使用普通用户token调用"退款审核"接口。
+    #   3. 使用普通用户token调用"Excel导入"接口
+        #
+        # 预期结果:
+        #   1. 所有请求返回403"无权限"。
+    #   2. 分佣比例不被修改。
+    #   3. 无退款被处理。
+    #   4. 无Excel被导入
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("aq-zq-008", title="验证文件上传安全——恶意文件伪装", priority="P1")
+    def test_aq_zq_008(self, page):
+        """
+        [aq-zq-008] 验证文件上传安全——恶意文件伪装
+        优先级: P1
+        """
+        # 前置条件:
+        #   1. 准备恶意文件：将.php文件后缀改为.jpg
+    #   2. 人工辅助模式凭证上传
+        #
+        # 测试步骤:
+        #   1. 将一个PHP脚本文件重命名为test.jpg。
+    #   2. 尝试通过凭证上传接口上传。
+    #   3. 检查后端是否检测文件实际类型。
+    #   4. 检查是否能通过URL直接访问上传的文件
+        #
+        # 预期结果:
+        #   1. 后端检测文件实际MIME类型，拒绝非图片文件。
+    #   2. 或上传成功但无法执行（OSS配置不允许执行脚本）。
+    #   3. 上传的文件URL无法直接访问执行
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("aq-zq-009", title="验证验证码暴力破解防护", priority="P1")
+    def test_aq_zq_009(self, page):
+        """
+        [aq-zq-009] 验证验证码暴力破解防护
+        优先级: P1
+        """
+        # 前置条件:
+        #   1. 一笔已下发验证码的人工辅助订单
+    #   2. 商家端核销页面
+        #
+        # 测试步骤:
+        #   1. 连续输入5次错误的验证码。
+    #   2. 第6次输入正确的验证码。
+    #   3. 等待15分钟后再输入正确验证码
+        #
+        # 预期结果:
+        #   1. 第1-5次：每次提示"验证码错误"。
+    #   2. 第5次后：提示"错误次数过多，请15分钟后重试"。
+    #   3. 第6次（锁定期内）：即使输入正确也被拒绝。
+    #   4. 15分钟后：输入正确验证码成功核销
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("aq-zq-010", title="验证数据脱敏——敏感信息显示", priority="P1")
+    def test_aq_zq_010(self, page):
+        """
+        [aq-zq-010] 验证数据脱敏——敏感信息显示
+        优先级: P1
+        """
+        # 前置条件:
+        #   1. 系统中已有用户手机号、商家联系电话等敏感数据
+        #
+        # 测试步骤:
+        #   1. 查看用户列表中的手机号显示。
+    #   2. 查看商家信息中的联系电话显示。
+    #   3. 查看API返回中手机号字段。
+    #   4. 检查推广海报中是否包含完整手机号
+        #
+        # 预期结果:
+        #   1. 用户手机号显示为138****8001格式。
+    #   2. 商家电话适当脱敏。
+    #   3. API返回也需脱敏（非内部调用）。
+    #   4. 推广海报不泄露完整手机号
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")

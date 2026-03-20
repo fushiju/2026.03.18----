@@ -1,0 +1,1086 @@
+# -*- coding: utf-8 -*-
+"""
+管理后台 - 选品仓库 自动化测试
+自动生成自 Excel 用例，共 43 条
+生成命令: python generate_test_skeleton.py
+
+使用方法：
+  1. 在每个 test_ 函数的 TODO 处填写自动化操作代码
+  2. 填完后删除 pytest.skip("待实现")
+  3. 运行: pytest admin-web/tests/generated\test_admin_选品仓库.py -v --headed
+"""
+import pytest
+import sys
+sys.path.insert(0, '..')
+from utils.case_mapping import case
+
+
+class Test选品仓库:
+    """管理后台 - 选品仓库 (43条用例)"""
+
+    @case("xpck-001", title="验证一键同步按钮拉取第三方API最新商品数据", priority="P1")
+    def test_xpck_001(self, page):
+        """
+        [xpck-001] 验证一键同步按钮拉取第三方API最新商品数据
+        优先级: P1
+        """
+        # 前置条件:
+        #   运营登录后台，进入选品仓库页面，第三方API（骑士渠道）已配置且可用，API中有10个商品
+        #
+        # 测试步骤:
+        #   1. 点击"一键同步"按钮。
+    #   2. 等待同步完成。
+    #   3. 查看选品仓库列表
+        #
+        # 预期结果:
+        #   1. 显示同步进度条或加载动画。
+    #   2. 同步完成，提示"同步成功，共获取10个商品数据"。
+    #   3. 列表展示10个商品，包含品牌信息、规格、价格、库存等字段
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-002", title="验证同步数据包含完整的商品字段信息", priority="P1")
+    def test_xpck_002(self, page):
+        """
+        [xpck-002] 验证同步数据包含完整的商品字段信息
+        优先级: P1
+        """
+        # 前置条件:
+        #   一键同步完成，列表有商品数据
+        #
+        # 测试步骤:
+        #   1. 查看任意一条商品记录。
+    #   2. 核对字段是否完整
+        #
+        # 预期结果:
+        #   1. 商品记录可查看。
+    #   2. 包含商品名称、品牌ID、品牌名称、规格信息、价格、库存、同步时间、来源渠道、上架状态等字段，数据与第三方API返回一致
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-003", title="验证多渠道同步数据正确区分来源", priority="P2")
+    def test_xpck_003(self, page):
+        """
+        [xpck-003] 验证多渠道同步数据正确区分来源
+        优先级: P2
+        """
+        # 前置条件:
+        #   已配置骑士和蜂助手两个渠道API
+        #
+        # 测试步骤:
+        #   1. 点击"一键同步"。
+    #   2. 同步完成后查看列表。
+    #   3. 按来源渠道筛选"骑士"。
+    #   4. 按来源渠道筛选"蜂助手"
+        #
+        # 预期结果:
+        #   1. 同步开始。
+    #   2. 列表显示两个渠道的商品数据。
+    #   3. 仅展示骑士渠道的商品。
+    #   4. 仅展示蜂助手渠道的商品
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-004", title="验证同步记录正确记录操作信息", priority="P2")
+    def test_xpck_004(self, page):
+        """
+        [xpck-004] 验证同步记录正确记录操作信息
+        优先级: P2
+        """
+        # 前置条件:
+        #   运营账号"admin01"执行了一次同步操作
+        #
+        # 测试步骤:
+        #   1. 进入同步记录页面。
+    #   2. 查看最新一条同步记录
+        #
+        # 预期结果:
+        #   1. 同步记录页面正常展示。
+    #   2. 最新记录显示：API来源"骑士"、操作人"admin01"、同步时间"2026-03-13 10:30:00"、同步结果"成功，新增8个，更新2个"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-005", title="[反向] 验证第三方API不可用时同步失败提示", priority="P3")
+    def test_xpck_005(self, page):
+        """
+        [xpck-005] [反向] 验证第三方API不可用时同步失败提示
+        优先级: P3
+        """
+        # 前置条件:
+        #   第三方API接口异常（如超时或返回500错误）
+        #
+        # 测试步骤:
+        #   1. 点击"一键同步"按钮。
+    #   2. 等待同步结果
+        #
+        # 预期结果:
+        #   1. 开始同步。
+    #   2. 提示"同步失败：第三方API连接超时，请稍后重试"，列表数据不受影响
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-006", title="[反向] 验证第三方API返回空数据时的处理", priority="P3")
+    def test_xpck_006(self, page):
+        """
+        [xpck-006] [反向] 验证第三方API返回空数据时的处理
+        优先级: P3
+        """
+        # 前置条件:
+        #   第三方API接口正常但返回空商品列表
+        #
+        # 测试步骤:
+        #   1. 点击"一键同步"。
+    #   2. 查看同步结果
+        #
+        # 预期结果:
+        #   1. 同步开始。
+    #   2. 提示"同步完成，未获取到新商品数据"，原有列表数据不受影响
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-007", title="[反向] 验证重复点击一键同步不触发多次请求", priority="P3")
+    def test_xpck_007(self, page):
+        """
+        [xpck-007] [反向] 验证重复点击一键同步不触发多次请求
+        优先级: P3
+        """
+        # 前置条件:
+        #   运营在选品仓库页面
+        #
+        # 测试步骤:
+        #   1. 点击"一键同步"按钮。
+    #   2. 同步进行中再次快速点击"一键同步"
+        #
+        # 预期结果:
+        #   1. 同步开始，按钮置灰或显示加载状态。
+    #   2. 第二次点击无效，不触发重复同步请求
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-008", title="验证同步时第三方图片自动转存到阿里云OSS", priority="P1")
+    def test_xpck_008(self, page):
+        """
+        [xpck-008] 验证同步时第三方图片自动转存到阿里云OSS
+        优先级: P1
+        """
+        # 前置条件:
+        #   第三方API返回商品数据包含外链图片地址（如http://third-party.com/img/product1.jpg）
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 同步完成后查看商品详情中的图片地址。
+    #   3. 点击图片预览
+        #
+        # 预期结果:
+        #   1. 同步成功。
+    #   2. 商品图片地址已替换为阿里云OSS地址（如https://oss.aliyuncs.com/klym/product1.jpg），不再是第三方外链。
+    #   3. 图片预览正常显示
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-009", title="验证品牌和规格中的图片地址统一为OSS地址", priority="P1")
+    def test_xpck_009(self, page):
+        """
+        [xpck-009] 验证品牌和规格中的图片地址统一为OSS地址
+        优先级: P1
+        """
+        # 前置条件:
+        #   同步完成，品牌"美团通用券"包含品牌Logo和3个规格的图片
+        #
+        # 测试步骤:
+        #   1. 查看品牌详情中的Logo图片地址。
+    #   2. 查看各规格的商品图片地址
+        #
+        # 预期结果:
+        #   1. 品牌Logo地址为阿里云OSS地址。
+    #   2. 3个规格的图片地址均为阿里云OSS地址，无第三方外链
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-010", title="验证视频资源也成功转存到OSS", priority="P2")
+    def test_xpck_010(self, page):
+        """
+        [xpck-010] 验证视频资源也成功转存到OSS
+        优先级: P2
+        """
+        # 前置条件:
+        #   第三方API返回商品数据包含视频链接
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看含视频的商品详情。
+    #   3. 点击视频预览
+        #
+        # 预期结果:
+        #   1. 同步成功。
+    #   2. 视频地址为阿里云OSS地址。
+    #   3. 视频可正常播放
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-011", title="验证选品仓库中可预览OSS资源文件", priority="P2")
+    def test_xpck_011(self, page):
+        """
+        [xpck-011] 验证选品仓库中可预览OSS资源文件
+        优先级: P2
+        """
+        # 前置条件:
+        #   选品仓库列表有已转存图片的商品
+        #
+        # 测试步骤:
+        #   1. 在列表中找到商品"50元外卖通用券"。
+    #   2. 点击商品图片缩略图
+        #
+        # 预期结果:
+        #   1. 找到目标商品，显示图片缩略图。
+    #   2. 弹出大图预览，图片清晰加载正常
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-012", title="[反向] 验证第三方图片下载失败时的处理", priority="P3")
+    def test_xpck_012(self, page):
+        """
+        [xpck-012] [反向] 验证第三方图片下载失败时的处理
+        优先级: P3
+        """
+        # 前置条件:
+        #   第三方API返回的图片链接已失效（404）
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看同步结果。
+    #   3. 查看该商品的图片字段
+        #
+        # 预期结果:
+        #   1. 同步开始。
+    #   2. 同步完成，提示"部分资源下载失败：product_x.jpg"。
+    #   3. 该商品图片字段为空或显示默认占位图，商品其他数据正常入库
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-013", title="[反向] 验证OSS存储空间不足时的异常处理", priority="P3")
+    def test_xpck_013(self, page):
+        """
+        [xpck-013] [反向] 验证OSS存储空间不足时的异常处理
+        优先级: P3
+        """
+        # 前置条件:
+        #   模拟阿里云OSS存储写入失败
+        #
+        # 测试步骤:
+        #   1. 执行一键同步，同步包含图片的商品数据
+        #
+        # 预期结果:
+        #   1. 同步过程中图片转存失败，提示"资源转存失败：OSS写入异常"，商品文本数据正常入库，图片字段标记为待重新转存
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-014", title="验证同步时自动创建不存在的新品牌", priority="P1")
+    def test_xpck_014(self, page):
+        """
+        [xpck-014] 验证同步时自动创建不存在的新品牌
+        优先级: P1
+        """
+        # 前置条件:
+        #   第三方API返回品牌"星巴克臻选"的商品数据，本地数据库无该品牌
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看品牌列表
+        #
+        # 预期结果:
+        #   1. 同步成功。
+    #   2. 品牌列表新增"星巴克臻选"，状态为"未上架"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-015", title="验证新品牌默认状态为未上架", priority="P1")
+    def test_xpck_015(self, page):
+        """
+        [xpck-015] 验证新品牌默认状态为未上架
+        优先级: P1
+        """
+        # 前置条件:
+        #   同步自动创建了新品牌"星巴克臻选"
+        #
+        # 测试步骤:
+        #   1. 在选品仓库列表找到"星巴克臻选"的商品。
+    #   2. 查看上架状态
+        #
+        # 预期结果:
+        #   1. 找到"星巴克臻选"相关商品。
+    #   2. 上架状态显示"未上架"，前端用户不可见
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-016", title="验证同步时自动创建商品规格SKU", priority="P1")
+    def test_xpck_016(self, page):
+        """
+        [xpck-016] 验证同步时自动创建商品规格SKU
+        优先级: P1
+        """
+        # 前置条件:
+        #   第三方API返回"美团通用券"品牌下3个规格：10元券、20元券、50元券
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看"美团通用券"品牌下的规格列表
+        #
+        # 预期结果:
+        #   1. 同步成功。
+    #   2. 品牌下自动创建3个规格SKU：10元券（价格10元）、20元券（价格20元）、50元券（价格50元），规格信息与API返回一致
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-017", title="验证已存在品牌同步时不重复创建", priority="P2")
+    def test_xpck_017(self, page):
+        """
+        [xpck-017] 验证已存在品牌同步时不重复创建
+        优先级: P2
+        """
+        # 前置条件:
+        #   本地已有品牌"美团通用券"，第三方API再次返回该品牌数据
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看品牌列表中"美团通用券"的数量
+        #
+        # 预期结果:
+        #   1. 同步成功。
+    #   2. 品牌"美团通用券"仅有1条记录，未重复创建，现有数据被更新
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-018", title="验证同步新增规格追加到已有品牌下", priority="P2")
+    def test_xpck_018(self, page):
+        """
+        [xpck-018] 验证同步新增规格追加到已有品牌下
+        优先级: P2
+        """
+        # 前置条件:
+        #   本地品牌"美团通用券"已有10元券、20元券两个规格，API新增100元券规格
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看"美团通用券"的规格列表
+        #
+        # 预期结果:
+        #   1. 同步成功。
+    #   2. 规格列表显示3个SKU：10元券、20元券、100元券，原有规格数据不丢失
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-019", title="[反向] 验证API返回品牌名称为空时不创建品牌", priority="P3")
+    def test_xpck_019(self, page):
+        """
+        [xpck-019] [反向] 验证API返回品牌名称为空时不创建品牌
+        优先级: P3
+        """
+        # 前置条件:
+        #   第三方API返回一条商品数据但品牌名称字段为空
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看同步结果和品牌列表
+        #
+        # 预期结果:
+        #   1. 同步完成。
+    #   2. 提示"部分数据异常：品牌名称为空（1条）"，未创建空名称品牌，该条数据跳过
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-020", title="验证第三方产品价格变更时自动下架并标记待确认", priority="P1")
+    def test_xpck_020(self, page):
+        """
+        [xpck-020] 验证第三方产品价格变更时自动下架并标记待确认
+        优先级: P1
+        """
+        # 前置条件:
+        #   品牌"美团通用券"50元规格已上架，第三方API返回该规格价格从50元变更为45元
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看"美团通用券"50元规格的状态。
+    #   3. 查看品牌状态
+        #
+        # 预期结果:
+        #   1. 同步完成，检测到价格变更。
+    #   2. 该规格自动下架，状态变为"待确认"。
+    #   3. 品牌状态显示"待确认"标识
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-021", title="验证第三方产品下架时本地自动下架", priority="P1")
+    def test_xpck_021(self, page):
+        """
+        [xpck-021] 验证第三方产品下架时本地自动下架
+        优先级: P1
+        """
+        # 前置条件:
+        #   品牌"话费充值"100元规格已上架，第三方API不再返回该规格（已下架）
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看"话费充值"100元规格的状态
+        #
+        # 预期结果:
+        #   1. 同步完成，检测到该规格已从第三方下架。
+    #   2. 本地该规格自动下架，状态变为"待确认"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-022", title="验证品牌状态增加待确认标识与已上架和未上架区分", priority="P1")
+    def test_xpck_022(self, page):
+        """
+        [xpck-022] 验证品牌状态增加待确认标识与已上架和未上架区分
+        优先级: P1
+        """
+        # 前置条件:
+        #   选品仓库有3个品牌：品牌A"已上架"、品牌B"未上架"、品牌C因变更标记为"待确认"
+        #
+        # 测试步骤:
+        #   1. 查看选品仓库列表。
+    #   2. 观察三个品牌的状态标识
+        #
+        # 预期结果:
+        #   1. 列表正常展示。
+    #   2. 品牌A显示"已上架"（绿色标识），品牌B显示"未上架"（灰色标识），品牌C显示"待确认"（橙色/黄色标识），三种状态视觉明显区分
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-023", title="验证库存变化触发自动下架", priority="P2")
+    def test_xpck_023(self, page):
+        """
+        [xpck-023] 验证库存变化触发自动下架
+        优先级: P2
+        """
+        # 前置条件:
+        #   "爱奇艺月卡"已上架，第三方API返回库存从100变为0
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看"爱奇艺月卡"状态
+        #
+        # 预期结果:
+        #   1. 同步完成，检测到库存变更。
+    #   2. 状态变为"待确认"，自动下架
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-024", title="验证后台按待确认状态筛选品牌", priority="P2")
+    def test_xpck_024(self, page):
+        """
+        [xpck-024] 验证后台按待确认状态筛选品牌
+        优先级: P2
+        """
+        # 前置条件:
+        #   选品仓库有5个品牌，其中2个状态为"待确认"
+        #
+        # 测试步骤:
+        #   1. 在选品仓库页面，选择状态筛选"待确认"。
+    #   2. 点击查询
+        #
+        # 预期结果:
+        #   1. 状态筛选选中"待确认"。
+    #   2. 列表仅显示2个"待确认"状态的品牌
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-025", title="验证运营确认变更后重新上架", priority="P1")
+    def test_xpck_025(self, page):
+        """
+        [xpck-025] 验证运营确认变更后重新上架
+        优先级: P1
+        """
+        # 前置条件:
+        #   品牌"美团通用券"50元规格状态为"待确认"，价格从50元变为45元
+        #
+        # 测试步骤:
+        #   1. 运营点击该商品进入编辑页面。
+    #   2. 查看变更详情（显示价格从50变为45）。
+    #   3. 确认价格无误，点击"重新上架"。
+    #   4. 查看商品状态
+        #
+        # 预期结果:
+        #   1. 跳转至编辑页面。
+    #   2. 变更详情清晰展示"价格：50元→45元"。
+    #   3. 上架操作成功。
+    #   4. 状态变为"已上架"，前端展示新价格45元
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-026", title="验证运营调整后再上架", priority="P2")
+    def test_xpck_026(self, page):
+        """
+        [xpck-026] 验证运营调整后再上架
+        优先级: P2
+        """
+        # 前置条件:
+        #   品牌"话费充值"规格状态为"待确认"
+        #
+        # 测试步骤:
+        #   1. 运营进入编辑页面。
+    #   2. 修改商品描述为"限时特惠话费充值"。
+    #   3. 点击"保存并上架"
+        #
+        # 预期结果:
+        #   1. 编辑页面正常加载。
+    #   2. 描述修改成功。
+    #   3. 提示"保存成功，已上架"，状态变为"已上架"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-027", title="[反向] 验证规格修改触发自动下架（规格名称变更）", priority="P3")
+    def test_xpck_027(self, page):
+        """
+        [xpck-027] [反向] 验证规格修改触发自动下架（规格名称变更）
+        优先级: P3
+        """
+        # 前置条件:
+        #   "美团通用券"20元券已上架，第三方API将规格名称从"20元券"改为"20元特惠券"
+        #
+        # 测试步骤:
+        #   1. 执行一键同步。
+    #   2. 查看该规格状态
+        #
+        # 预期结果:
+        #   1. 同步完成，检测到规格名称变更。
+    #   2. 该规格自动下架，状态变为"待确认"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-028", title="验证选品仓库列表展示所有必要字段", priority="P1")
+    def test_xpck_028(self, page):
+        """
+        [xpck-028] 验证选品仓库列表展示所有必要字段
+        优先级: P1
+        """
+        # 前置条件:
+        #   选品仓库已同步10个商品
+        #
+        # 测试步骤:
+        #   1. 进入选品仓库列表页面。
+    #   2. 查看列表表头和数据列
+        #
+        # 预期结果:
+        #   1. 页面正常加载。
+    #   2. 列表包含字段：商品名称、品牌ID、品牌名称、规格信息、同步时间、来源渠道、上架状态，所有字段数据完整显示
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-029", title="验证列表中清晰显示品牌ID标识", priority="P1")
+    def test_xpck_029(self, page):
+        """
+        [xpck-029] 验证列表中清晰显示品牌ID标识
+        优先级: P1
+        """
+        # 前置条件:
+        #   选品仓库有品牌"美团通用券"（品牌ID: B001）和"话费充值"（品牌ID: B002）
+        #
+        # 测试步骤:
+        #   1. 查看选品仓库列表。
+    #   2. 查看品牌ID列
+        #
+        # 预期结果:
+        #   1. 列表正常展示。
+    #   2. "美团通用券"行品牌ID清晰显示"B001"，"话费充值"行显示"B002"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-030", title="验证点击列表项快捷跳转至品牌编辑页面", priority="P1")
+    def test_xpck_030(self, page):
+        """
+        [xpck-030] 验证点击列表项快捷跳转至品牌编辑页面
+        优先级: P1
+        """
+        # 前置条件:
+        #   选品仓库列表有商品"50元外卖通用券"
+        #
+        # 测试步骤:
+        #   1. 在列表中找到"50元外卖通用券"。
+    #   2. 点击该行
+        #
+        # 预期结果:
+        #   1. 找到目标商品。
+    #   2. 跳转至品牌编辑页面，展示该商品的详情信息，可进行修改和上架操作
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-031", title="验证按渠道筛选列表数据", priority="P2")
+    def test_xpck_031(self, page):
+        """
+        [xpck-031] 验证按渠道筛选列表数据
+        优先级: P2
+        """
+        # 前置条件:
+        #   列表有骑士渠道5个商品和蜂助手渠道3个商品
+        #
+        # 测试步骤:
+        #   1. 选择渠道筛选"骑士"。
+    #   2. 点击查询。
+    #   3. 切换筛选为"蜂助手"。
+    #   4. 点击查询
+        #
+        # 预期结果:
+        #   1. 渠道选中"骑士"。
+    #   2. 列表仅显示5个骑士渠道商品。
+    #   3. 渠道切换为"蜂助手"。
+    #   4. 列表仅显示3个蜂助手渠道商品
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-032", title="验证按上架状态筛选列表数据", priority="P2")
+    def test_xpck_032(self, page):
+        """
+        [xpck-032] 验证按上架状态筛选列表数据
+        优先级: P2
+        """
+        # 前置条件:
+        #   列表有已上架3个、未上架4个、待确认2个商品
+        #
+        # 测试步骤:
+        #   1. 选择状态筛选"已上架"。
+    #   2. 点击查询
+        #
+        # 预期结果:
+        #   1. 状态选中"已上架"。
+    #   2. 列表仅显示3个已上架商品
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-033", title="验证按同步时间筛选列表数据", priority="P2")
+    def test_xpck_033(self, page):
+        """
+        [xpck-033] 验证按同步时间筛选列表数据
+        优先级: P2
+        """
+        # 前置条件:
+        #   列表有不同日期同步的商品
+        #
+        # 测试步骤:
+        #   1. 选择时间范围2026-03-12到2026-03-13。
+    #   2. 点击查询
+        #
+        # 预期结果:
+        #   1. 时间范围选择成功。
+    #   2. 列表仅显示该时间段内同步的商品
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-034", title="验证在编辑页面修改商品信息并上架", priority="P2")
+    def test_xpck_034(self, page):
+        """
+        [xpck-034] 验证在编辑页面修改商品信息并上架
+        优先级: P2
+        """
+        # 前置条件:
+        #   通过列表快捷跳转至"50元外卖通用券"编辑页面，当前状态"未上架"
+        #
+        # 测试步骤:
+        #   1. 修改商品描述为"限时优惠外卖通用券"。
+    #   2. 点击"上架"按钮。
+    #   3. 返回列表查看状态
+        #
+        # 预期结果:
+        #   1. 描述修改成功。
+    #   2. 提示"上架成功"。
+    #   3. 列表中该商品状态变为"已上架"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-035", title="[反向] 验证列表无数据时展示空状态", priority="P3")
+    def test_xpck_035(self, page):
+        """
+        [xpck-035] [反向] 验证列表无数据时展示空状态
+        优先级: P3
+        """
+        # 前置条件:
+        #   选品仓库未执行过同步，无任何商品数据
+        #
+        # 测试步骤:
+        #   1. 进入选品仓库列表页面
+        #
+        # 预期结果:
+        #   1. 页面展示空状态占位图及"暂无商品数据，请先执行同步"提示
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-036", title="验证批量上架功能", priority="P1")
+    def test_xpck_036(self, page):
+        """
+        [xpck-036] 验证批量上架功能
+        优先级: P1
+        """
+        # 前置条件:
+        #   选品仓库列表有5个"未上架"状态的商品
+        #
+        # 测试步骤:
+        #   1. 勾选3个未上架商品。
+    #   2. 点击"批量上架"按钮。
+    #   3. 确认操作。
+    #   4. 查看列表状态
+        #
+        # 预期结果:
+        #   1. 3个商品被勾选，复选框选中。
+    #   2. 批量上架按钮可点击。
+    #   3. 弹窗确认"确认上架3个商品？"，点击确定。
+    #   4. 3个商品状态变为"已上架"，提示"批量上架成功，共3个"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-037", title="验证批量删除功能", priority="P1")
+    def test_xpck_037(self, page):
+        """
+        [xpck-037] 验证批量删除功能
+        优先级: P1
+        """
+        # 前置条件:
+        #   选品仓库列表有多个商品
+        #
+        # 测试步骤:
+        #   1. 勾选2个商品。
+    #   2. 点击"批量删除"按钮。
+    #   3. 确认删除操作。
+    #   4. 查看列表
+        #
+        # 预期结果:
+        #   1. 2个商品被勾选。
+    #   2. 批量删除按钮可点击。
+    #   3. 弹窗提示"确认删除2个商品？此操作不可恢复"，点击确定。
+    #   4. 列表中已无被删除的2个商品
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-038", title="验证批量重新同步功能", priority="P2")
+    def test_xpck_038(self, page):
+        """
+        [xpck-038] 验证批量重新同步功能
+        优先级: P2
+        """
+        # 前置条件:
+        #   选品仓库有3个"待确认"状态的商品
+        #
+        # 测试步骤:
+        #   1. 勾选3个待确认商品。
+    #   2. 点击"批量重新同步"。
+    #   3. 同步完成后查看结果
+        #
+        # 预期结果:
+        #   1. 3个商品被勾选。
+    #   2. 开始重新同步，显示进度。
+    #   3. 同步完成，商品数据更新为最新的第三方API数据，提示"重新同步成功，共3个"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-039", title="验证同步记录列表展示", priority="P2")
+    def test_xpck_039(self, page):
+        """
+        [xpck-039] 验证同步记录列表展示
+        优先级: P2
+        """
+        # 前置条件:
+        #   已执行过3次同步操作
+        #
+        # 测试步骤:
+        #   1. 进入同步记录页面。
+    #   2. 查看记录列表
+        #
+        # 预期结果:
+        #   1. 页面正常加载。
+    #   2. 显示3条记录，每条包含：API来源、操作人、同步时间、同步结果统计（新增X个、更新Y个、失败Z个）
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-040", title="[反向] 验证未选择商品时批量操作按钮不可用", priority="P3")
+    def test_xpck_040(self, page):
+        """
+        [xpck-040] [反向] 验证未选择商品时批量操作按钮不可用
+        优先级: P3
+        """
+        # 前置条件:
+        #   选品仓库列表有商品，未勾选任何商品
+        #
+        # 测试步骤:
+        #   1. 不勾选任何商品。
+    #   2. 查看"批量上架""批量删除""批量重新同步"按钮状态
+        #
+        # 预期结果:
+        #   1. 无商品被选中。
+    #   2. 三个批量操作按钮均置灰不可点击
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-041", title="[反向] 验证批量删除已上架商品时二次确认", priority="P3")
+    def test_xpck_041(self, page):
+        """
+        [xpck-041] [反向] 验证批量删除已上架商品时二次确认
+        优先级: P3
+        """
+        # 前置条件:
+        #   勾选了1个"已上架"商品和1个"未上架"商品
+        #
+        # 测试步骤:
+        #   1. 点击"批量删除"。
+    #   2. 查看确认弹窗内容
+        #
+        # 预期结果:
+        #   1. 弹出确认弹窗。
+    #   2. 弹窗特别提示"包含1个已上架商品，删除后将从前端下架，是否继续？"
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-042", title="验证选品仓库独立管理页面入口", priority="P4")
+    def test_xpck_042(self, page):
+        """
+        [xpck-042] 验证选品仓库独立管理页面入口
+        优先级: P4
+        """
+        # 前置条件:
+        #   运营登录后台管理系统
+        #
+        # 测试步骤:
+        #   1. 在后台左侧导航菜单查找"选品仓库"入口。
+    #   2. 点击进入
+        #
+        # 预期结果:
+        #   1. 左侧导航显示"选品仓库"菜单项。
+    #   2. 点击后进入选品仓库独立管理页面，展示列表、筛选区和操作按钮
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
+
+    @case("xpck-043", title="产品更新检测-价格变化", priority="P1")
+    def test_xpck_043(self, page):
+        """
+        [xpck-043] 产品更新检测-价格变化
+        优先级: P1
+        """
+        # 前置条件:
+        #   已上架商品A原价10元
+        #
+        # 测试步骤:
+        #   1. 第三方API中商品A价格变更为12元
+    #   2. 执行同步
+    #   3. 查看商品A状态
+        #
+        # 预期结果:
+        #   1. 商品A自动标记为"待确认"
+    #   2. 商品A自动下架
+    #   3. 运营可查看变更详情：原价10→新价12
+    #   4. 运营确认后重新上架
+
+        # TODO: 在此编写自动化操作代码
+        # 示例:
+        # page.goto("https://red.jinyedaojia.com/xxx")
+        # page.locator("选择器").click()
+        # assert page.locator("选择器").is_visible()
+        pytest.skip("待实现")
