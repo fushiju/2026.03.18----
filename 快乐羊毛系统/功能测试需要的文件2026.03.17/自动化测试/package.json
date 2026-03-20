@@ -1,0 +1,13 @@
+{
+  "name": "klym-miniprogram-automation",
+  "version": "1.0.0",
+  "description": "快乐羊毛小程序UI自动化测试",
+  "scripts": {
+    "test": "jest --runInBand --forceExit",
+    "test:verbose": "jest --runInBand --forceExit --verbose"
+  },
+  "devDependencies": {
+    "miniprogram-automator": "^0.13.0",
+    "jest": "^29.7.0"
+  }
+}

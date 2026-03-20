@@ -1,0 +1,49 @@
+2026-03-20 11:42:44 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:42:51 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:42:52 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:42:56 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:42:56 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:01 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:01 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:05 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:06 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:09 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:10 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:16 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:17 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:23 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:23 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:29 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:29 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:34 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:35 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:39 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:40 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:44 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:44 | INFO    | ui.pages.login_page:42 - 登录: admin
+2026-03-20 11:43:46 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:50 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:50 | INFO    | ui.pages.login_page:42 - 登录: admin
+2026-03-20 11:43:51 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:43:55 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:43:55 | INFO    | ui.pages.login_page:42 - 登录: nonexistent_user_xyz
+2026-03-20 11:43:56 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:44:01 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:44:01 | INFO    | ui.pages.login_page:65 - 刷新验证码
+2026-03-20 11:44:01 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:44:06 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:44:11 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:44:15 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:44:15 | INFO    | ui.pages.login_page:42 - 登录: <script>alert('xss')</script>
+2026-03-20 11:44:17 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:44:21 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:44:21 | INFO    | ui.pages.login_page:42 - 登录: ' OR 1=1 --
+2026-03-20 11:44:22 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:44:27 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:44:27 | INFO    | ui.pages.login_page:42 - 登录: admin
+2026-03-20 11:44:28 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:44:33 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:44:33 | INFO    | ui.pages.login_page:42 - 登录: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+2026-03-20 11:44:34 | INFO    | ui.pages.base_page:20 - 导航到: https://red.jinyedaojia.com/
+2026-03-20 11:44:39 | INFO    | ui.pages.login_page:38 - 打开登录页
+2026-03-20 11:44:39 | INFO    | ui.pages.login_page:42 - 登录: admin!@#$%^&*()
