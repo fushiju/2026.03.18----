@@ -101,20 +101,25 @@ def login(page):
     if captcha:
         print(f"🔑 提取到验证码: {captcha}")
         page.fill('input[placeholder="验证码"]', captcha)
+        page.click('button:has-text("登")')
+        page.wait_for_timeout(5000)
     else:
-        print("⚠ 无法自动提取验证码，请手动输入...")
-        page.wait_for_timeout(15000)  # 给你15秒手动输入
-
-    # 点击登录
-    page.click('button:has-text("登")')
-    page.wait_for_timeout(5000)
+        print("⚠ 无法自动提取验证码，请在浏览器里手动输入验证码并点登录...")
+        print("   等待你操作（最多60秒）...")
+        # 等待URL变化（登录成功后URL不再包含/login）
+        for i in range(60):
+            page.wait_for_timeout(1000)
+            if '/login' not in page.url:
+                break
+            if i % 10 == 9:
+                print(f"   已等待{i+1}秒...")
 
     if '/login' not in page.url:
         print(f"✅ 登录成功！当前页: {page.url}")
         page.screenshot(path='screenshots/login_success.png')
         return True
     else:
-        print("❌ 登录失败，请检查账号密码或手动操作")
+        print("❌ 60秒内未检测到登录成功")
         page.screenshot(path='screenshots/login_failed.png')
         return False
 
@@ -224,8 +229,15 @@ def main():
 
         # 登录
         if not login(page):
-            print("\n请在浏览器中手动登录，登录成功后按回车继续...")
-            input()
+            print("\n请在浏览器中手动登录...")
+            print("等待登录成功（最多120秒）...")
+            for i in range(120):
+                page.wait_for_timeout(1000)
+                if '/login' not in page.url:
+                    print("✅ 检测到登录成功！")
+                    break
+                if i % 15 == 14:
+                    print(f"   已等待{i+1}秒...")
 
         # 抓取侧边栏菜单
         print("\n📌 抓取菜单结构...")
@@ -296,8 +308,9 @@ def main():
         print("  我帮你把所有TODO代码填好")
         print("=" * 60)
 
-        # 保持浏览器打开让你检查
-        input("\n按回车关闭浏览器...")
+        # 保持浏览器30秒让你检查
+        print("\n浏览器将在30秒后自动关闭...")
+        page.wait_for_timeout(30000)
         browser.close()
 
 
