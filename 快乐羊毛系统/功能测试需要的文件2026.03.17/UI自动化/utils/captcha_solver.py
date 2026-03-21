@@ -1,5 +1,16 @@
 """验证码识别 - 优先使用万能验证码绕过，降级使用 ddddocr OCR"""
+import ddddocr
 from config.settings import CAPTCHA_BYPASS
+
+_ocr_instance = None
+
+
+def _get_ocr():
+    """单例模式获取 OCR 实例，避免每次调用都重新加载模型"""
+    global _ocr_instance
+    if _ocr_instance is None:
+        _ocr_instance = ddddocr.DdddOcr(show_ad=False)
+    return _ocr_instance
 
 
 def _ensure_png(image_bytes: bytes) -> bytes:
@@ -23,8 +34,7 @@ def solve_captcha(image_bytes: bytes) -> str:
         return "0000"
     # 重编码为标准 PNG，确保 ddddocr 能识别
     png_bytes = _ensure_png(image_bytes)
-    import ddddocr
-    ocr = ddddocr.DdddOcr(show_ad=False)
+    ocr = _get_ocr()
     result = ocr.classification(png_bytes)
     cleaned = "".join(c for c in result.lower() if c.isalnum())
     return cleaned[:4] if cleaned else "0000"

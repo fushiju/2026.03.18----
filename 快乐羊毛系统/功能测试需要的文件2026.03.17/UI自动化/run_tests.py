@@ -17,21 +17,19 @@ def main():
     print()
     print("请选择运行模式：")
     print("  1 - 登录测试（有头模式，能看到浏览器）")
-    print("  2 - 登录测试 + 生成HTML报告")
-    print("  3 - 冒烟测试（仅正确登录1条）")
-    print("  4 - Excel读取工具测试（不需要网站）")
+    print("  2 - 冒烟测试（仅正确登录1条）")
+    print("  3 - Excel读取工具测试（不需要网站）")
+    print()
+    print("  提示：所有模式均自动生成 HTML 报告到 reports/ 目录")
     print()
 
-    choice = input("请输入数字 (1/2/3/4): ").strip()
+    choice = input("请输入数字 (1/2/3): ").strip()
 
     if choice == "1":
         cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-v", "-s"]
     elif choice == "2":
-        cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-v",
-               "--html=reports/login_report.html", "--self-contained-html"]
-    elif choice == "3":
         cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-m", "smoke", "-v", "-s"]
-    elif choice == "4":
+    elif choice == "3":
         cmd = [sys.executable, "-m", "pytest", "tests/test_excel_reader.py", "-v"]
     else:
         print("无效选择，退出")
@@ -49,11 +47,10 @@ def main():
     else:
         print(f"有测试失败（退出码: {result.returncode}）")
 
-    if choice == "2":
-        report = Path("reports/login_report.html").resolve()
-        if report.exists():
-            print(f"\nHTML报告已生成: {report}")
-            os.startfile(str(report))
+    report = Path("reports/login_report.html").resolve()
+    if report.exists():
+        print(f"\nHTML报告已生成: {report}")
+        os.startfile(str(report))
 
     input("\n按回车键退出...")
 
