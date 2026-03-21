@@ -14,15 +14,22 @@ class LoginPage(BasePage):
     SEL_LOGIN_BTN = 'button.el-button--primary'
     SEL_ERROR_MSG = '.el-message, .el-form-item__error, .el-notification'
 
-    def goto_login(self):
-        self.page.goto("https://red.jinyedaojia.com/#/login", timeout=60000)
-        self.page.wait_for_load_state("networkidle", timeout=30000)
-        # 等待所有表单元素加载完成
-        self.page.wait_for_selector(self.SEL_USERNAME, state="visible", timeout=30000)
-        self.page.wait_for_selector(self.SEL_PASSWORD, state="visible", timeout=30000)
-        self.page.wait_for_selector(self.SEL_CAPTCHA_INPUT, state="visible", timeout=30000)
-        self.page.wait_for_selector(self.SEL_CAPTCHA_CANVAS, state="visible", timeout=30000)
-        self.page.wait_for_selector(self.SEL_LOGIN_BTN, state="visible", timeout=30000)
+    def goto_login(self, max_retries: int = 3):
+        """打开登录页，网络不稳定时自动重试"""
+        from config.settings import BASE_URL
+        url = f"{BASE_URL.rstrip('/')}/#/login"
+        for attempt in range(max_retries):
+            try:
+                self.page.goto(url, timeout=60000, wait_until="domcontentloaded")
+                self.page.wait_for_selector(self.SEL_USERNAME, state="visible", timeout=15000)
+                self.page.wait_for_selector(self.SEL_CAPTCHA_INPUT, state="visible", timeout=15000)
+                return  # 成功加载
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    print(f"  页面加载失败（第{attempt+1}次），2秒后重试: {e}")
+                    time.sleep(2)
+                else:
+                    raise
 
     def fill_username(self, value: str):
         self.page.locator(self.SEL_USERNAME).fill(value)

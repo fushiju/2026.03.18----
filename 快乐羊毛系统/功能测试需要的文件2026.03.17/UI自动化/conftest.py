@@ -8,14 +8,17 @@ from pages.login_page import LoginPage
 @pytest.fixture(scope="session")
 def browser():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=HEADLESS)
+        browser = p.chromium.launch(
+            headless=HEADLESS,
+            args=["--ignore-certificate-errors", "--disable-web-security"]
+        )
         yield browser
         browser.close()
 
 
 @pytest.fixture
 def page(browser):
-    context = browser.new_context()
+    context = browser.new_context(ignore_https_errors=True)
     pg = context.new_page()
     yield pg
     pg.close()
