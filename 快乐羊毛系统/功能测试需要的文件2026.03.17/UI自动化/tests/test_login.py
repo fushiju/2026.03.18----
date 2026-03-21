@@ -198,3 +198,7 @@ class TestWrongCredentials:
         )
 
 
+if __name__ == "__main__":
+    import subprocess, sys, os
+    os.chdir(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")))
+    sys.exit(subprocess.run([sys.executable, "-m", "pytest", __file__, "-v", "-s"]).returncode)
