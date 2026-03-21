@@ -1,7 +1,8 @@
 """pytest fixtures - 浏览器管理、页面上下文、失败截图"""
 import pytest
+from pathlib import Path
 from playwright.sync_api import sync_playwright
-from config.settings import HEADLESS, SCREENSHOT_DIR
+from config.settings import HEADLESS, SCREENSHOT_DIR, REPORT_DIR
 from pages.login_page import LoginPage
 
 
@@ -46,3 +47,20 @@ def pytest_runtest_makereport(item, call):
     outcome = yield
     rep = outcome.get_result()
     setattr(item, f"rep_{rep.when}", rep)
+
+
+@pytest.hookimpl(trylast=True)
+def pytest_sessionfinish(session, exitstatus):
+    """修复 Windows 中文环境下 HTML 报告乱码：重新以 UTF-8 编码保存"""
+    report_file = REPORT_DIR / "login_report.html"
+    if report_file.exists():
+        raw = report_file.read_bytes()
+        # 尝试以 GBK 解码再以 UTF-8 重写；如果本身就是 UTF-8 则跳过
+        try:
+            text = raw.decode("utf-8")
+        except UnicodeDecodeError:
+            text = raw.decode("gbk", errors="replace")
+        # 确保 <head> 中有 charset=utf-8
+        if '<meta charset="utf-8">' not in text:
+            text = text.replace("<head>", '<head>\n<meta charset="utf-8">', 1)
+        report_file.write_bytes(text.encode("utf-8"))
