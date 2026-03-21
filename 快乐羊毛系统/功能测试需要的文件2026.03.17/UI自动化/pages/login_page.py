@@ -69,31 +69,44 @@ class LoginPage(BasePage):
         except Exception:
             return ""
 
+    def _wait_for_login_result(self, timeout: int = 10) -> str:
+        """等待登录结果，返回 'success' / 'captcha_error' / 'other_error' / 'unknown'"""
+        for _ in range(timeout * 2):  # 每0.5秒检查一次
+            self.page.wait_for_timeout(500)
+            # 检查是否跳转离开登录页
+            if "login" not in self.current_url:
+                return "success"
+            # 检查是否有错误提示
+            error = self.get_error_message(timeout=500)
+            if error:
+                if "验证码" in error:
+                    return "captcha_error"
+                return "other_error"
+        return "unknown"
+
     def login_with_captcha(self, username: str, password: str, max_retries: int = 3) -> bool:
         """完整登录流程：填写用户名/密码 + OCR 识别验证码 + 点击登录，支持验证码重试"""
+        self.fill_username(username)
+        self.fill_password(password)
         for attempt in range(max_retries):
-            # 确保在登录页
-            if "login" not in self.current_url:
-                self.goto_login()
-            # 等待表单就绪
-            self.page.locator(self.SEL_USERNAME).wait_for(state="visible", timeout=10000)
-            self.fill_username(username)
-            self.fill_password(password)
             # 识别验证码
             img_bytes = self.get_captcha_image_bytes()
             captcha_text = solve_captcha(img_bytes)
             print(f"  [尝试 {attempt+1}/{max_retries}] 验证码识别结果: {captcha_text}")
             self.fill_captcha(captcha_text)
             self.click_login()
-            self.page.wait_for_timeout(2000)
-            # 判断是否登录成功
-            if "login" not in self.current_url:
+            # 等待登录结果（最多10秒）
+            result = self._wait_for_login_result(timeout=10)
+            print(f"  [尝试 {attempt+1}/{max_retries}] 登录结果: {result}")
+            if result == "success":
                 return True
-            error = self.get_error_message()
-            print(f"  [尝试 {attempt+1}/{max_retries}] 错误信息: {error}")
-            if "验证码" in error:
+            elif result == "captcha_error":
                 self.click_captcha_image()
                 continue
-            elif error:
+            elif result == "other_error":
                 return False
+            else:
+                # unknown - 没有跳转也没有错误，可能验证码错了但提示消失了
+                self.click_captcha_image()
+                continue
         return False
