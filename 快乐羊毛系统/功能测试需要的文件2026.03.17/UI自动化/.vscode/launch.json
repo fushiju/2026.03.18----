@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "运行当前文件",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
@@ -11,7 +11,7 @@
         },
         {
             "name": "运行测试启动器",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/run_tests.py",
             "console": "integratedTerminal",
@@ -19,7 +19,7 @@
         },
         {
             "name": "有头模式-登录测试",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "module": "pytest",
             "args": ["tests/test_login.py", "-v", "-s"],

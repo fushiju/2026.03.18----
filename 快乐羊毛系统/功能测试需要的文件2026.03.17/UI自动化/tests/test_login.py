@@ -202,13 +202,12 @@ if __name__ == "__main__":
     import subprocess, sys, os
     project_root = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
     os.chdir(project_root)
-    report_path = os.path.join(project_root, "reports", "login_report.html")
+    # --html 和 --self-contained-html 已在 pytest.ini addopts 中配置，无需重复传入
     result = subprocess.run([
-        sys.executable, "-m", "pytest", __file__,
-        "-v", "-s",
-        f"--html={report_path}", "--self-contained-html"
+        sys.executable, "-m", "pytest", __file__, "-v", "-s"
     ])
+    report_path = os.path.join(project_root, "reports", "login_report.html")
     if os.path.exists(report_path):
         print(f"\n报告已生成: {report_path}")
-        os.startfile(report_path)  # 自动用浏览器打开
+        os.startfile(report_path)
     sys.exit(result.returncode)
