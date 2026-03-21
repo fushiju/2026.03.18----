@@ -200,5 +200,15 @@ class TestWrongCredentials:
 
 if __name__ == "__main__":
     import subprocess, sys, os
-    os.chdir(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")))
-    sys.exit(subprocess.run([sys.executable, "-m", "pytest", __file__, "-v", "-s"]).returncode)
+    project_root = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+    os.chdir(project_root)
+    report_path = os.path.join(project_root, "reports", "login_report.html")
+    result = subprocess.run([
+        sys.executable, "-m", "pytest", __file__,
+        "-v", "-s",
+        f"--html={report_path}", "--self-contained-html"
+    ])
+    if os.path.exists(report_path):
+        print(f"\n报告已生成: {report_path}")
+        os.startfile(report_path)  # 自动用浏览器打开
+    sys.exit(result.returncode)
