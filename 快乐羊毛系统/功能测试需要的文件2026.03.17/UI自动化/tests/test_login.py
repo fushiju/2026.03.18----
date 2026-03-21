@@ -7,6 +7,10 @@
   TestEmptyFields    — 空字段前端校验
   TestWrongCredentials — 错误凭据
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import pytest
 from pages.login_page import LoginPage
 from config.settings import ADMIN_USERNAME, ADMIN_PASSWORD
