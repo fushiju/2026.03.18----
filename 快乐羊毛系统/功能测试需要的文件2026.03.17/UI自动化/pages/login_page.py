@@ -8,7 +8,7 @@ class LoginPage(BasePage):
     # --- 实际 DOM 选择器（2026-03-21 通过 Playwright 检查确认） ---
     SEL_USERNAME = 'input.el-input__inner[name="username"]'
     SEL_PASSWORD = 'input.el-input__inner[name="password"]'
-    SEL_CAPTCHA_INPUT = 'input.el-input__inner[placeholder="\u9a8c\u8bc1\u7801"]'
+    SEL_CAPTCHA_INPUT = '.el-form-item:nth-child(3) input'
     SEL_CAPTCHA_CANVAS = 'canvas#s-canvas'
     SEL_CAPTCHA_CONTAINER = '.s-canvas'
     SEL_LOGIN_BTN = 'button.el-button--primary'
@@ -38,7 +38,9 @@ class LoginPage(BasePage):
         self.page.locator(self.SEL_PASSWORD).fill(value)
 
     def fill_captcha(self, value: str):
-        self.page.locator(self.SEL_CAPTCHA_INPUT).fill(value)
+        loc = self.page.locator(self.SEL_CAPTCHA_INPUT)
+        loc.wait_for(state="visible", timeout=10000)
+        loc.fill(value)
 
     def click_login(self):
         self.page.locator(self.SEL_LOGIN_BTN).click()
@@ -69,11 +71,18 @@ class LoginPage(BasePage):
 
     def login_with_captcha(self, username: str, password: str, max_retries: int = 3) -> bool:
         """完整登录流程：填写用户名/密码 + OCR 识别验证码 + 点击登录，支持验证码重试"""
-        self.fill_username(username)
-        self.fill_password(password)
         for attempt in range(max_retries):
+            # 确保在登录页
+            if "login" not in self.current_url:
+                self.goto_login()
+            # 等待表单就绪
+            self.page.locator(self.SEL_USERNAME).wait_for(state="visible", timeout=10000)
+            self.fill_username(username)
+            self.fill_password(password)
+            # 识别验证码
             img_bytes = self.get_captcha_image_bytes()
             captcha_text = solve_captcha(img_bytes)
+            print(f"  [尝试 {attempt+1}/{max_retries}] 验证码识别结果: {captcha_text}")
             self.fill_captcha(captcha_text)
             self.click_login()
             self.page.wait_for_timeout(2000)
@@ -81,6 +90,7 @@ class LoginPage(BasePage):
             if "login" not in self.current_url:
                 return True
             error = self.get_error_message()
+            print(f"  [尝试 {attempt+1}/{max_retries}] 错误信息: {error}")
             if "验证码" in error:
                 self.click_captcha_image()
                 continue
