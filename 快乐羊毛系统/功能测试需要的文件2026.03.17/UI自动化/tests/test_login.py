@@ -198,10 +198,3 @@ class TestWrongCredentials:
         )
 
 
-if __name__ == "__main__":
-    import subprocess, sys, os
-    os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-    print("正在启动登录模块测试...")
-    print(f"工作目录: {os.getcwd()}")
-    result = subprocess.run([sys.executable, "-m", "pytest", "tests/test_login.py", "-v", "-s"])
-    input("\n按回车键退出...")

@@ -1,13 +1,12 @@
 """
 快乐羊毛管理后台 - UI自动化测试启动器
-直接在 VSCode 中右键 → Run Python File 即可运行
+在 VSCode 中打开此文件，点击右上角 ▶ 运行
 """
 import subprocess
 import sys
 import os
 from pathlib import Path
 
-# 切换到项目目录
 os.chdir(Path(__file__).parent)
 
 
@@ -17,21 +16,21 @@ def main():
     print("=" * 60)
     print()
     print("请选择运行模式：")
-    print("  1 - 有头模式（能看到浏览器操作，推荐）")
-    print("  2 - 无头模式 + 生成HTML报告")
-    print("  3 - 只跑冒烟测试（仅正确登录1条）")
-    print("  4 - 只跑 Excel 读取工具测试")
+    print("  1 - 登录测试（有头模式，能看到浏览器）")
+    print("  2 - 登录测试 + 生成HTML报告")
+    print("  3 - 冒烟测试（仅正确登录1条）")
+    print("  4 - Excel读取工具测试（不需要网站）")
     print()
 
     choice = input("请输入数字 (1/2/3/4): ").strip()
 
     if choice == "1":
-        cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-v", "--headed"]
+        cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-v", "-s"]
     elif choice == "2":
         cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-v",
                "--html=reports/login_report.html", "--self-contained-html"]
     elif choice == "3":
-        cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-m", "smoke", "-v", "--headed"]
+        cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-m", "smoke", "-v", "-s"]
     elif choice == "4":
         cmd = [sys.executable, "-m", "pytest", "tests/test_excel_reader.py", "-v"]
     else:
@@ -39,7 +38,7 @@ def main():
         return
 
     print()
-    print(f"正在执行: {' '.join(cmd)}")
+    print(f"正在执行...")
     print("-" * 60)
 
     result = subprocess.run(cmd)
