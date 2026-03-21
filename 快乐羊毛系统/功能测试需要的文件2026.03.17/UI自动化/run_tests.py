@@ -25,12 +25,14 @@ def main():
 
     choice = input("请输入数字 (1/2/3): ").strip()
 
+    report_args = ["--html=reports/login_report.html", "--self-contained-html"]
+
     if choice == "1":
-        cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-v", "-s"]
+        cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-v", "-s"] + report_args
     elif choice == "2":
-        cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-m", "smoke", "-v", "-s"]
+        cmd = [sys.executable, "-m", "pytest", "tests/test_login.py", "-m", "smoke", "-v", "-s"] + report_args
     elif choice == "3":
-        cmd = [sys.executable, "-m", "pytest", "tests/test_excel_reader.py", "-v"]
+        cmd = [sys.executable, "-m", "pytest", "tests/test_excel_reader.py", "-v"] + report_args
     else:
         print("无效选择，退出")
         return

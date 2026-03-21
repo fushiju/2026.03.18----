@@ -206,12 +206,33 @@ if __name__ == "__main__":
     import subprocess, sys, os
     project_root = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
     os.chdir(project_root)
-    # --html 和 --self-contained-html 已在 pytest.ini addopts 中配置，无需重复传入
-    result = subprocess.run([
-        sys.executable, "-m", "pytest", __file__, "-v", "-s"
-    ])
     report_path = os.path.join(project_root, "reports", "login_report.html")
+
+    # 删除旧报告，确保看到的是本次运行结果
     if os.path.exists(report_path):
-        print(f"\n报告已生成: {report_path}")
+        os.remove(report_path)
+
+    print("=" * 60)
+    print("  开始执行登录测试...")
+    print("=" * 60)
+
+    result = subprocess.run(
+        [sys.executable, "-m", "pytest", __file__, "-v", "-s",
+         f"--html={report_path}", "--self-contained-html"],
+        cwd=project_root
+    )
+
+    print("=" * 60)
+    if result.returncode == 0:
+        print("  测试全部通过！")
+    else:
+        print(f"  有测试失败（退出码: {result.returncode}）")
+
+    if os.path.exists(report_path):
+        print(f"  HTML报告: {report_path}")
         os.startfile(report_path)
+    else:
+        print("  警告: HTML报告未生成，请检查pytest-html是否安装")
+
+    input("\n按回车键退出...")
     sys.exit(result.returncode)
