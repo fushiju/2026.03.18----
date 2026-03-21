@@ -2,8 +2,11 @@
     "python.defaultInterpreterPath": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
     "python.terminal.activateEnvironment": false,
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
-    "python.testing.pytestEnabled": false,
-    "python.testing.unittestEnabled": false,
-    "python.testing.autoTestDiscoverOnSaveEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "-v", "-s",
+        "--html=reports/login_report.html",
+        "--self-contained-html"
+    ],
     "python-envs.defaultEnvManager": "ms-python.python:system"
 }
