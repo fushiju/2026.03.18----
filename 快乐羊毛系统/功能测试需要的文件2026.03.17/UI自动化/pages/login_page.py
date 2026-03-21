@@ -15,10 +15,10 @@ class LoginPage(BasePage):
     SEL_ERROR_MSG = '.el-message, .el-form-item__error, .el-notification'
 
     def goto_login(self):
-        self.goto("#/login")
-        self.page.wait_for_load_state("networkidle")
+        self.page.goto("https://red.jinyedaojia.com/#/login", timeout=60000)
+        self.page.wait_for_load_state("networkidle", timeout=30000)
         # 等待登录表单加载完成
-        self.page.wait_for_selector(self.SEL_USERNAME, timeout=10000)
+        self.page.wait_for_selector(self.SEL_USERNAME, timeout=30000)
 
     def fill_username(self, value: str):
         self.page.locator(self.SEL_USERNAME).fill(value)

@@ -8,7 +8,7 @@ BASE_URL = os.getenv("KLYM_BASE_URL", "https://red.jinyedaojia.com/")
 ADMIN_USERNAME = os.getenv("KLYM_USERNAME", "admin")
 ADMIN_PASSWORD = os.getenv("KLYM_PASSWORD", "admin123")
 CAPTCHA_BYPASS = os.getenv("KLYM_CAPTCHA_BYPASS", "")
-TIMEOUT = 10000
+TIMEOUT = 30000
 HEADLESS = os.getenv("KLYM_HEADLESS", "false").lower() == "true"
 SCREENSHOT_DIR = BASE_DIR / "screenshots"
 REPORT_DIR = BASE_DIR / "reports"
