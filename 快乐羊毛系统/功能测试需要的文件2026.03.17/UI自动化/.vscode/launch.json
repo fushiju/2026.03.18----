@@ -2,8 +2,16 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "运行当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
             "name": "运行测试启动器",
-            "type": "debugpy",
+            "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/run_tests.py",
             "console": "integratedTerminal",
@@ -11,19 +19,10 @@
         },
         {
             "name": "有头模式-登录测试",
-            "type": "debugpy",
+            "type": "python",
             "request": "launch",
             "module": "pytest",
-            "args": ["tests/test_login.py", "-v", "--headed"],
-            "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "name": "生成HTML报告-登录测试",
-            "type": "debugpy",
-            "request": "launch",
-            "module": "pytest",
-            "args": ["tests/test_login.py", "-v", "--html=reports/login_report.html", "--self-contained-html"],
+            "args": ["tests/test_login.py", "-v", "-s"],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}"
         }
