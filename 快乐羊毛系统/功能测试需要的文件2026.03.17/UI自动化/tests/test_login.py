@@ -196,3 +196,9 @@ class TestWrongCredentials:
         assert any(kw in error for kw in ("用户名", "错误", "不正确", "失败", "不存在")), (
             f"错误消息不符合预期，实际消息: '{error}'"
         )
+
+
+if __name__ == "__main__":
+    import subprocess, sys, os
+    os.chdir(os.path.join(os.path.dirname(__file__), ".."))
+    subprocess.run([sys.executable, "-m", "pytest", "tests/test_login.py", "-v", "--headed"])
