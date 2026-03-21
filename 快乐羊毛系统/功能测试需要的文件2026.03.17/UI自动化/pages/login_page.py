@@ -17,8 +17,12 @@ class LoginPage(BasePage):
     def goto_login(self):
         self.page.goto("https://red.jinyedaojia.com/#/login", timeout=60000)
         self.page.wait_for_load_state("networkidle", timeout=30000)
-        # 等待登录表单加载完成
-        self.page.wait_for_selector(self.SEL_USERNAME, timeout=30000)
+        # 等待所有表单元素加载完成
+        self.page.wait_for_selector(self.SEL_USERNAME, state="visible", timeout=30000)
+        self.page.wait_for_selector(self.SEL_PASSWORD, state="visible", timeout=30000)
+        self.page.wait_for_selector(self.SEL_CAPTCHA_INPUT, state="visible", timeout=30000)
+        self.page.wait_for_selector(self.SEL_CAPTCHA_CANVAS, state="visible", timeout=30000)
+        self.page.wait_for_selector(self.SEL_LOGIN_BTN, state="visible", timeout=30000)
 
     def fill_username(self, value: str):
         self.page.locator(self.SEL_USERNAME).fill(value)
