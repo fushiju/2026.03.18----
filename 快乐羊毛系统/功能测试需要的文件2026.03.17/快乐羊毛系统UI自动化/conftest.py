@@ -2,7 +2,7 @@
 import pytest
 from pathlib import Path
 from playwright.sync_api import sync_playwright
-from config.settings import HEADLESS, SCREENSHOT_DIR, REPORT_DIR
+from config.settings import HEADLESS, SCREENSHOT_DIR, REPORT_DIR, ADMIN_USERNAME, ADMIN_PASSWORD
 from pages.login_page import LoginPage
 
 
@@ -31,6 +31,22 @@ def login_page(page) -> LoginPage:
     lp = LoginPage(page)
     lp.goto_login()
     return lp
+
+
+@pytest.fixture
+def logged_in_page(page) -> "Page":
+    """登录后的页面，供需要登录态的测试使用"""
+    lp = LoginPage(page)
+    lp.goto_login()
+    success = lp.login_with_captcha(ADMIN_USERNAME, ADMIN_PASSWORD)
+    assert success, "前置条件：登录失败，无法继续执行测试"
+    return page
+
+
+@pytest.fixture(scope="session")
+def test_fixtures_dir() -> Path:
+    """测试数据文件目录"""
+    return Path(__file__).resolve().parent / "tests" / "fixtures"
 
 
 @pytest.fixture(autouse=True)
