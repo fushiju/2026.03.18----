@@ -1,50 +1,69 @@
 """品牌管理模块 fixtures
 
-为新增/编辑/查看/搜索四个场景提供各自的 fixture，
-避免所有测试都先进入新增品牌页面再跳转。
+fixture 与 Page 类的对应关系：
+  brand_add_page   → BrandFormPage  → test_brand_add.py
+  brand_edit_page  → BrandFormPage  → test_brand_edit.py
+  brand_view_page  → BrandViewPage  → test_brand_view.py
+  brand_list_page  → BrandListPage  → test_brand_search.py
+  brand_form_page  → BrandFormPage  → 编辑测试中需要多步跳转的用例
 """
 import pytest
-from pages.brand_page import BrandPage
+from pages.brand_form_page import BrandFormPage
+from pages.brand_list_page import BrandListPage
+from pages.brand_view_page import BrandViewPage
 
-# 列表中已知的测试品牌（已授权→可编辑，已驳回→可查看）
-EDIT_BRAND_NAME = "小王"
-VIEW_BRAND_NAME = "周六"
+# 列表中已知的测试品牌
+EDIT_BRAND_NAME = "小王"       # 已授权 → 可编辑
+VIEW_BRAND_NAME = "周六"       # 已驳回 → 可查看
 
 
+# ---------- 新增品牌 ----------
 @pytest.fixture
-def brand_page(logged_in_page) -> BrandPage:
-    """仅登录，返回 BrandPage 实例（不导航到任何子页面）"""
-    return BrandPage(logged_in_page)
-
-
-@pytest.fixture
-def brand_add_page(logged_in_page) -> BrandPage:
-    """已登录并进入【新增品牌】页面"""
-    bp = BrandPage(logged_in_page)
+def brand_add_page(logged_in_page) -> BrandFormPage:
+    """已登录 → 新增品牌表单页"""
+    bp = BrandFormPage(logged_in_page)
     bp.goto_add_brand()
     return bp
 
 
+# ---------- 编辑品牌 ----------
 @pytest.fixture
-def brand_edit_page(logged_in_page) -> BrandPage:
-    """已登录并进入【编辑品牌】页面（编辑品牌 '小王'）"""
-    bp = BrandPage(logged_in_page)
+def brand_edit_page(logged_in_page) -> BrandFormPage:
+    """已登录 → 编辑品牌'小王'的表单页"""
+    bp = BrandFormPage(logged_in_page)
     bp.goto_edit_brand(EDIT_BRAND_NAME)
     return bp
 
 
 @pytest.fixture
-def brand_view_page(logged_in_page) -> BrandPage:
-    """已登录并进入【查看品牌】页面（查看品牌 '周六'）"""
-    bp = BrandPage(logged_in_page)
+def brand_form_page(logged_in_page) -> BrandFormPage:
+    """已登录，未导航（供需要多步跳转的编辑测试用）"""
+    return BrandFormPage(logged_in_page)
+
+
+# ---------- 查看品牌 ----------
+@pytest.fixture
+def brand_view_page(logged_in_page) -> BrandViewPage:
+    """已登录 → 查看品牌'周六'的详情页"""
+    bp = BrandViewPage(logged_in_page)
     bp.goto_view_brand(VIEW_BRAND_NAME)
     return bp
 
 
 @pytest.fixture
-def brand_list_page(logged_in_page) -> BrandPage:
-    """已登录并进入【品牌管理列表】页面"""
-    bp = BrandPage(logged_in_page)
+def brand_view_list(logged_in_page) -> BrandViewPage:
+    """已登录 → 品牌列表页（供查看测试中从列表操作的用例）"""
+    bp = BrandViewPage(logged_in_page)
+    bp.goto_brand_list()
+    bp._dismiss_notification()
+    return bp
+
+
+# ---------- 品牌搜索 ----------
+@pytest.fixture
+def brand_list_page(logged_in_page) -> BrandListPage:
+    """已登录 → 品牌管理列表页"""
+    bp = BrandListPage(logged_in_page)
     bp.goto_brand_list()
     bp._dismiss_notification()
     return bp

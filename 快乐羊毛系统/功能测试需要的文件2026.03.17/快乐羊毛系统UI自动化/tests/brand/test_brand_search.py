@@ -20,7 +20,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 import pytest
-from pages.brand_page import BrandPage
+from pages.brand_list_page import BrandListPage
 
 
 # ===========================================================================
@@ -29,7 +29,7 @@ from pages.brand_page import BrandPage
 @pytest.mark.brand
 class TestKeywordSearch:
 
-    def test_01_search_full_name(self, brand_list_page: BrandPage):
+    def test_01_search_full_name(self, brand_list_page: BrandListPage):
         """TC-01 输入完整品牌名称搜索"""
         brand_list_page.search_by_keyword("小王")
 
@@ -37,14 +37,14 @@ class TestKeywordSearch:
         assert len(names) > 0, "搜索'小王'应有结果"
         assert all("小王" in n for n in names), f"所有结果应包含'小王'，实际: {names}"
 
-    def test_02_search_partial_keyword(self, brand_list_page: BrandPage):
+    def test_02_search_partial_keyword(self, brand_list_page: BrandListPage):
         """TC-02 输入品牌名称部分关键字搜索"""
         brand_list_page.search_by_keyword("小")
 
         names = brand_list_page.get_list_brand_names()
         assert len(names) > 0, "搜索'小'应有结果（模糊搜索）"
 
-    def test_03_search_by_phone(self, brand_list_page: BrandPage):
+    def test_03_search_by_phone(self, brand_list_page: BrandListPage):
         """TC-03 输入手机号搜索"""
         brand_list_page.search_by_keyword("15570441314")
 
@@ -55,20 +55,20 @@ class TestKeywordSearch:
                 f"搜索结果应包含手机号15570441314，实际联系人: {contacts}"
             )
 
-    def test_04_search_nonexistent(self, brand_list_page: BrandPage):
+    def test_04_search_nonexistent(self, brand_list_page: BrandListPage):
         """TC-04 输入不存在的品牌名称搜索"""
         brand_list_page.search_by_keyword("一个不存在的品牌名12345")
 
         assert brand_list_page.is_list_empty(), "搜索不存在的品牌应显示空结果"
 
-    def test_05_search_empty(self, brand_list_page: BrandPage):
+    def test_05_search_empty(self, brand_list_page: BrandListPage):
         """TC-05 搜索框为空点击搜索"""
         brand_list_page.search_by_keyword("")
 
         row_count = brand_list_page.get_list_row_count()
         assert row_count > 0, "空搜索应显示所有品牌数据"
 
-    def test_06_search_special_chars(self, brand_list_page: BrandPage):
+    def test_06_search_special_chars(self, brand_list_page: BrandListPage):
         """TC-06 输入特殊字符搜索"""
         brand_list_page.search_by_keyword("@#$%")
 
@@ -83,7 +83,7 @@ class TestKeywordSearch:
 @pytest.mark.brand
 class TestAgentFilter:
 
-    def test_07_filter_by_agent(self, brand_list_page: BrandPage):
+    def test_07_filter_by_agent(self, brand_list_page: BrandListPage):
         """TC-07 选择品牌所属代理商搜索"""
         brand_list_page.select_agent_filter(index=0)
         brand_list_page.click_search()
@@ -103,7 +103,7 @@ class TestAgentFilter:
 @pytest.mark.brand
 class TestDateFilter:
 
-    def test_08_date_range_search(self, brand_list_page: BrandPage):
+    def test_08_date_range_search(self, brand_list_page: BrandListPage):
         """TC-08 设置申请时间范围搜索"""
         brand_list_page.set_apply_date_range("2026-03-01", "2026-03-31")
         brand_list_page.click_search()
@@ -114,7 +114,7 @@ class TestDateFilter:
             for d in dates:
                 assert "2026-03" in d, f"申请时间应在3月范围内，实际: {d}"
 
-    def test_09_only_start_date(self, brand_list_page: BrandPage):
+    def test_09_only_start_date(self, brand_list_page: BrandListPage):
         """TC-09 只设置开始日期搜索"""
         start_input = brand_list_page.page.locator(brand_list_page.SEL_APPLY_DATE_START)
         start_input.click()
@@ -133,7 +133,7 @@ class TestDateFilter:
 @pytest.mark.brand
 class TestCityFilter:
 
-    def test_10_filter_by_city(self, brand_list_page: BrandPage):
+    def test_10_filter_by_city(self, brand_list_page: BrandListPage):
         """TC-10 选择品牌上架城市搜索"""
         brand_list_page.select_city_filter("重庆市")
         brand_list_page.click_search()
@@ -151,7 +151,7 @@ class TestCityFilter:
 @pytest.mark.brand
 class TestCombinedSearch:
 
-    def test_11_combined_search(self, brand_list_page: BrandPage):
+    def test_11_combined_search(self, brand_list_page: BrandListPage):
         """TC-11 多条件组合搜索"""
         brand_list_page.page.locator(brand_list_page.SEL_SEARCH_INPUT).fill("小王")
         brand_list_page.select_city_filter("重庆市")
@@ -169,7 +169,7 @@ class TestCombinedSearch:
 @pytest.mark.brand
 class TestReset:
 
-    def test_12_reset_search(self, brand_list_page: BrandPage):
+    def test_12_reset_search(self, brand_list_page: BrandListPage):
         """TC-12 执行搜索后点击重置"""
         # 先执行搜索
         brand_list_page.search_by_keyword("小王")
@@ -191,7 +191,7 @@ class TestReset:
 @pytest.mark.brand
 class TestTabFilter:
 
-    def test_13_tab_all(self, brand_list_page: BrandPage):
+    def test_13_tab_all(self, brand_list_page: BrandListPage):
         """TC-13 点击"全部"标签"""
         brand_list_page.click_tab("全部")
         tab_text = brand_list_page.get_tab_text("全部")
@@ -200,7 +200,7 @@ class TestTabFilter:
         row_count = brand_list_page.get_list_row_count()
         assert row_count > 0, "全部标签应有数据"
 
-    def test_14_tab_pending(self, brand_list_page: BrandPage):
+    def test_14_tab_pending(self, brand_list_page: BrandListPage):
         """TC-14 点击"申请中"标签"""
         brand_list_page.click_tab("申请中")
 
@@ -209,7 +209,7 @@ class TestTabFilter:
             statuses = brand_list_page.get_list_column_texts(9)
             assert all("申请中" in s for s in statuses), f"申请中标签结果状态应一致，实际: {statuses}"
 
-    def test_15_tab_authorized(self, brand_list_page: BrandPage):
+    def test_15_tab_authorized(self, brand_list_page: BrandListPage):
         """TC-15 点击"已授权"标签"""
         brand_list_page.click_tab("已授权")
 
@@ -218,7 +218,7 @@ class TestTabFilter:
             statuses = brand_list_page.get_list_column_texts(9)
             assert all("已授权" in s for s in statuses), f"已授权标签结果状态应一致，实际: {statuses}"
 
-    def test_16_tab_rejected(self, brand_list_page: BrandPage):
+    def test_16_tab_rejected(self, brand_list_page: BrandListPage):
         """TC-16 点击"已驳回"标签"""
         brand_list_page.click_tab("已驳回")
 
@@ -227,7 +227,7 @@ class TestTabFilter:
             statuses = brand_list_page.get_list_column_texts(9)
             assert all("已驳回" in s for s in statuses), f"已驳回标签结果状态应一致，实际: {statuses}"
 
-    def test_17_tab_recheck(self, brand_list_page: BrandPage):
+    def test_17_tab_recheck(self, brand_list_page: BrandListPage):
         """TC-17 点击"重新审核"标签"""
         brand_list_page.click_tab("重新审核")
 
@@ -236,7 +236,7 @@ class TestTabFilter:
         if row_count == 0:
             assert brand_list_page.is_list_empty(), "无重新审核数据时应显示空状态"
 
-    def test_18_tab_with_search(self, brand_list_page: BrandPage):
+    def test_18_tab_with_search(self, brand_list_page: BrandListPage):
         """TC-18 Tab筛选与搜索条件联动"""
         brand_list_page.page.locator(brand_list_page.SEL_SEARCH_INPUT).fill("小王")
         brand_list_page.click_search()
@@ -259,7 +259,7 @@ class TestTabFilter:
 @pytest.mark.brand
 class TestListDisplay:
 
-    def test_19_list_headers(self, brand_list_page: BrandPage):
+    def test_19_list_headers(self, brand_list_page: BrandListPage):
         """TC-19 品牌列表字段完整性检查"""
         headers = brand_list_page.get_list_headers()
         expected = ["ID", "品牌图标", "品牌名称", "品牌联系人",
@@ -268,7 +268,7 @@ class TestListDisplay:
         for h in expected:
             assert h in headers, f"表头应包含'{h}'，实际表头: {headers}"
 
-    def test_20_pagination(self, brand_list_page: BrandPage):
+    def test_20_pagination(self, brand_list_page: BrandListPage):
         """TC-20 列表分页功能"""
         total_text = brand_list_page.get_list_total_text()
         assert "共" in total_text and "条" in total_text, (

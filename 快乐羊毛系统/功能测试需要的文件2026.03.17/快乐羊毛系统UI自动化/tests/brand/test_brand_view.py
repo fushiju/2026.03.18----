@@ -21,7 +21,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 import pytest
-from pages.brand_page import BrandPage
+from pages.brand_view_page import BrandViewPage
 from tests.brand.conftest import VIEW_BRAND_NAME
 
 VIEW_BRAND_PHONE = "15570441314"
@@ -34,12 +34,12 @@ VIEW_BRAND_CITY = "重庆市"
 @pytest.mark.brand
 class TestViewEntry:
 
-    def test_01_enter_view_page(self, brand_list_page: BrandPage):
+    def test_01_enter_view_page(self, brand_view_list: BrandViewPage):
         """TC-01 从列表点击查看按钮进入查看页"""
-        brand_list_page.click_view_by_name(VIEW_BRAND_NAME)
+        brand_view_list.click_view_by_name(VIEW_BRAND_NAME)
 
-        assert brand_list_page.is_on_view_page(), f"应跳转到查看页面，实际URL: {brand_list_page.current_url}"
-        title = brand_list_page.get_view_title()
+        assert brand_view_list.is_on_view_page(), f"应跳转到查看页面，实际URL: {brand_view_list.current_url}"
+        title = brand_view_list.get_view_title()
         assert "查看" in title, f"页面标题应含'查看品牌'，实际: {title}"
 
 
@@ -49,7 +49,7 @@ class TestViewEntry:
 @pytest.mark.brand
 class TestViewHeader:
 
-    def test_02_header_overview(self, brand_view_page: BrandPage):
+    def test_02_header_overview(self, brand_view_page: BrandViewPage):
         """TC-02 查看品牌顶部概览信息"""
         content = brand_view_page.page.content()
 
@@ -61,7 +61,7 @@ class TestViewHeader:
         assert brand_view_page.view_page_has_text("申请时间"), "应显示申请时间"
         assert brand_view_page.view_page_has_text("所属经纪人"), "应显示所属经纪人"
 
-    def test_03_account_password_info(self, brand_view_page: BrandPage):
+    def test_03_account_password_info(self, brand_view_page: BrandViewPage):
         """TC-03 查看品牌账号密码信息"""
         content = brand_view_page.page.content()
         assert "账号" in content, "应显示账号字段"
@@ -77,7 +77,7 @@ class TestViewHeader:
 @pytest.mark.brand
 class TestViewStats:
 
-    def test_04_stats_panel(self, brand_view_page: BrandPage):
+    def test_04_stats_panel(self, brand_view_page: BrandViewPage):
         """TC-04 查看品牌统计数据面板"""
         content = brand_view_page.page.content()
         expected_labels = ["账户余额", "评分", "服务时长", "在线时长",
@@ -92,7 +92,7 @@ class TestViewStats:
 @pytest.mark.brand
 class TestViewTabs:
 
-    def test_05_basic_info_tab(self, brand_view_page: BrandPage):
+    def test_05_basic_info_tab(self, brand_view_page: BrandViewPage):
         """TC-05 查看基础信息标签页内容"""
         assert brand_view_page.is_tab_active("基础信息"), "基础信息应默认选中"
 
@@ -102,17 +102,17 @@ class TestViewTabs:
         for field in expected_fields:
             assert field in content, f"基础信息应包含'{field}'"
 
-    def test_06_service_record_tab(self, brand_view_page: BrandPage):
+    def test_06_service_record_tab(self, brand_view_page: BrandViewPage):
         """TC-06 查看服务记录标签页"""
         brand_view_page.click_view_tab("服务记录")
         assert brand_view_page.is_tab_active("服务记录"), "服务记录标签应处于选中状态"
 
-    def test_07_linked_specs_tab(self, brand_view_page: BrandPage):
+    def test_07_linked_specs_tab(self, brand_view_page: BrandViewPage):
         """TC-07 查看已关联规格标签页"""
         brand_view_page.click_view_tab("已关联规格")
         assert brand_view_page.is_tab_active("已关联规格"), "已关联规格标签应处于选中状态"
 
-    def test_08_balance_record_tab(self, brand_view_page: BrandPage):
+    def test_08_balance_record_tab(self, brand_view_page: BrandViewPage):
         """TC-08 查看余额修改记录标签页"""
         brand_view_page.click_view_tab("余额修改记录")
         assert brand_view_page.is_tab_active("余额修改记录"), "余额修改记录标签应处于选中状态"
@@ -124,19 +124,19 @@ class TestViewTabs:
 @pytest.mark.brand
 class TestViewButtons:
 
-    def test_09_modify_agent_btn(self, brand_view_page: BrandPage):
+    def test_09_modify_agent_btn(self, brand_view_page: BrandViewPage):
         """TC-09 点击修改经纪人按钮"""
         brand_view_page.click_modify_agent_btn()
         assert brand_view_page.has_dialog_visible(), "应弹出修改经纪人弹窗"
         brand_view_page.close_dialog()
 
-    def test_10_edit_account_btn(self, brand_view_page: BrandPage):
+    def test_10_edit_account_btn(self, brand_view_page: BrandViewPage):
         """TC-10 点击新增编辑账号密码按钮"""
         brand_view_page.click_edit_account_btn()
         assert brand_view_page.has_dialog_visible(), "应弹出账号密码编辑弹窗"
         brand_view_page.close_dialog()
 
-    def test_11_return_btn(self, brand_view_page: BrandPage):
+    def test_11_return_btn(self, brand_view_page: BrandViewPage):
         """TC-11 点击返回按钮"""
         brand_view_page.click_view_return_btn()
         brand_view_page.page.wait_for_timeout(1000)
@@ -149,13 +149,13 @@ class TestViewButtons:
 @pytest.mark.brand
 class TestViewDataConsist:
 
-    def test_12_list_data_matches_view(self, brand_list_page: BrandPage):
+    def test_12_list_data_matches_view(self, brand_view_list: BrandViewPage):
         """TC-12 列表数据与查看页数据一致"""
-        list_content = brand_list_page.page.content()
+        list_content = brand_view_list.page.content()
         assert VIEW_BRAND_NAME in list_content
 
-        brand_list_page.click_view_by_name(VIEW_BRAND_NAME)
-        view_content = brand_list_page.page.content()
+        brand_view_list.click_view_by_name(VIEW_BRAND_NAME)
+        view_content = brand_view_list.page.content()
 
         assert VIEW_BRAND_NAME in view_content, "查看页品牌名称应与列表一致"
         assert VIEW_BRAND_PHONE in view_content, "查看页手机号应与列表一致"
@@ -168,35 +168,35 @@ class TestViewDataConsist:
 @pytest.mark.brand
 class TestViewStatus:
 
-    def test_13_view_authorized(self, brand_list_page: BrandPage):
+    def test_13_view_authorized(self, brand_view_list: BrandViewPage):
         """TC-13 查看"已授权"状态品牌"""
-        brand_list_page.click_tab("已授权")
+        brand_view_list.click_tab("已授权")
 
-        content = brand_list_page.page.content()
+        content = brand_view_list.page.content()
         assert "已授权" in content, "已授权标签页应显示已授权品牌"
 
-    def test_14_view_rejected(self, brand_list_page: BrandPage):
+    def test_14_view_rejected(self, brand_view_list: BrandViewPage):
         """TC-14 查看"已驳回"状态品牌"""
-        brand_list_page.click_tab("已驳回")
+        brand_view_list.click_tab("已驳回")
 
-        row_count = brand_list_page.get_list_row_count()
+        row_count = brand_view_list.get_list_row_count()
         if row_count == 0:
             pytest.skip("无已驳回品牌")
 
-        brand_list_page.click_first_view_btn()
-        content = brand_list_page.page.content()
+        brand_view_list.click_first_view_btn()
+        content = brand_view_list.page.content()
         assert "已驳回" in content, "查看页应显示已驳回状态"
         assert "查看品牌" in content, "页面标题应为查看品牌"
 
-    def test_15_view_pending(self, brand_list_page: BrandPage):
+    def test_15_view_pending(self, brand_view_list: BrandViewPage):
         """TC-15 查看"申请中"状态品牌"""
-        brand_list_page.click_tab("申请中")
+        brand_view_list.click_tab("申请中")
 
-        row_count = brand_list_page.get_list_row_count()
+        row_count = brand_view_list.get_list_row_count()
         if row_count == 0:
             pytest.skip("无申请中品牌")
 
-        content = brand_list_page.page.content()
+        content = brand_view_list.page.content()
         assert "申请中" in content, "申请中标签页应显示申请中品牌"
 
 
@@ -206,7 +206,7 @@ class TestViewStatus:
 @pytest.mark.brand
 class TestViewReadOnly:
 
-    def test_16_fields_readonly(self, brand_view_page: BrandPage):
+    def test_16_fields_readonly(self, brand_view_page: BrandViewPage):
         """TC-16 查看页面字段不可编辑"""
         editable_inputs = brand_view_page.page.locator(
             'input[placeholder="请输入品牌名称"], '

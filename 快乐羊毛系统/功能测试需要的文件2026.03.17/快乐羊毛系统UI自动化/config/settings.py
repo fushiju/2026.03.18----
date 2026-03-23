@@ -12,4 +12,4 @@ TIMEOUT = 30000
 HEADLESS = os.getenv("KLYM_HEADLESS", "false").lower() == "true"
 SCREENSHOT_DIR = BASE_DIR / "screenshots"
 REPORT_DIR = BASE_DIR / "reports"
-TESTCASE_DIR = BASE_DIR.parent / "UI自动化docs" / "测试用例"
+TESTCASE_DIR = BASE_DIR / "测试用例"

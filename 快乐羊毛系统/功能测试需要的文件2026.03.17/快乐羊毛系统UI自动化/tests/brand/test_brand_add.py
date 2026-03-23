@@ -26,7 +26,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 import pytest
-from pages.brand_page import BrandPage
+from pages.brand_form_page import BrandFormPage
 
 
 # ---------------------------------------------------------------------------
@@ -47,7 +47,7 @@ def unique_brand_name(prefix: str = "测试品牌") -> str:
 class TestBrandAddBasic:
 
     @pytest.mark.smoke
-    def test_01_add_brand_required_fields(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_01_add_brand_required_fields(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-01 填写所有必填字段新增品牌成功"""
         brand_name = unique_brand_name("测试品牌A")
         icon_path = str(test_fixtures_dir / "test_icon.png")
@@ -69,7 +69,7 @@ class TestBrandAddBasic:
             f"提交后未检测到成功提示且未返回列表页，当前URL: {brand_add_page.current_url}"
         )
 
-    def test_02_add_brand_all_fields(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_02_add_brand_all_fields(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-02 填写所有字段（含可选）新增品牌成功"""
         brand_name = unique_brand_name("完整品牌B")
         icon_path = str(test_fixtures_dir / "test_icon.png")
@@ -99,7 +99,7 @@ class TestBrandAddBasic:
 @pytest.mark.brand_add
 class TestBrandName:
 
-    def test_03_empty_name(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_03_empty_name(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-03 品牌名称为空提交"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -113,7 +113,7 @@ class TestBrandName:
             f"品牌名称为空时应有校验提示，实际错误: {errors}"
         )
 
-    def test_04_name_min_boundary(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_04_name_min_boundary(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-04 品牌名称输入1个字符（最小边界）"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -124,7 +124,7 @@ class TestBrandName:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "1个字符的品牌名称应提交成功"
 
-    def test_05_name_max_boundary(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_05_name_max_boundary(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-05 品牌名称输入15个字符（最大边界）"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -146,7 +146,7 @@ class TestBrandName:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "15个字符的品牌名称应提交成功"
 
-    def test_06_name_exceed_max(self, brand_add_page: BrandPage):
+    def test_06_name_exceed_max(self, brand_add_page: BrandFormPage):
         """TC-06 品牌名称超过15个字符"""
         long_name = "A" * 20
         brand_add_page.fill_brand_name(long_name)
@@ -156,7 +156,7 @@ class TestBrandName:
             f"品牌名称应限制最多15个字符，实际输入了 {len(actual_value)} 个字符"
         )
 
-    def test_07_name_special_chars(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_07_name_special_chars(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-07 品牌名称输入特殊字符"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -172,7 +172,7 @@ class TestBrandName:
                 f"特殊字符应被拒绝或接受，实际错误: {error}"
             )
 
-    def test_08_name_spaces_only(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_08_name_spaces_only(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-08 品牌名称输入纯空格"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -185,7 +185,7 @@ class TestBrandName:
         assert not brand_add_page.is_on_brand_list(), "纯空格品牌名称不应提交成功"
         assert brand_add_page.has_form_error(), "纯空格应触发校验错误"
 
-    def test_09_name_duplicate(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_09_name_duplicate(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-09 品牌名称与已有品牌重复"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -211,7 +211,7 @@ class TestBrandName:
 @pytest.mark.brand_add
 class TestBrandContact:
 
-    def test_10_empty_contact(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_10_empty_contact(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-10 品牌联系人为空提交"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -221,7 +221,7 @@ class TestBrandContact:
 
         assert brand_add_page.has_form_error(), "品牌联系人为空时应有校验提示"
 
-    def test_11_valid_phone(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_11_valid_phone(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-11 输入正确的11位手机号"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -234,7 +234,7 @@ class TestBrandContact:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "正确手机号应提交成功"
 
-    def test_12_letters_as_phone(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_12_letters_as_phone(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-12 输入非手机号格式（字母）"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -245,7 +245,7 @@ class TestBrandContact:
 
         assert not brand_add_page.is_on_brand_list(), "字母作为手机号不应提交成功"
 
-    def test_13_short_phone(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_13_short_phone(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-13 输入不足11位的手机号"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -256,7 +256,7 @@ class TestBrandContact:
 
         assert not brand_add_page.is_on_brand_list(), "不足11位手机号不应提交成功"
 
-    def test_14_long_phone(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_14_long_phone(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-14 输入超过11位的手机号"""
         brand_add_page.fill_brand_contact("138001380001")
 
@@ -281,7 +281,7 @@ class TestBrandContact:
 @pytest.mark.brand_add
 class TestBrandCity:
 
-    def test_15_no_city_selected(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_15_no_city_selected(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-15 不选择品牌上架城市提交"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -291,7 +291,7 @@ class TestBrandCity:
 
         assert brand_add_page.has_form_error(), "不选择城市应有校验提示"
 
-    def test_16_select_city(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_16_select_city(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-16 选择品牌上架城市后提交"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -311,7 +311,7 @@ class TestBrandCity:
 @pytest.mark.brand_add
 class TestCategoryType:
 
-    def test_17_no_category(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_17_no_category(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-17 不选择分类类型提交（非必填）"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -323,7 +323,7 @@ class TestCategoryType:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "不选择分类类型应提交成功（非必填）"
 
-    def test_18_select_category(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_18_select_category(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-18 选择分类类型后提交"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -344,7 +344,7 @@ class TestCategoryType:
 @pytest.mark.brand_add
 class TestApiChannel:
 
-    def test_19_no_channel(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_19_no_channel(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-19 不选择接口渠道提交（非必填）"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -356,7 +356,7 @@ class TestApiChannel:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "不选择接口渠道应提交成功（非必填）"
 
-    def test_20_select_channel(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_20_select_channel(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-20 选择接口渠道后提交"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -377,7 +377,7 @@ class TestApiChannel:
 @pytest.mark.brand_add
 class TestCommissionRate:
 
-    def test_21_normal_rate(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_21_normal_rate(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-21 输入正常提成比例"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -390,7 +390,7 @@ class TestCommissionRate:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "正常提成比例应提交成功"
 
-    def test_22_rate_zero(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_22_rate_zero(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-22 提成比例输入0（边界值）"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -407,7 +407,7 @@ class TestCommissionRate:
             all_errors = brand_add_page.get_error_message()
             assert error or all_errors, "提成比例为0时若不允许应有错误提示"
 
-    def test_23_rate_100(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_23_rate_100(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-23 提成比例输入100（边界值）"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -424,7 +424,7 @@ class TestCommissionRate:
             all_errors = brand_add_page.get_error_message()
             assert error or all_errors, "提成比例为100时若不允许应有错误提示"
 
-    def test_24_rate_over_100(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_24_rate_over_100(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-24 提成比例输入超过100"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -436,7 +436,7 @@ class TestCommissionRate:
 
         assert not brand_add_page.is_on_brand_list(), "提成比例超过100不应提交成功"
 
-    def test_25_rate_negative(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_25_rate_negative(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-25 提成比例输入负数"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -448,7 +448,7 @@ class TestCommissionRate:
 
         assert not brand_add_page.is_on_brand_list(), "提成比例为负数不应提交成功"
 
-    def test_26_rate_non_numeric(self, brand_add_page: BrandPage):
+    def test_26_rate_non_numeric(self, brand_add_page: BrandFormPage):
         """TC-26 提成比例输入非数字字符"""
         brand_add_page.fill_commission_rate("abc")
 
@@ -466,7 +466,7 @@ class TestCommissionRate:
 @pytest.mark.brand_add
 class TestCommissionDate:
 
-    def test_27_valid_date_range(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_27_valid_date_range(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-27 设置正常的提成限期日期范围"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -480,7 +480,7 @@ class TestCommissionDate:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "正常日期范围应提交成功"
 
-    def test_28_start_after_end(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_28_start_after_end(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-28 开始日期晚于结束日期"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -507,7 +507,7 @@ class TestCommissionDate:
 @pytest.mark.brand_add
 class TestBrandDesc:
 
-    def test_29_empty_desc(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_29_empty_desc(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-29 品牌简介为空提交"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -517,7 +517,7 @@ class TestBrandDesc:
 
         assert brand_add_page.has_form_error(), "品牌简介为空时应有校验提示"
 
-    def test_30_desc_max_boundary(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_30_desc_max_boundary(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-30 品牌简介输入300字符（最大边界）"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -534,7 +534,7 @@ class TestBrandDesc:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "300字符品牌简介应提交成功"
 
-    def test_31_desc_exceed_max(self, brand_add_page: BrandPage):
+    def test_31_desc_exceed_max(self, brand_add_page: BrandFormPage):
         """TC-31 品牌简介超过300字符"""
         long_desc = "A" * 350
         brand_add_page.fill_brand_desc(long_desc)
@@ -552,7 +552,7 @@ class TestBrandDesc:
 @pytest.mark.brand_add
 class TestBrandIcon:
 
-    def test_32_no_icon(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_32_no_icon(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-32 不上传品牌ICON提交"""
         image_path = str(test_fixtures_dir / "test_image.png")
 
@@ -561,7 +561,7 @@ class TestBrandIcon:
 
         assert brand_add_page.has_form_error(), "不上传品牌ICON应有校验提示"
 
-    def test_33_valid_icon(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_33_valid_icon(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-33 上传正确格式的ICON图片"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
 
@@ -569,7 +569,7 @@ class TestBrandIcon:
 
         assert brand_add_page.has_icon_preview(), "上传ICON后应显示图片预览"
 
-    def test_34_invalid_format_icon(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_34_invalid_format_icon(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-34 上传非图片格式文件作为ICON"""
         txt_path = str(test_fixtures_dir / "test_file.txt")
 
@@ -585,7 +585,7 @@ class TestBrandIcon:
             "上传非图片格式文件应失败或提示错误"
         )
 
-    def test_35_oversized_icon(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_35_oversized_icon(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-35 上传超大尺寸图片作为ICON"""
         large_path = str(test_fixtures_dir / "large_image.png")
 
@@ -609,7 +609,7 @@ class TestBrandIcon:
 @pytest.mark.brand_add
 class TestBrandImage:
 
-    def test_36_no_image(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_36_no_image(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-36 不上传品牌图片提交"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
 
@@ -624,7 +624,7 @@ class TestBrandImage:
         else:
             assert brand_add_page.has_form_error(), "若品牌图片为必填，应有校验提示"
 
-    def test_37_upload_image(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_37_upload_image(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-37 上传品牌图片"""
         image_path = str(test_fixtures_dir / "test_image.png")
 
@@ -640,7 +640,7 @@ class TestBrandImage:
 @pytest.mark.brand_add
 class TestBrandVideo:
 
-    def test_38_no_video(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_38_no_video(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-38 不上传品牌视频提交（非必填）"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -652,7 +652,7 @@ class TestBrandVideo:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "不上传视频应提交成功（非必填）"
 
-    def test_39_upload_video(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_39_upload_video(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-39 上传品牌视频"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -677,7 +677,7 @@ class TestBrandVideo:
 @pytest.mark.brand_add
 class TestVirtualOrders:
 
-    def test_40_normal_orders(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_40_normal_orders(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-40 输入正常虚拟订单量"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -690,7 +690,7 @@ class TestVirtualOrders:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "正常虚拟订单量应提交成功"
 
-    def test_41_negative_orders(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_41_negative_orders(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-41 虚拟订单量输入负数"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -702,7 +702,7 @@ class TestVirtualOrders:
 
         assert not brand_add_page.is_on_brand_list(), "负数虚拟订单量不应提交成功"
 
-    def test_42_decimal_orders(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_42_decimal_orders(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-42 虚拟订单量输入小数"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -729,7 +729,7 @@ class TestVirtualOrders:
 @pytest.mark.brand_add
 class TestSoldOutStatus:
 
-    def test_43_sold_out(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_43_sold_out(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-43 选择"售罄"状态"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -742,7 +742,7 @@ class TestSoldOutStatus:
         msg = brand_add_page.get_success_message(timeout=8000)
         assert msg or brand_add_page.is_on_brand_list(), "选择售罄后应提交成功"
 
-    def test_44_not_sold_out(self, brand_add_page: BrandPage, test_fixtures_dir):
+    def test_44_not_sold_out(self, brand_add_page: BrandFormPage, test_fixtures_dir):
         """TC-44 选择"未售罄"状态"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         image_path = str(test_fixtures_dir / "test_image.png")
@@ -763,7 +763,7 @@ class TestSoldOutStatus:
 @pytest.mark.brand_add
 class TestPageInteraction:
 
-    def test_45_back_without_save(self, brand_add_page: BrandPage):
+    def test_45_back_without_save(self, brand_add_page: BrandFormPage):
         """TC-45 点击返回不保存"""
         brand_add_page.fill_brand_name("临时品牌不保存")
         brand_add_page.click_back()
@@ -774,7 +774,7 @@ class TestPageInteraction:
             "返回后品牌列表中不应出现未提交的品牌"
         )
 
-    def test_46_submit_all_empty(self, brand_add_page: BrandPage):
+    def test_46_submit_all_empty(self, brand_add_page: BrandFormPage):
         """TC-46 必填字段全部为空直接提交"""
         brand_add_page.click_submit()
 
@@ -790,7 +790,7 @@ class TestPageInteraction:
             f"应有多个必填字段校验错误，但以下关键字未出现: {missing}，实际错误: {errors}"
         )
 
-    def test_47_initial_state(self, brand_add_page: BrandPage):
+    def test_47_initial_state(self, brand_add_page: BrandFormPage):
         """TC-47 新增品牌页面初始状态检查"""
         # 1. 品牌名称输入框为空
         name_value = brand_add_page.page.locator(brand_add_page.SEL_BRAND_NAME).input_value()

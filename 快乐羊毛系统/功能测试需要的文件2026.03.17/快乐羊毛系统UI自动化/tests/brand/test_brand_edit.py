@@ -23,7 +23,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 import pytest
-from pages.brand_page import BrandPage
+from pages.brand_form_page import BrandFormPage
 from tests.brand.conftest import EDIT_BRAND_NAME
 
 
@@ -33,7 +33,7 @@ from tests.brand.conftest import EDIT_BRAND_NAME
 @pytest.mark.brand
 class TestEditEntry:
 
-    def test_01_enter_edit_page(self, brand_list_page: BrandPage):
+    def test_01_enter_edit_page(self, brand_list_page: BrandFormPage):
         """TC-01 从列表点击编辑按钮进入编辑页"""
         brand_list_page.click_edit_by_name(EDIT_BRAND_NAME)
 
@@ -43,7 +43,7 @@ class TestEditEntry:
         name_val = brand_list_page.get_brand_name_value()
         assert name_val, "编辑页品牌名称应预填充原始数据"
 
-    def test_02_prefilled_data(self, brand_edit_page: BrandPage):
+    def test_02_prefilled_data(self, brand_edit_page: BrandFormPage):
         """TC-02 编辑页面预填充数据正确性"""
         name_val = brand_edit_page.get_brand_name_value()
         assert name_val == EDIT_BRAND_NAME, f"品牌名称应为'{EDIT_BRAND_NAME}'，实际: '{name_val}'"
@@ -64,30 +64,30 @@ class TestEditEntry:
 @pytest.mark.brand
 class TestEditBrandName:
 
-    def test_03_modify_name(self, brand_page: BrandPage):
+    def test_03_modify_name(self, brand_form_page: BrandFormPage):
         """TC-03 修改品牌名称并保存"""
-        brand_page.goto_edit_brand(EDIT_BRAND_NAME)
+        brand_form_page.goto_edit_brand(EDIT_BRAND_NAME)
 
-        brand_page.clear_and_fill_brand_name("测试修改名")
-        brand_page.click_submit()
+        brand_form_page.clear_and_fill_brand_name("测试修改名")
+        brand_form_page.click_submit()
 
-        msg = brand_page.get_success_message(timeout=8000)
-        assert msg or brand_page.is_on_brand_list(), "修改品牌名称后应提交成功"
+        msg = brand_form_page.get_success_message(timeout=8000)
+        assert msg or brand_form_page.is_on_brand_list(), "修改品牌名称后应提交成功"
 
         # 恢复原名
-        if brand_page.is_on_brand_list():
-            brand_page.click_edit_by_name("测试修改名")
-            brand_page.clear_and_fill_brand_name(EDIT_BRAND_NAME)
-            brand_page.click_submit()
+        if brand_form_page.is_on_brand_list():
+            brand_form_page.click_edit_by_name("测试修改名")
+            brand_form_page.clear_and_fill_brand_name(EDIT_BRAND_NAME)
+            brand_form_page.click_submit()
 
-    def test_04_clear_name_submit(self, brand_edit_page: BrandPage):
+    def test_04_clear_name_submit(self, brand_edit_page: BrandFormPage):
         """TC-04 清空品牌名称后提交"""
         brand_edit_page.clear_and_fill_brand_name("")
         brand_edit_page.click_submit()
 
         assert brand_edit_page.has_form_error(), "品牌名称为空应有校验提示"
 
-    def test_05_duplicate_name(self, brand_edit_page: BrandPage):
+    def test_05_duplicate_name(self, brand_edit_page: BrandFormPage):
         """TC-05 修改品牌名称为已存在的名称"""
         brand_edit_page.clear_and_fill_brand_name("测试品牌")
         brand_edit_page.click_submit()
@@ -100,25 +100,25 @@ class TestEditBrandName:
             f"重复名称应提示已存在，实际: {all_text}"
         )
 
-    def test_06_name_max_boundary(self, brand_page: BrandPage):
+    def test_06_name_max_boundary(self, brand_form_page: BrandFormPage):
         """TC-06 品牌名称修改为15字符（最大边界）"""
-        brand_page.goto_edit_brand(EDIT_BRAND_NAME)
+        brand_form_page.goto_edit_brand(EDIT_BRAND_NAME)
 
         name_15 = "编辑品牌最大边界测试名称字"[:15]
-        brand_page.clear_and_fill_brand_name(name_15)
+        brand_form_page.clear_and_fill_brand_name(name_15)
 
-        count = brand_page.get_brand_name_count()
+        count = brand_form_page.get_brand_name_count()
         assert "15" in count, f"字符计数应含 15，实际: {count}"
 
-        brand_page.click_submit()
-        msg = brand_page.get_success_message(timeout=8000)
-        assert msg or brand_page.is_on_brand_list(), "15字符名称应提交成功"
+        brand_form_page.click_submit()
+        msg = brand_form_page.get_success_message(timeout=8000)
+        assert msg or brand_form_page.is_on_brand_list(), "15字符名称应提交成功"
 
         # 恢复原名
-        if brand_page.is_on_brand_list():
-            brand_page.click_edit_by_name(name_15)
-            brand_page.clear_and_fill_brand_name(EDIT_BRAND_NAME)
-            brand_page.click_submit()
+        if brand_form_page.is_on_brand_list():
+            brand_form_page.click_edit_by_name(name_15)
+            brand_form_page.clear_and_fill_brand_name(EDIT_BRAND_NAME)
+            brand_form_page.click_submit()
 
 
 # ===========================================================================
@@ -127,30 +127,30 @@ class TestEditBrandName:
 @pytest.mark.brand
 class TestEditContact:
 
-    def test_07_modify_contact(self, brand_page: BrandPage):
+    def test_07_modify_contact(self, brand_form_page: BrandFormPage):
         """TC-07 修改联系人手机号并保存"""
-        brand_page.goto_edit_brand(EDIT_BRAND_NAME)
+        brand_form_page.goto_edit_brand(EDIT_BRAND_NAME)
 
-        brand_page.clear_and_fill_brand_contact("13600136000")
-        brand_page.click_submit()
+        brand_form_page.clear_and_fill_brand_contact("13600136000")
+        brand_form_page.click_submit()
 
-        msg = brand_page.get_success_message(timeout=8000)
-        assert msg or brand_page.is_on_brand_list(), "修改联系人后应提交成功"
+        msg = brand_form_page.get_success_message(timeout=8000)
+        assert msg or brand_form_page.is_on_brand_list(), "修改联系人后应提交成功"
 
         # 恢复
-        if brand_page.is_on_brand_list():
-            brand_page.click_edit_by_name(EDIT_BRAND_NAME)
-            brand_page.clear_and_fill_brand_contact("15570441314")
-            brand_page.click_submit()
+        if brand_form_page.is_on_brand_list():
+            brand_form_page.click_edit_by_name(EDIT_BRAND_NAME)
+            brand_form_page.clear_and_fill_brand_contact("15570441314")
+            brand_form_page.click_submit()
 
-    def test_08_clear_contact_submit(self, brand_edit_page: BrandPage):
+    def test_08_clear_contact_submit(self, brand_edit_page: BrandFormPage):
         """TC-08 清空品牌联系人后提交"""
         brand_edit_page.clear_and_fill_brand_contact("")
         brand_edit_page.click_submit()
 
         assert brand_edit_page.has_form_error(), "联系人为空应有校验提示"
 
-    def test_09_invalid_contact(self, brand_edit_page: BrandPage):
+    def test_09_invalid_contact(self, brand_edit_page: BrandFormPage):
         """TC-09 修改联系人为非手机号格式"""
         brand_edit_page.clear_and_fill_brand_contact("abcdefg")
         brand_edit_page.click_submit()
@@ -164,7 +164,7 @@ class TestEditContact:
 @pytest.mark.brand
 class TestEditDropdowns:
 
-    def test_10_switch_category(self, brand_edit_page: BrandPage):
+    def test_10_switch_category(self, brand_edit_page: BrandFormPage):
         """TC-10 切换分类类型并保存"""
         brand_edit_page.select_category_type(index=1)
         brand_edit_page.click_submit()
@@ -172,7 +172,7 @@ class TestEditDropdowns:
         msg = brand_edit_page.get_success_message(timeout=8000)
         assert msg or brand_edit_page.is_on_brand_list(), "切换分类类型后应提交成功"
 
-    def test_11_switch_channel(self, brand_edit_page: BrandPage):
+    def test_11_switch_channel(self, brand_edit_page: BrandFormPage):
         """TC-11 切换接口渠道并保存"""
         brand_edit_page.select_api_channel(index=0)
         brand_edit_page.click_submit()
@@ -180,7 +180,7 @@ class TestEditDropdowns:
         msg = brand_edit_page.get_success_message(timeout=8000)
         assert msg or brand_edit_page.is_on_brand_list(), "切换接口渠道后应提交成功"
 
-    def test_12_switch_city(self, brand_edit_page: BrandPage):
+    def test_12_switch_city(self, brand_edit_page: BrandFormPage):
         """TC-12 切换品牌上架城市并保存"""
         brand_edit_page.select_city(index=0)
         brand_edit_page.click_submit()
@@ -195,7 +195,7 @@ class TestEditDropdowns:
 @pytest.mark.brand
 class TestEditCommission:
 
-    def test_13_set_commission(self, brand_edit_page: BrandPage):
+    def test_13_set_commission(self, brand_edit_page: BrandFormPage):
         """TC-13 设置提成比例并保存"""
         brand_edit_page.clear_and_fill_commission_rate("15")
         brand_edit_page.click_submit()
@@ -203,7 +203,7 @@ class TestEditCommission:
         msg = brand_edit_page.get_success_message(timeout=8000)
         assert msg or brand_edit_page.is_on_brand_list(), "设置提成比例后应提交成功"
 
-    def test_14_commission_over_100(self, brand_edit_page: BrandPage):
+    def test_14_commission_over_100(self, brand_edit_page: BrandFormPage):
         """TC-14 提成比例修改为超出范围值"""
         brand_edit_page.clear_and_fill_commission_rate("150")
         brand_edit_page.click_submit()
@@ -217,7 +217,7 @@ class TestEditCommission:
 @pytest.mark.brand
 class TestEditDesc:
 
-    def test_15_modify_desc(self, brand_edit_page: BrandPage):
+    def test_15_modify_desc(self, brand_edit_page: BrandFormPage):
         """TC-15 修改品牌简介并保存"""
         brand_edit_page.clear_and_fill_brand_desc("这是修改后的品牌简介内容")
         brand_edit_page.click_submit()
@@ -225,7 +225,7 @@ class TestEditDesc:
         msg = brand_edit_page.get_success_message(timeout=8000)
         assert msg or brand_edit_page.is_on_brand_list(), "修改品牌简介后应提交成功"
 
-    def test_16_clear_desc_submit(self, brand_edit_page: BrandPage):
+    def test_16_clear_desc_submit(self, brand_edit_page: BrandFormPage):
         """TC-16 清空品牌简介后提交"""
         brand_edit_page.clear_and_fill_brand_desc("")
         brand_edit_page.click_submit()
@@ -239,7 +239,7 @@ class TestEditDesc:
 @pytest.mark.brand
 class TestEditUpload:
 
-    def test_17_replace_icon(self, brand_edit_page: BrandPage, test_fixtures_dir):
+    def test_17_replace_icon(self, brand_edit_page: BrandFormPage, test_fixtures_dir):
         """TC-17 重新上传品牌ICON"""
         icon_path = str(test_fixtures_dir / "test_icon.png")
         brand_edit_page.upload_brand_icon(icon_path)
@@ -250,7 +250,7 @@ class TestEditUpload:
         msg = brand_edit_page.get_success_message(timeout=8000)
         assert msg or brand_edit_page.is_on_brand_list(), "替换ICON后应提交成功"
 
-    def test_18_upload_image(self, brand_edit_page: BrandPage, test_fixtures_dir):
+    def test_18_upload_image(self, brand_edit_page: BrandFormPage, test_fixtures_dir):
         """TC-18 添加/修改品牌图片"""
         image_path = str(test_fixtures_dir / "test_image.png")
         brand_edit_page.upload_brand_image(image_path)
@@ -266,7 +266,7 @@ class TestEditUpload:
 @pytest.mark.brand
 class TestEditOther:
 
-    def test_19_modify_virtual_orders(self, brand_edit_page: BrandPage):
+    def test_19_modify_virtual_orders(self, brand_edit_page: BrandFormPage):
         """TC-19 修改虚拟订单量并保存"""
         brand_edit_page.clear_and_fill_virtual_orders("200")
         brand_edit_page.click_submit()
@@ -274,23 +274,23 @@ class TestEditOther:
         msg = brand_edit_page.get_success_message(timeout=8000)
         assert msg or brand_edit_page.is_on_brand_list(), "修改虚拟订单量后应提交成功"
 
-    def test_20_toggle_sold_out(self, brand_page: BrandPage):
+    def test_20_toggle_sold_out(self, brand_form_page: BrandFormPage):
         """TC-20 在编辑页切换是否售罄"""
-        brand_page.goto_edit_brand(EDIT_BRAND_NAME)
+        brand_form_page.goto_edit_brand(EDIT_BRAND_NAME)
 
-        brand_page.select_sold_out(sold_out=True)
-        brand_page.click_submit()
+        brand_form_page.select_sold_out(sold_out=True)
+        brand_form_page.click_submit()
 
-        msg = brand_page.get_success_message(timeout=8000)
-        assert msg or brand_page.is_on_brand_list(), "切换售罄状态后应提交成功"
+        msg = brand_form_page.get_success_message(timeout=8000)
+        assert msg or brand_form_page.is_on_brand_list(), "切换售罄状态后应提交成功"
 
         # 恢复为未售罄
-        if brand_page.is_on_brand_list():
-            brand_page.click_edit_by_name(EDIT_BRAND_NAME)
-            brand_page.select_sold_out(sold_out=False)
-            brand_page.click_submit()
+        if brand_form_page.is_on_brand_list():
+            brand_form_page.click_edit_by_name(EDIT_BRAND_NAME)
+            brand_form_page.select_sold_out(sold_out=False)
+            brand_form_page.click_submit()
 
-    def test_21_modify_agent(self, brand_edit_page: BrandPage):
+    def test_21_modify_agent(self, brand_edit_page: BrandFormPage):
         """TC-21 点击修改经纪人按钮"""
         try:
             brand_edit_page.click_modify_agent_btn()
@@ -299,7 +299,7 @@ class TestEditOther:
         except Exception:
             pytest.skip("编辑页未找到修改经纪人按钮")
 
-    def test_22_edit_account(self, brand_edit_page: BrandPage):
+    def test_22_edit_account(self, brand_edit_page: BrandFormPage):
         """TC-22 新增编辑账号密码"""
         try:
             brand_edit_page.click_edit_account_btn()
@@ -315,14 +315,14 @@ class TestEditOther:
 @pytest.mark.brand
 class TestEditInteraction:
 
-    def test_23_submit_without_change(self, brand_edit_page: BrandPage):
+    def test_23_submit_without_change(self, brand_edit_page: BrandFormPage):
         """TC-23 不做任何修改直接点击提交"""
         brand_edit_page.click_submit()
 
         msg = brand_edit_page.get_success_message(timeout=8000)
         assert msg or brand_edit_page.is_on_brand_list(), "不修改直接提交应成功"
 
-    def test_24_back_without_save(self, brand_edit_page: BrandPage):
+    def test_24_back_without_save(self, brand_edit_page: BrandFormPage):
         """TC-24 修改数据后点击返回"""
         brand_edit_page.clear_and_fill_brand_name("不应保存的名称")
         brand_edit_page.click_back()
@@ -332,38 +332,38 @@ class TestEditInteraction:
         names = brand_edit_page.get_list_brand_names()
         assert "不应保存的名称" not in names, "返回后修改不应生效"
 
-    def test_25_edit_then_verify(self, brand_page: BrandPage):
+    def test_25_edit_then_verify(self, brand_form_page: BrandFormPage):
         """TC-25 编辑保存后查看详情验证数据一致"""
-        brand_page.goto_edit_brand(EDIT_BRAND_NAME)
+        brand_form_page.goto_edit_brand(EDIT_BRAND_NAME)
 
         new_name = "验证品牌X"
-        brand_page.clear_and_fill_brand_name(new_name)
-        brand_page.click_submit()
+        brand_form_page.clear_and_fill_brand_name(new_name)
+        brand_form_page.click_submit()
 
-        msg = brand_page.get_success_message(timeout=8000)
-        if not msg and not brand_page.is_on_brand_list():
+        msg = brand_form_page.get_success_message(timeout=8000)
+        if not msg and not brand_form_page.is_on_brand_list():
             pytest.skip("编辑提交失败，跳过验证")
 
-        brand_page.page.wait_for_timeout(1000)
-        if brand_page.is_on_brand_list():
-            assert brand_page.brand_exists_in_list(new_name), f"列表中应有品牌'{new_name}'"
+        brand_form_page.page.wait_for_timeout(1000)
+        if brand_form_page.is_on_brand_list():
+            assert brand_form_page.brand_exists_in_list(new_name), f"列表中应有品牌'{new_name}'"
 
             # 恢复原名
-            brand_page.click_edit_by_name(new_name)
-            brand_page.clear_and_fill_brand_name(EDIT_BRAND_NAME)
-            brand_page.click_submit()
+            brand_form_page.click_edit_by_name(new_name)
+            brand_form_page.clear_and_fill_brand_name(EDIT_BRAND_NAME)
+            brand_form_page.click_submit()
 
-    def test_26_tab_service_record(self, brand_edit_page: BrandPage):
+    def test_26_tab_service_record(self, brand_edit_page: BrandFormPage):
         """TC-26 切换服务记录Tab"""
         brand_edit_page.click_view_tab("服务记录")
         assert brand_edit_page.is_tab_active("服务记录"), "服务记录标签应处于选中状态"
 
-    def test_27_tab_linked_specs(self, brand_edit_page: BrandPage):
+    def test_27_tab_linked_specs(self, brand_edit_page: BrandFormPage):
         """TC-27 切换已关联规格Tab"""
         brand_edit_page.click_view_tab("已关联规格")
         assert brand_edit_page.is_tab_active("已关联规格"), "已关联规格标签应处于选中状态"
 
-    def test_28_tab_balance_record(self, brand_edit_page: BrandPage):
+    def test_28_tab_balance_record(self, brand_edit_page: BrandFormPage):
         """TC-28 切换余额修改记录Tab"""
         brand_edit_page.click_view_tab("余额修改记录")
         assert brand_edit_page.is_tab_active("余额修改记录"), "余额修改记录标签应处于选中状态"
