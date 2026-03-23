@@ -40,7 +40,30 @@ def logged_in_page(page) -> "Page":
     lp.goto_login()
     success = lp.login_with_captcha(ADMIN_USERNAME, ADMIN_PASSWORD)
     assert success, "前置条件：登录失败，无法继续执行测试"
+    # 登录后等待页面稳定，关闭可能弹出的通知弹窗（如"来单通知"）
+    page.wait_for_timeout(2000)
+    _dismiss_all_dialogs(page)
     return page
+
+
+def _dismiss_all_dialogs(page):
+    """关闭所有可能遮挡页面的弹窗（来单通知、消息框等）"""
+    try:
+        for _ in range(5):
+            btn = page.locator(
+                '.el-dialog:visible button:has-text("忽 略"), '
+                '.el-dialog:visible button:has-text("忽略"), '
+                '.el-dialog:visible button:has-text("关闭"), '
+                '.el-dialog:visible .el-dialog__headerbtn, '
+                '.el-message-box__btns button:has-text("确定")'
+            )
+            if btn.count() > 0:
+                btn.first.click()
+                page.wait_for_timeout(800)
+            else:
+                break
+    except Exception:
+        pass
 
 
 @pytest.fixture(scope="session")

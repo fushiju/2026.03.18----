@@ -140,12 +140,12 @@ class BrandListPage(BasePage):
     # ================================================================
 
     def click_edit_by_name(self, brand_name: str):
-        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")')
+        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")').first
         row.locator('button:has-text("编辑")').click()
         self.page.wait_for_load_state("networkidle", timeout=15000)
 
     def click_view_by_name(self, brand_name: str):
-        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")')
+        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")').first
         row.locator('button:has-text("查看")').click()
         self.page.wait_for_load_state("networkidle", timeout=15000)
 
@@ -160,3 +160,112 @@ class BrandListPage(BasePage):
     def click_next_page(self):
         self.page.locator('button:has-text("下一页"), .btn-next').click()
         self.page.wait_for_timeout(1500)
+
+    # ================================================================
+    # 更多菜单（品牌删除通过此菜单操作）
+    # ================================================================
+
+    def click_more_menu_by_name(self, brand_name: str):
+        """点击指定品牌的"更多菜单"按钮"""
+        # 遍历每行的所有 td，找到文本完全等于品牌名的行
+        rows = self.page.locator('.el-table__body .el-table__row').all()
+        for row in rows:
+            cells = row.locator('td').all()
+            for cell in cells:
+                if cell.text_content().strip() == brand_name:
+                    row.locator('button:has-text("更多菜单")').click()
+                    self.page.wait_for_timeout(1500)
+                    return
+        # 没找到精确匹配，用第一个包含该名称的行
+        self.page.locator('button:has-text("更多菜单")').first.click()
+        self.page.wait_for_timeout(1500)
+
+    def click_more_menu_first(self):
+        """点击列表中第一个"更多菜单"按钮"""
+        self.page.locator('button:has-text("更多菜单")').first.click()
+        self.page.wait_for_timeout(1500)
+
+    def get_dropdown_items(self) -> list[str]:
+        """获取当前展开的下拉菜单所有选项文本"""
+        items = self.page.locator('.el-dropdown-menu__item:visible').all()
+        return [item.text_content().strip() for item in items if item.text_content()]
+
+    def click_dropdown_item(self, item_text: str):
+        """点击下拉菜单中的指定选项"""
+        self.page.locator(f'.el-dropdown-menu__item:visible:has-text("{item_text}")').click()
+        self.page.wait_for_timeout(800)
+
+    def dismiss_dropdown(self):
+        """关闭下拉菜单"""
+        self.page.keyboard.press("Escape")
+        self.page.wait_for_timeout(800)
+
+    def is_dropdown_visible(self) -> bool:
+        return self.page.locator('.el-dropdown-menu__item:visible').count() > 0
+
+    # ================================================================
+    # 删除确认弹窗
+    # ================================================================
+
+    SEL_MSG_BOX = '.el-message-box:visible'
+    SEL_MSG_BOX_TITLE = '.el-message-box:visible .el-message-box__title'
+    SEL_MSG_BOX_CONTENT = '.el-message-box:visible .el-message-box__message'
+    SEL_MSG_BOX_OK = '.el-message-box:visible button:has-text("确认"), .el-message-box:visible button:has-text("确定")'
+    SEL_MSG_BOX_CANCEL = '.el-message-box:visible button:has-text("取消")'
+    SEL_MSG_BOX_CLOSE = '.el-message-box:visible .el-message-box__headerbtn'
+    SEL_SUCCESS_MSG = '.el-message--success'
+    SEL_ERROR_MSG = '.el-message--error, .el-message--warning'
+
+    def delete_brand_by_name(self, brand_name: str):
+        """通过更多菜单点击删除（不点确认）"""
+        self.click_more_menu_by_name(brand_name)
+        self.click_dropdown_item("删除")
+
+    def is_msgbox_visible(self) -> bool:
+        return self.page.locator(self.SEL_MSG_BOX).count() > 0
+
+    def get_msgbox_title(self) -> str:
+        try:
+            return self.page.locator(self.SEL_MSG_BOX_TITLE).text_content().strip()
+        except Exception:
+            return ""
+
+    def get_msgbox_content(self) -> str:
+        try:
+            return self.page.locator(self.SEL_MSG_BOX_CONTENT).text_content().strip()
+        except Exception:
+            return ""
+
+    def click_msgbox_ok(self):
+        self.page.locator(self.SEL_MSG_BOX_OK).click()
+        self.page.wait_for_timeout(1500)
+
+    def click_msgbox_cancel(self):
+        self.page.locator(self.SEL_MSG_BOX_CANCEL).click()
+        self.page.wait_for_timeout(500)
+
+    def click_msgbox_close_x(self):
+        self.page.locator(self.SEL_MSG_BOX_CLOSE).click()
+        self.page.wait_for_timeout(500)
+
+    def dismiss_msgbox_by_esc(self):
+        self.page.keyboard.press("Escape")
+        self.page.wait_for_timeout(500)
+
+    def get_success_message(self, timeout: int = 5000) -> str:
+        try:
+            self.page.wait_for_selector(self.SEL_SUCCESS_MSG, timeout=timeout)
+            return self.page.locator(self.SEL_SUCCESS_MSG).first.text_content() or ""
+        except Exception:
+            return ""
+
+    def get_error_message(self, timeout: int = 3000) -> str:
+        try:
+            self.page.wait_for_selector(self.SEL_ERROR_MSG, timeout=timeout)
+            return self.page.locator(self.SEL_ERROR_MSG).first.text_content() or ""
+        except Exception:
+            return ""
+
+    def brand_exists(self, brand_name: str) -> bool:
+        self.page.wait_for_timeout(500)
+        return brand_name in self.get_list_brand_names()

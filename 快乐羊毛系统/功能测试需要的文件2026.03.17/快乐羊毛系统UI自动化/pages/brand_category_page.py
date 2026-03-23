@@ -70,13 +70,13 @@ class BrandCategoryPage(BasePage):
 
     def click_edit_by_name(self, name: str):
         """点击指定分类的"编辑"按钮"""
-        row = self.page.locator(f'.el-table__row:has-text("{name}")')
+        row = self.page.locator(f'.el-table__row:has-text("{name}")').first
         row.locator('button:has-text("编辑")').click()
         self.page.wait_for_timeout(800)
 
     def click_delete_by_name(self, name: str):
         """点击指定分类的"删除"按钮"""
-        row = self.page.locator(f'.el-table__row:has-text("{name}")')
+        row = self.page.locator(f'.el-table__row:has-text("{name}")').first
         row.locator('button:has-text("删除")').click()
         self.page.wait_for_timeout(800)
 
@@ -201,7 +201,7 @@ class BrandCategoryPage(BasePage):
 
     def get_category_status(self, name: str) -> str:
         """获取指定分类的状态文本"""
-        row = self.page.locator(f'.el-table__row:has-text("{name}")')
+        row = self.page.locator(f'.el-table__row:has-text("{name}")').first
         # 状态列是第4列（ID, 展开, 分类名称, 分类状态）
         cells = row.locator('td').all()
         for cell in cells:

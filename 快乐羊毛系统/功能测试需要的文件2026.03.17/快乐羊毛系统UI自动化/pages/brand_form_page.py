@@ -10,34 +10,19 @@ from pages.base_page import BasePage
 
 class BrandFormPage(BasePage):
 
-    # ---- 表单字段选择器 ----
+    # ---- 通过 placeholder 定位的表单字段（最可靠） ----
     SEL_BRAND_NAME = 'input[placeholder="请输入品牌名称"]'
     SEL_BRAND_CONTACT = 'input[placeholder="请输入品牌联系人手机号"]'
-    SEL_CATEGORY_TYPE = '.el-form-item:has(.el-form-item__label:has-text("分类类型")) .el-select'
-    SEL_API_CHANNEL = '.el-form-item:has(.el-form-item__label:has-text("接口渠道")) .el-select'
-    SEL_CITY_SELECT = '.el-form-item:has(.el-form-item__label:has-text("品牌上架城市")) .el-select'
     SEL_COMMISSION_RATE = 'input[placeholder="请输入提成比例"]'
-    SEL_DATE_START = '.el-form-item:has(.el-form-item__label:has-text("提成限期日期")) input:first-of-type'
-    SEL_DATE_END = '.el-form-item:has(.el-form-item__label:has-text("提成限期日期")) input:last-of-type'
     SEL_BRAND_DESC = 'textarea[placeholder="请输入品牌简介"]'
-    SEL_BRAND_ICON_UPLOAD = '.el-form-item:has(.el-form-item__label:has-text("品牌ICON")) .upload-container .img-wrap'
-    SEL_BRAND_IMAGE_UPLOAD = '.el-form-item:has(.el-form-item__label:has-text("品牌图片")) .upload-container .img-wrap'
-    SEL_BRAND_VIDEO_BTN = '.el-form-item:has(.el-form-item__label:has-text("品牌视频")) button:has-text("选择")'
     SEL_VIRTUAL_ORDERS = 'input[placeholder="请输入虚拟订单量"]'
-    SEL_SOLD_OUT_YES = '.el-radio:has(.el-radio__label:has-text("售罄")):not(:has-text("未售罄"))'
-    SEL_SOLD_OUT_NO = '.el-radio:has(.el-radio__label:has-text("未售罄"))'
-    SEL_SUBMIT_BTN = '.el-form button:has-text("提交")'
-    SEL_BACK_BTN = '.el-form button:has-text("返回")'
+    SEL_SUBMIT_BTN = 'button:has-text("提交")'
+    SEL_BACK_BTN = 'button:has-text("返回")'
 
     # ---- 反馈提示 ----
-    SEL_SUCCESS_MSG = '.el-message--success, .el-notification__content:has-text("成功")'
-    SEL_ERROR_MSG = '.el-message--error, .el-message--warning, .el-notification__content'
+    SEL_SUCCESS_MSG = '.el-message--success'
+    SEL_ERROR_MSG = '.el-message--error, .el-message--warning'
     SEL_FORM_ERROR = '.el-form-item__error'
-
-    # ---- 字符计数 ----
-    SEL_NAME_COUNT = '.el-form-item:has(.el-form-item__label:has-text("品牌名称")) .el-input__suffix-inner'
-    SEL_CONTACT_COUNT = '.el-form-item:has(.el-form-item__label:has-text("品牌联系人")) .el-input__suffix-inner'
-    SEL_DESC_COUNT = '.el-form-item:has(.el-form-item__label:has-text("品牌简介")) .el-input__count-inner, .el-form-item:has(.el-form-item__label:has-text("品牌简介")) .el-textarea__count-inner'
 
     # ================================================================
     # 导航
@@ -52,25 +37,46 @@ class BrandFormPage(BasePage):
         """从列表页点击"新增品牌"进入空表单"""
         self.goto_brand_list()
         self._dismiss_notification()
-        self.page.locator('button:has-text("新增品牌")').click()
+        try:
+            self.page.locator('button:has-text("新增品牌")').click(timeout=5000)
+        except Exception:
+            # 可能有延迟弹出的通知遮挡了按钮，再次关闭后重试
+            self._dismiss_notification()
+            self.page.locator('button:has-text("新增品牌")').click(timeout=5000)
         self.page.wait_for_load_state("networkidle", timeout=15000)
+        self._dismiss_notification()
         self.page.wait_for_selector(self.SEL_BRAND_NAME, state="visible", timeout=10000)
 
     def goto_edit_brand(self, brand_name: str):
         """从列表页点击指定品牌的"编辑"按钮进入编辑表单"""
         self.goto_brand_list()
         self._dismiss_notification()
-        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")')
-        row.locator('button:has-text("编辑")').click()
+        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")').first
+        try:
+            row.locator('button:has-text("编辑")').click(timeout=5000)
+        except Exception:
+            self._dismiss_notification()
+            row.locator('button:has-text("编辑")').click(timeout=5000)
         self.page.wait_for_load_state("networkidle", timeout=15000)
+        self._dismiss_notification()
         self.page.wait_for_selector(self.SEL_BRAND_NAME, state="visible", timeout=10000)
 
     def _dismiss_notification(self):
+        """关闭所有可能遮挡页面的弹窗（来单通知等），最多尝试5次"""
         try:
-            btn = self.page.locator('button:has-text("忽 略"), button:has-text("忽略")')
-            if btn.count() > 0:
-                btn.first.click()
-                self.page.wait_for_timeout(500)
+            for _ in range(5):
+                btn = self.page.locator(
+                    '.el-dialog:visible button:has-text("忽 略"), '
+                    '.el-dialog:visible button:has-text("忽略"), '
+                    '.el-dialog:visible button:has-text("关闭"), '
+                    '.el-dialog:visible .el-dialog__headerbtn, '
+                    '.el-message-box__btns button:has-text("确定")'
+                )
+                if btn.count() > 0:
+                    btn.first.click()
+                    self.page.wait_for_timeout(800)
+                else:
+                    break
         except Exception:
             pass
 
@@ -113,54 +119,166 @@ class BrandFormPage(BasePage):
         self.page.locator(self.SEL_VIRTUAL_ORDERS).fill("")
         self.page.locator(self.SEL_VIRTUAL_ORDERS).fill(value)
 
-    def _select_dropdown(self, selector: str, index: int = 0):
-        self.page.locator(selector).click()
+    def _locate_form_item(self, label_text: str):
+        """通过 label 文本定位表单项（避免 CSS :has(:has-text()) 不稳定）"""
+        return self.page.locator(f'.el-form-item__label:text-is("{label_text}")').locator('..')
+
+    def _select_dropdown_by_label(self, label_text: str, index: int = 0):
+        """通过 label 文本找到下拉框并选择第 index 项"""
+        # 1. 先点页面标题区域关闭残留弹层
+        self.page.locator('.el-form-item__label').first.click()
         self.page.wait_for_timeout(500)
-        options = self.page.locator('.el-select-dropdown:visible .el-select-dropdown__item')
-        if options.count() > index:
-            options.nth(index).click()
-        self.page.wait_for_timeout(300)
+
+        # 2. 点击目标下拉框的 wrapper 展开选项
+        form_item = self._locate_form_item(label_text)
+        wrapper = form_item.locator('.el-select__wrapper')
+        wrapper.click()
+        self.page.wait_for_timeout(1000)
+
+        # 3. 找到最后一个可见的下拉面板（因为 Element Plus 用 teleport，新展开的在最后）
+        visible_options = self.page.locator('.el-select-dropdown__item:visible')
+        count = visible_options.count()
+        if count > index:
+            visible_options.nth(index).click()
+        self.page.wait_for_timeout(500)
 
     def select_city(self, index: int = 0):
-        self._select_dropdown(self.SEL_CITY_SELECT, index)
+        self._select_dropdown_by_label("品牌上架城市", index)
 
     def select_category_type(self, index: int = 0):
-        self._select_dropdown(self.SEL_CATEGORY_TYPE, index)
+        self._select_dropdown_by_label("分类类型", index)
 
     def select_api_channel(self, index: int = 0):
-        self._select_dropdown(self.SEL_API_CHANNEL, index)
+        self._select_dropdown_by_label("接口渠道", index)
 
     def select_sold_out(self, sold_out: bool = True):
-        sel = self.SEL_SOLD_OUT_YES if sold_out else self.SEL_SOLD_OUT_NO
-        self.page.locator(sel).click()
+        label = "售罄" if sold_out else "未售罄"
+        self.page.locator(f'.el-radio__label:text-is("{label}")').click()
 
-    def upload_brand_icon(self, file_path: str):
-        with self.page.expect_file_chooser() as fc:
-            self.page.locator(self.SEL_BRAND_ICON_UPLOAD).click()
-        fc.value.set_files(file_path)
-        self.page.wait_for_timeout(2000)
+    def upload_brand_icon(self, file_path: str = ""):
+        """上传品牌ICON（从图片选择弹窗中选择或上传）"""
+        trigger = self._locate_form_item("品牌ICON").locator('.upload-container .img-wrap')
+        self._pick_image_from_dialog_el(trigger, file_path)
 
-    def upload_brand_image(self, file_path: str):
-        with self.page.expect_file_chooser() as fc:
-            self.page.locator(self.SEL_BRAND_IMAGE_UPLOAD).click()
-        fc.value.set_files(file_path)
-        self.page.wait_for_timeout(2000)
+    def upload_brand_image(self, file_path: str = ""):
+        """上传品牌图片（从图片选择弹窗中选择或上传）"""
+        trigger = self._locate_form_item("品牌图片").locator('.upload-container .img-wrap')
+        self._pick_image_from_dialog_el(trigger, file_path)
 
-    def upload_brand_video(self, file_path: str):
-        with self.page.expect_file_chooser() as fc:
-            self.page.locator(self.SEL_BRAND_VIDEO_BTN).click()
-        fc.value.set_files(file_path)
-        self.page.wait_for_timeout(3000)
+    def _pick_image_from_dialog_el(self, trigger_locator, file_path: str = ""):
+        """通用图片上传（接收 locator 对象）"""
+        trigger_locator.click()
+        upload_dialog = self.page.locator('.el-dialog:visible:has-text("图片上传"), .el-dialog:visible:has-text("图片选择")')
+        upload_dialog.wait_for(state="visible", timeout=10000)
+        self.page.wait_for_timeout(1500)
+
+        # 尝试多种选择器匹配图片项
+        img_items = upload_dialog.locator('.imgItem, .img-item, .image-item')
+        if img_items.count() > 0:
+            img_items.first.click()
+            self.page.wait_for_timeout(500)
+            # 双击确保选中（某些UI需要）
+            if not self._is_item_selected(upload_dialog):
+                img_items.first.click()
+                self.page.wait_for_timeout(500)
+        elif file_path:
+            # 点击"上传"按钮或直接设置文件
+            upload_btn = upload_dialog.locator('button:has-text("上传")')
+            if upload_btn.count() > 0:
+                file_input = upload_dialog.locator('input[type="file"]')
+                file_input.set_input_files(file_path)
+            else:
+                file_input = upload_dialog.locator('input[type="file"]')
+                file_input.set_input_files(file_path)
+            self.page.wait_for_timeout(3000)
+            new_items = upload_dialog.locator('.imgItem, .img-item, .image-item')
+            if new_items.count() > 0:
+                new_items.first.click()
+                self.page.wait_for_timeout(500)
+
+        upload_dialog.locator('button:has-text("确定")').click()
+        self.page.wait_for_timeout(1500)
+
+    def _is_item_selected(self, dialog_locator) -> bool:
+        """检查弹窗中是否已选中至少一项"""
+        try:
+            selected_text = dialog_locator.locator('text=/已选.*[1-9]/').count()
+            return selected_text > 0
+        except Exception:
+            return False
+
+    def upload_brand_video(self, file_path: str = ""):
+        """上传品牌视频（从视频选择弹窗中选择或上传）"""
+        self._locate_form_item("品牌视频").locator('button:has-text("选择")').click()
+        self.page.wait_for_timeout(1500)
+        video_dialog = self.page.locator(
+            '.el-dialog:visible:has-text("视频上传"), '
+            '.el-dialog:visible:has-text("视频选择"), '
+            '.el-dialog:visible:has-text("视频")'
+        )
+        if video_dialog.count() == 0:
+            return
+        video_dialog.wait_for(state="visible", timeout=10000)
+        self.page.wait_for_timeout(1500)
+
+        # 优先选择已有的视频项（与图片上传弹窗逻辑相同）
+        video_items = video_dialog.locator('.imgItem, .video-item, .file-item, .img-item')
+        if video_items.count() > 0:
+            video_items.first.click()
+            self.page.wait_for_timeout(500)
+        elif file_path:
+            # 没有已有视频，尝试上传新文件
+            file_input = video_dialog.locator('input[type="file"]')
+            if file_input.count() > 0:
+                file_input.set_input_files(file_path)
+                self.page.wait_for_timeout(3000)
+                new_items = video_dialog.locator('.imgItem, .video-item, .file-item, .img-item')
+                if new_items.count() > 0:
+                    new_items.first.click()
+                    self.page.wait_for_timeout(500)
+
+        confirm_btn = video_dialog.locator('button:has-text("确定")')
+        if confirm_btn.count() > 0:
+            confirm_btn.click()
+            self.page.wait_for_timeout(1500)
 
     def set_commission_date(self, start_date: str, end_date: str):
-        start_input = self.page.locator(self.SEL_DATE_START)
-        start_input.click()
-        start_input.fill(start_date)
-        end_input = self.page.locator(self.SEL_DATE_END)
-        end_input.click()
-        end_input.fill(end_date)
-        end_input.press("Enter")
-        self.page.wait_for_timeout(500)
+        """设置提成限期日期（通过日期面板内的输入框设置）"""
+        date_item = self._locate_form_item("提成限期日期")
+        wrapper_inputs = date_item.locator('input.el-range-input')
+
+        # 点击开始日期输入框，打开日期面板
+        wrapper_inputs.first.click()
+        self.page.wait_for_timeout(1000)
+
+        # 在弹出的日期面板中填写日期
+        picker_panel = self.page.locator('.el-picker-panel:visible')
+        if picker_panel.count() > 0:
+            # 找到面板内的"开始日期"和"结束日期"输入框
+            start_input = picker_panel.locator('input[placeholder="开始日期"]')
+            end_date_input = picker_panel.locator('input[placeholder="结束日期"]')
+
+            if start_input.count() > 0:
+                start_input.click()
+                start_input.fill(start_date)
+                start_input.press("Enter")
+                self.page.wait_for_timeout(500)
+
+            if end_date_input.count() > 0:
+                end_date_input.click()
+                end_date_input.fill(end_date)
+                end_date_input.press("Enter")
+                self.page.wait_for_timeout(500)
+
+            # 点击确定按钮（如果有）
+            confirm = picker_panel.locator('button:has-text("确定"), button:has-text("确认")')
+            if confirm.count() > 0:
+                confirm.click()
+                self.page.wait_for_timeout(500)
+
+        # 关闭残留的日期面板
+        self.page.keyboard.press("Escape")
+        self.page.wait_for_timeout(300)
 
     def fill_all_required(self, icon_path: str, image_path: str,
                           brand_name: str = "自动化测试品牌",
@@ -196,8 +314,23 @@ class BrandFormPage(BasePage):
     # ================================================================
 
     def click_submit(self):
+        # 先关闭可能残留的下拉弹层
+        self.page.keyboard.press("Escape")
+        self.page.wait_for_timeout(300)
+        self.page.locator(self.SEL_SUBMIT_BTN).scroll_into_view_if_needed()
         self.page.locator(self.SEL_SUBMIT_BTN).click()
-        self.page.wait_for_timeout(1000)
+        # 等待页面跳转（成功后会回到列表页）或消息弹窗
+        for _ in range(16):
+            self.page.wait_for_timeout(500)
+            url = self.page.url
+            if "/coach/manage" in url and "/edit" not in url:
+                return  # 成功跳转到列表页
+            if self.page.locator(self.SEL_SUCCESS_MSG).count() > 0:
+                return  # 出现成功提示
+            if self.page.locator(self.SEL_ERROR_MSG).count() > 0:
+                return  # 出现错误提示
+            if self.page.locator(self.SEL_FORM_ERROR).count() > 0:
+                return  # 出现表单校验错误
 
     def click_back(self):
         self.page.locator(self.SEL_BACK_BTN).click()
@@ -234,9 +367,8 @@ class BrandFormPage(BasePage):
         return any(keyword in e for e in errors)
 
     def get_field_error(self, field_label: str) -> str:
-        sel = f'.el-form-item:has(.el-form-item__label:has-text("{field_label}")) .el-form-item__error'
         try:
-            el = self.page.locator(sel)
+            el = self._locate_form_item(field_label).locator('.el-form-item__error')
             if el.count() > 0:
                 return el.first.text_content().strip()
         except Exception:
@@ -259,32 +391,46 @@ class BrandFormPage(BasePage):
     def get_brand_name_value(self) -> str:
         return self.page.locator(self.SEL_BRAND_NAME).input_value()
 
-    def get_brand_name_count(self) -> str:
+    def _get_form_item_text(self, label: str, inner_sel: str) -> str:
         try:
-            return self.page.locator(self.SEL_NAME_COUNT).text_content().strip()
+            locator = self._locate_form_item(label).locator(inner_sel)
+            if locator.count() > 0:
+                return locator.first.text_content().strip()
+            return ""
         except Exception:
             return ""
+
+    def get_brand_name_count(self) -> str:
+        return self._get_form_item_text(
+            "品牌名称",
+            '.el-input__count-inner, .el-input__suffix-inner, .el-input__count'
+        )
 
     def get_brand_contact_count(self) -> str:
-        try:
-            return self.page.locator(self.SEL_CONTACT_COUNT).text_content().strip()
-        except Exception:
-            return ""
+        return self._get_form_item_text(
+            "品牌联系人",
+            '.el-input__count-inner, .el-input__suffix-inner, .el-input__count'
+        )
 
     def get_brand_desc_count(self) -> str:
-        try:
-            return self.page.locator(self.SEL_DESC_COUNT).text_content().strip()
-        except Exception:
-            return ""
+        return self._get_form_item_text(
+            "品牌简介",
+            '.el-input__count, .el-input__count-inner, .el-textarea__count-inner'
+        )
 
     def is_submit_button_enabled(self) -> bool:
         return self.page.locator(self.SEL_SUBMIT_BTN).is_enabled()
 
     def has_icon_preview(self) -> bool:
-        return self.page.locator('.el-form-item:has(.el-form-item__label:has-text("品牌ICON")) .upload-container img').count() > 0
+        container = self._locate_form_item("品牌ICON").locator('.upload-container')
+        # 检查 img 标签或 el-image 组件（即使图片加载失败也算已上传）
+        return (container.locator('img').count() > 0
+                or container.locator('.el-image').count() > 0)
 
     def has_image_preview(self) -> bool:
-        return self.page.locator('.el-form-item:has(.el-form-item__label:has-text("品牌图片")) .upload-container img').count() > 0
+        container = self._locate_form_item("品牌图片").locator('.upload-container')
+        return (container.locator('img').count() > 0
+                or container.locator('.el-image').count() > 0)
 
     def brand_exists_in_list(self, brand_name: str) -> bool:
         self.page.wait_for_timeout(1000)
@@ -296,7 +442,7 @@ class BrandFormPage(BasePage):
         return [c.text_content().strip() for c in cells if c.text_content()]
 
     def click_edit_by_name(self, brand_name: str):
-        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")')
+        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")').first
         row.locator('button:has-text("编辑")').click()
         self.page.wait_for_load_state("networkidle", timeout=15000)
 

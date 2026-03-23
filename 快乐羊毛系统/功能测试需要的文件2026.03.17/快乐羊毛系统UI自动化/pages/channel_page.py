@@ -63,12 +63,12 @@ class ChannelPage(BasePage):
         self.page.wait_for_selector(self.SEL_DIALOG, state="visible", timeout=5000)
 
     def click_edit_by_name(self, name: str):
-        row = self.page.locator(f'.el-table__row:has-text("{name}")')
+        row = self.page.locator(f'.el-table__row:has-text("{name}")').first
         row.locator('button:has-text("编辑")').click()
         self.page.wait_for_selector(self.SEL_DIALOG, state="visible", timeout=5000)
 
     def click_delete_by_name(self, name: str):
-        row = self.page.locator(f'.el-table__row:has-text("{name}")')
+        row = self.page.locator(f'.el-table__row:has-text("{name}")').first
         row.locator('button:has-text("删除")').click()
         self.page.wait_for_timeout(800)
 

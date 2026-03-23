@@ -20,7 +20,7 @@ class BrandViewPage(BasePage):
     def goto_view_brand(self, brand_name: str):
         self.goto_brand_list()
         self._dismiss_notification()
-        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")')
+        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")').first
         row.locator('button:has-text("查看")').click()
         self.page.wait_for_load_state("networkidle", timeout=15000)
         self.page.wait_for_timeout(2000)
@@ -115,6 +115,6 @@ class BrandViewPage(BasePage):
         self.page.wait_for_load_state("networkidle", timeout=15000)
 
     def click_view_by_name(self, brand_name: str):
-        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")')
+        row = self.page.locator(f'.el-table__row:has-text("{brand_name}")').first
         row.locator('button:has-text("查看")').click()
         self.page.wait_for_load_state("networkidle", timeout=15000)
