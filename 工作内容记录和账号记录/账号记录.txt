@@ -39,6 +39,10 @@ bj168168
 
 
 
+小程序云效下载代码位置：
+云效分支：代码管理-red_dev_private-导入微信开发者工具（mp-weixin）
+appid：wx6533dc35c5a776e3
+
 
 
 
