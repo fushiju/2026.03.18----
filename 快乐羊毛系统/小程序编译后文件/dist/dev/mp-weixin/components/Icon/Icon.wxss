@@ -1,0 +1,32 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.base-icon.data-v-3067495b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+.base-icon.clickable.data-v-3067495b {
+  cursor: pointer;
+}
+.base-icon.clickable.data-v-3067495b:active {
+  opacity: 0.7;
+}
+.icon-image.data-v-3067495b {
+  display: block;
+}
+@keyframes icon-spin-3067495b {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}

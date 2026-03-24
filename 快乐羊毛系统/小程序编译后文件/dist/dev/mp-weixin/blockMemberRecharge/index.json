@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "各大会员充值优惠",
+  "usingComponents": {
+    "icon": "../components/Icon/Icon"
+  }
+}

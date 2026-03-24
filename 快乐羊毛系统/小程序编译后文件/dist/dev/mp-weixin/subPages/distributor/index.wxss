@@ -1,0 +1,118 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.distributor-page.data-v-44bf8298 {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+.profile-banner-container.data-v-44bf8298 {
+  position: relative;
+  height: 510rpx;
+}
+.profile-banner.data-v-44bf8298 {
+  background: linear-gradient(to bottom, #ff4757 0%, #e57f8f 100%);
+  height: 350rpx;
+  display: flex;
+}
+.profile-banner .profile-banner-left.data-v-44bf8298 {
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  height: 50%;
+}
+.profile-banner .profile-banner-left .profile-left .avatar.data-v-44bf8298 {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+}
+.profile-banner .profile-banner-left .profile-center.data-v-44bf8298 {
+  flex: 1;
+  margin-left: 30rpx;
+}
+.profile-banner .profile-banner-left .profile-center .distributor-name.data-v-44bf8298 {
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+.profile-banner .profile-banner-left .profile-center .agent-info.data-v-44bf8298 {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+.quick-access.data-v-44bf8298 {
+  display: flex;
+  padding: 40rpx 30rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  margin: 20rpx;
+  flex-wrap: wrap;
+}
+.quick-access .access-item.data-v-44bf8298 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.quick-access .access-item .access-icon.data-v-44bf8298 {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #ff4757;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+}
+.quick-access .access-item .access-icon.earnings-icon .yuan-symbol.data-v-44bf8298 {
+  font-size: 48rpx;
+  color: #fff;
+  font-weight: 600;
+}
+.quick-access .access-item .access-icon.invitations-icon .plus-symbol.data-v-44bf8298 {
+  font-size: 48rpx;
+  color: #fff;
+  font-weight: 600;
+}
+.quick-access .access-item .access-icon.wallet-icon.data-v-44bf8298 {
+  background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIwIDEwQzE1IDIwIDEwIDI1IDEwIDMwUzE1IDQwIDIwIDQwUzMwIDM1IDMwIDMwUzI1IDIwIDIwIDEwWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==") no-repeat center;
+  background-size: 60%;
+}
+.quick-access .access-item .access-text.data-v-44bf8298 {
+  font-size: 26rpx;
+  color: #333;
+}
+.performance-card.data-v-44bf8298 {
+  background: #fff;
+  margin: 20rpx;
+  padding: 40rpx 30rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  top: 195rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.performance-card .performance-row.data-v-44bf8298 {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.performance-card .performance-row.data-v-44bf8298:last-child {
+  margin-bottom: 0;
+}
+.performance-card .performance-row .performance-item.data-v-44bf8298 {
+  flex: 1;
+}
+.performance-card .performance-row .performance-item .performance-label.data-v-44bf8298 {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+}
+.performance-card .performance-row .performance-item .performance-value.data-v-44bf8298 {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 600;
+}

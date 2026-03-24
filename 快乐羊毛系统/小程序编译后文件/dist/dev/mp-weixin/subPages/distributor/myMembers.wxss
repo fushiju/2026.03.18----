@@ -1,0 +1,72 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.members-page.data-v-ea069fbe {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding-bottom: 40rpx;
+}
+.list-wrap.data-v-ea069fbe {
+  padding: 20rpx;
+}
+.member-item.data-v-ea069fbe {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.02);
+}
+.member-item.data-v-ea069fbe:active {
+  background-color: #fafafa;
+}
+.avatar.data-v-ea069fbe {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-color: #eee;
+}
+.info.data-v-ea069fbe {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.name.data-v-ea069fbe {
+  font-size: 30rpx;
+  color: #323233;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.desc.data-v-ea069fbe {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #969799;
+}
+
+/* 空状态 */
+.empty-box.data-v-ea069fbe {
+  padding-top: 200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.empty-box .empty-img.data-v-ea069fbe {
+  width: 240rpx;
+  height: 240rpx;
+}
+.empty-box .empty-text.data-v-ea069fbe {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+.load-status.data-v-ea069fbe {
+  text-align: center;
+  padding: 30rpx 0;
+  font-size: 24rpx;
+  color: #bbb;
+}

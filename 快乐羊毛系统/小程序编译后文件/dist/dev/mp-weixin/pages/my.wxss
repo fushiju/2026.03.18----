@@ -1,0 +1,155 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.my.data-v-fd023593 {
+  width: 100%;
+}
+.my .setting.data-v-fd023593 {
+  margin-right: 180rpx;
+  display: flex;
+  align-items: center;
+}
+.my .setting .space.data-v-fd023593 {
+  width: 20rpx;
+}
+.my .avatarBox.data-v-fd023593 {
+  background: linear-gradient(to bottom, #1d1e22, #888888);
+  width: 100vw;
+  height: 240rpx;
+  padding: 20rpx 30rpx 80rpx;
+  box-sizing: border-box;
+}
+.my .avatarBox .avatar.data-v-fd023593 {
+  display: flex;
+  align-items: center;
+}
+.my .avatarBox .avatar image.data-v-fd023593 {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.my .avatarBox .avatarName.data-v-fd023593 {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  margin-left: 20rpx;
+}
+.my .avatarBox .avatarName .name.data-v-fd023593 {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 18rpx;
+}
+.my .avatarBox .avatarName .id.data-v-fd023593 {
+  font-size: 22rpx;
+}
+.my .myyue.data-v-fd023593 {
+  background: #ffffff;
+  width: 90vw;
+  border-radius: 20rpx;
+  margin: -80rpx auto 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.my .myyue .right-title .wdye.data-v-fd023593 {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+}
+.my .myyue .right-title .price.data-v-fd023593 {
+  display: flex;
+  align-items: baseline;
+}
+.my .myyue .right-title .price .money.data-v-fd023593 {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #333;
+}
+.my .myyue .right-title .price .yue.data-v-fd023593 {
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 4rpx;
+}
+.my .myyue .left-btn .btn.data-v-fd023593 {
+  background: linear-gradient(135deg, #ff6b6b, #ff5252);
+  color: #fff;
+  font-size: 28rpx;
+  padding: 20rpx 40rpx;
+  border-radius: 50rpx;
+  white-space: nowrap;
+  box-shadow: 0 8rpx 16rpx rgba(255, 82, 82, 0.3);
+}
+.my .myOrder.data-v-fd023593 {
+  background: #ffffff;
+  width: 90vw;
+  border-radius: 20rpx;
+  margin: -80rpx auto 100rpx;
+  padding: 24rpx 0;
+}
+.my .myOrder .title.data-v-fd023593 {
+  padding: 0 24rpx;
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+  color: #333;
+  font-weight: bold;
+}
+.my .myOrder .main.data-v-fd023593 {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rpx;
+  padding: 0 24rpx;
+}
+.my .myOrder .main .item.data-v-fd023593 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.my .myOrder .main .item .icon.data-v-fd023593 {
+  width: 46rpx;
+  height: 46rpx;
+}
+.my .myOrder .main .item .text.data-v-fd023593 {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+  color: #333;
+  white-space: nowrap;
+}
+.my .myBox.data-v-fd023593 {
+  background: #ffffff;
+  width: 90vw;
+  border-radius: 20rpx;
+  margin: -80rpx auto 0;
+  padding: 24rpx 0;
+}
+.my .myBox .title.data-v-fd023593 {
+  padding: 0 24rpx;
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+  color: #333;
+  font-weight: bold;
+}
+.my .myBox .main.data-v-fd023593 {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+.my .myBox .main .item.data-v-fd023593 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.my .myBox .main .item .icon.data-v-fd023593 {
+  width: 46rpx;
+  height: 46rpx;
+}
+.my .myBox .main .item .text.data-v-fd023593 {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+  color: #333;
+}

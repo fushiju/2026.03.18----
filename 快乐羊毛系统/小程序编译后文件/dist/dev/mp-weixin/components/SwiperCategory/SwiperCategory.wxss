@@ -1,0 +1,53 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.icon-swiper.data-v-946d2e8c {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.icon-swiper .swiper-container .icon-grid.data-v-946d2e8c {
+  display: grid;
+  grid-template-columns: repeat(var(--835a1be0), 1fr);
+  gap: 40rpx;
+  align-items: center;
+  justify-items: center;
+}
+.icon-swiper .swiper-container .icon-grid .icon-item.data-v-946d2e8c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon-swiper .swiper-container .icon-grid .icon-item .icon-image.data-v-946d2e8c {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+  margin-bottom: 10rpx;
+  background: #dbdbdb;
+}
+.icon-swiper .swiper-container .icon-grid .icon-item .icon-text.data-v-946d2e8c {
+  font-size: 24rpx;
+  white-space: nowrap;
+  color: #333;
+}
+.icon-swiper .swiper-container .icon-grid .icon-item .act.data-v-946d2e8c {
+  color: #ebaf4f !important;
+}
+.icon-swiper .indicator.data-v-946d2e8c {
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+.icon-swiper .indicator .dot.data-v-946d2e8c {
+  width: 20rpx;
+  height: 4rpx;
+  background-color: #ccc;
+  margin: 0 10rpx;
+  transition: background-color 0.3s;
+}
+.icon-swiper .indicator .dot.active.data-v-946d2e8c {
+  background-color: #e5b061;
+  width: 50rpx;
+  height: 4rpx;
+}

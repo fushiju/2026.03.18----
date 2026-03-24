@@ -1,0 +1,99 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.list .exchange.data-v-194cef6b {
+  font-size: 24rpx;
+  color: #2babeb;
+  margin-right: 168rpx;
+  white-space: nowrap;
+}
+.list .tab.data-v-194cef6b {
+  width: 100vw;
+  position: fixed;
+}
+.list .item.data-v-194cef6b {
+  margin: 20rpx;
+  border-radius: 20rpx;
+}
+.list .item .couponContent.data-v-194cef6b {
+  display: flex;
+  align-items: center;
+  background: #e4e4e4;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
+}
+.list .item .couponContent .tagsIcon.data-v-194cef6b {
+  position: absolute;
+  top: 20rpx;
+  right: 0;
+  width: 100rpx;
+  height: 100rpx;
+  background: #e4e4e4;
+  border-radius: 10rpx;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.list .item .couponContent .discount.data-v-194cef6b {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.list .item .couponContent .discount .desc.data-v-194cef6b {
+  font-size: 26rpx;
+  color: #adabab;
+  font-weight: bold;
+}
+.list .item .couponContent .couponDetail.data-v-194cef6b {
+  margin-left: 40rpx;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list .item .couponContent .couponDetail .couponName.data-v-194cef6b {
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #adabab;
+}
+.list .item .couponContent .couponDetail .time.data-v-194cef6b {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #adabab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list .item .otherInfo.data-v-194cef6b {
+  background: #e4e4e4;
+  border-top: none;
+  border-radius: 20rpx;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  font-size: 24rpx;
+  color: #adabab;
+  padding: 8rpx 16rpx;
+}
+.list .placeholder.data-v-194cef6b {
+  height: 120rpx;
+}
+.list .bottomBtnGroup.data-v-194cef6b {
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list .bottomBtnGroup .btn.data-v-194cef6b {
+  width: 50%;
+  text-align: center;
+  font-size: 26rpx;
+  color: #8f8f8f;
+}

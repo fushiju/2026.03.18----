@@ -1,0 +1,112 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.ShopBlock.data-v-f652b11a {
+  border-radius: 10rpx;
+}
+.ShopBlock .pic.data-v-f652b11a {
+  height: 340rpx;
+}
+.ShopBlock .pic image.data-v-f652b11a {
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx 20rpx 0 0;
+}
+.ShopBlock .shopInfo.data-v-f652b11a {
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 0 0 20rpx 20rpx;
+}
+.ShopBlock .shopInfo .name.data-v-f652b11a {
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+.ShopBlock .shopInfo .tag.data-v-f652b11a {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.ShopBlock .shopInfo .tag .low.data-v-f652b11a {
+  font-size: 20rpx;
+  background: #ffdbb1;
+  color: #c28947;
+  border-radius: 20rpx;
+  padding: 2rpx 16rpx;
+  margin-right: 10rpx;
+}
+.ShopBlock .shopInfo .tag .other.data-v-f652b11a {
+  font-size: 20rpx;
+  border: 1rpx solid #d93e22;
+  color: #d93e22;
+  border-radius: 8rpx;
+  padding: 2rpx 16rpx;
+  margin-right: 10rpx;
+}
+.ShopBlock .shopInfo .tag .brand.data-v-f652b11a {
+  font-size: 20rpx;
+  background: #ffdbd4;
+  color: #d93e22;
+  border-radius: 20rpx;
+  padding: 2rpx 16rpx;
+  margin-right: 10rpx;
+}
+.ShopBlock .shopInfo .tag .backPrice.data-v-f652b11a {
+  display: inline-flex;
+  align-items: center;
+  background: #f9df9d;
+  color: #333;
+  font-size: 20rpx;
+  border-radius: 8rpx;
+  padding-right: 10rpx;
+}
+.ShopBlock .shopInfo .tag .backPrice .left.data-v-f652b11a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rpx;
+  height: 36rpx;
+  border-radius: 0 10rpx 0 0;
+  color: #333;
+  color: #eecd7b;
+  padding: 0 6rpx;
+  margin-right: 6rpx;
+}
+.ShopBlock .shopInfo .price.data-v-f652b11a {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.ShopBlock .shopInfo .price .sheng.data-v-f652b11a {
+  background: #ea7c5a;
+  font-size: 24rpx;
+  font-weight: bold;
+  border-radius: 5rpx;
+  padding: 2rpx 8rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  transform: skewX(-10deg);
+  border-left: 2rpx solid #ea7c5a;
+  margin-left: 20rpx;
+}
+.ShopBlock .shopInfo .alreadySale.data-v-f652b11a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ShopBlock .shopInfo .alreadySale .price.data-v-f652b11a {
+  font-size: 24rpx;
+  text-decoration: line-through;
+  color: #999;
+}
+.ShopBlock .shopInfo .alreadySale .num.data-v-f652b11a {
+  font-size: 24rpx;
+  text-decoration: line-through;
+  color: #999;
+}

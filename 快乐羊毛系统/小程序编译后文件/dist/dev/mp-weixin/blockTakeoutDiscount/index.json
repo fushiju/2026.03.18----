@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "外卖红包",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 150,
+  "usingComponents": {
+    "swiper-category": "../components/SwiperCategory/SwiperCategory"
+  }
+}

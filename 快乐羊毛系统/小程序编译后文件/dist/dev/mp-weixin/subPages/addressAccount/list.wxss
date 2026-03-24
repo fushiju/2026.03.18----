@@ -1,0 +1,87 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.address-list {
+  padding: 24rpx;
+  min-height: 100vh;
+  position: relative;
+}
+.address-list .item {
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.address-list .item .top {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+}
+.address-list .item .top .info {
+  flex: 1;
+  margin-left: 24rpx;
+}
+.address-list .item .top .info .name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.address-list .item .top .info .name .title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: 24rpx;
+  margin-right: 24rpx;
+}
+.address-list .item .top .info .name .phone {
+  color: 24rpx;
+  font-size: 24rpx;
+}
+.address-list .item .top .info .address {
+  color: 20rpx;
+  font-size: 20rpx;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.address-list .item .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 32rpx;
+}
+.address-list .item .bottom .btn {
+  display: flex;
+  gap: 32rpx;
+}
+.address-list .item .bottom .btn view {
+  font-size: 24rpx;
+  padding: 12rpx 24rpx;
+  border-radius: 12rpx;
+}
+.address-list .item .bottom .btn view:nth-child(1) {
+  color: #ff4d4f;
+  background-color: #fff1f0;
+}
+.address-list .item .bottom .btn view:nth-child(2) {
+  color: #1890ff;
+  background-color: #e6f7ff;
+}
+.address-list .add {
+  width: 80%;
+  height: 60rpx;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9be5f;
+  position: absolute;
+  bottom: 120rpx;
+  left: 50%;
+  margin-left: -40%;
+}

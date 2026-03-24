@@ -1,0 +1,204 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.selBoxs .swiper.data-v-3a02fc60 {
+  padding: 20rpx;
+  width: 100%;
+  height: 340rpx;
+  box-sizing: border-box;
+}
+.selBoxs .swiper swiper-item.data-v-3a02fc60 {
+  width: 640rpx !important;
+  border-right: 20rpx solid #ededed;
+}
+.selBoxs .swiper swiper-item .item.data-v-3a02fc60 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selBoxs .swiper swiper-item .item.data-v-3a02fc60::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-img);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(40rpx);
+  z-index: 1;
+}
+.selBoxs .swiper swiper-item .item .content.data-v-3a02fc60 {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  padding: 20rpx;
+}
+.selBoxs .swiper swiper-item .item .content image.data-v-3a02fc60 {
+  width: 200rpx;
+  height: 270rpx;
+  border-radius: 10rpx;
+}
+.selBoxs .swiper swiper-item .item .content .detail.data-v-3a02fc60 {
+  color: #fff;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 420rpx;
+}
+.selBoxs .swiper swiper-item .item .content .detail .rating.data-v-3a02fc60 {
+  display: flex;
+}
+.selBoxs .swiper swiper-item .item .content .detail .rating .w.data-v-3a02fc60 {
+  color: #e43737;
+  font-weight: bold;
+  margin-left: 10rpx;
+}
+.selBoxs .swiper swiper-item .item .content .detail .rating .l.data-v-3a02fc60 {
+  margin-right: 10rpx;
+}
+.selBoxs .swiper swiper-item .item .content .detail .rating .r.data-v-3a02fc60 {
+  margin-left: 10rpx;
+}
+.selBoxs .swiper swiper-item .item .content .detail .info .director.data-v-3a02fc60 {
+  margin-bottom: 10rpx;
+}
+.selBoxs .swiper swiper-item .item .content .detail .info .actor.data-v-3a02fc60 {
+  margin-bottom: 10rpx;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.selBoxs .selBox.data-v-3a02fc60 {
+  width: 100%;
+  background: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  box-sizing: border-box;
+}
+.selBoxs .selBox .sel.data-v-3a02fc60 {
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 20rpx 20rpx 0 0;
+}
+.selBoxs .selBox .sel .timelist-scroll.data-v-3a02fc60 {
+  width: 100%;
+  height: 50rpx;
+  white-space: nowrap;
+}
+.selBoxs .selBox .sel .timelist-scroll .timelist.data-v-3a02fc60 {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  height: 50rpx;
+}
+.selBoxs .selBox .sel .timelist-scroll .timelist .act.data-v-3a02fc60 {
+  color: #ffdca3 !important;
+  font-weight: bold;
+}
+.selBoxs .selBox .sel .timelist-scroll .timelist .tabItem.data-v-3a02fc60 {
+  white-space: nowrap;
+  color: #999;
+  font-size: 24rpx;
+  margin: 0 20rpx;
+  padding-bottom: 14rpx;
+}
+.selBoxs .selBox .sel .timelist-scroll .timelist .tabItem.data-v-3a02fc60:last-child {
+  margin-right: 0;
+}
+.selBoxs .selBox .sel .timelist-scroll .timelist .tabItem.data-v-3a02fc60:first-child {
+  margin-left: 0;
+}
+.selBoxs .selBox .sel .selCinema.data-v-3a02fc60 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.selBoxs .selBox .sel .selCinema .left.data-v-3a02fc60 {
+  display: flex;
+  align-items: center;
+}
+.selBoxs .selBox .sel .selCinema .left .city.data-v-3a02fc60,
+.selBoxs .selBox .sel .selCinema .left .district.data-v-3a02fc60 {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+}
+.selBoxs .selBox .searchCinemaBox.data-v-3a02fc60 {
+  display: flex;
+  align-items: center;
+}
+.selBoxs .selBox .searchCinemaBox .searchCinema.data-v-3a02fc60 {
+  width: 360rpx;
+  border: 1rpx solid #ededed;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  color: #999;
+  padding-left: 24rpx;
+}
+.selBoxs .selBox .searchCinemaBox .text.data-v-3a02fc60 {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 20rpx;
+}
+.selBoxs .selBox .cinemaList.data-v-3a02fc60 {
+  margin-top: 20rpx;
+}
+.selBoxs .selBox .cinemaList .item.data-v-3a02fc60 {
+  border-radius: 10rpx;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ededed;
+}
+.selBoxs .selBox .cinemaList .item.data-v-3a02fc60:last-child {
+  border-bottom: none;
+}
+.selBoxs .selBox .cinemaList .item.data-v-3a02fc60:first-child {
+  padding-top: 0;
+}
+.selBoxs .selBox .cinemaList .item .name.data-v-3a02fc60 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.selBoxs .selBox .cinemaList .item .name .n.data-v-3a02fc60 {
+  font-size: 24rpx;
+  color: #333;
+}
+.selBoxs .selBox .cinemaList .item .name .price.data-v-3a02fc60 {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.selBoxs .selBox .cinemaList .item .name .price .text.data-v-3a02fc60 {
+  margin-left: 10rpx;
+  color: #999;
+  font-size: 20rpx;
+}
+.selBoxs .selBox .cinemaList .item .info.data-v-3a02fc60 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.selBoxs .selBox .cinemaList .item .info .address.data-v-3a02fc60 {
+  font-size: 20rpx;
+  color: #999;
+}
+.selBoxs .selBox .cinemaList .item .info .distance.data-v-3a02fc60 {
+  font-size: 20rpx;
+  color: #999;
+}

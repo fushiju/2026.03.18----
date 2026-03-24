@@ -1,0 +1,179 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.list .search-header.data-v-24e41399 {
+  width: 440rpx;
+  margin-left: -144rpx;
+}
+.list .search-header input.data-v-24e41399 {
+  background: #efefef;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  text-align: left;
+  padding-left: 26rpx;
+}
+.list .tab.data-v-24e41399 {
+  width: 100vw;
+  height: 90rpx;
+  position: fixed;
+  padding: 20rpx;
+  box-sizing: border-box;
+  top: 0;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10rpx 5rpx #efefef;
+}
+.list .tab .item.data-v-24e41399 {
+  font-size: 24rpx;
+  color: #5a5a5a;
+}
+.list .tab .act.data-v-24e41399 {
+  color: #f9be5f;
+  font-weight: bold;
+}
+.list .box.data-v-24e41399 {
+  margin-top: 104rpx;
+}
+.list .box .item.data-v-24e41399 {
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+.list .box .item .brandName.data-v-24e41399 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.list .box .item .brandName .left.data-v-24e41399 {
+  width: 300rpx;
+  display: block;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.list .box .item .brandName .right.data-v-24e41399 {
+  font-size: 26rpx;
+  color: #ea4e4e;
+}
+.list .box .item .orderInfo.data-v-24e41399 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.list .box .item .orderInfo .img.data-v-24e41399 {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+}
+.list .box .item .orderInfo .info.data-v-24e41399 {
+  height: 180rpx;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 24rpx;
+}
+.list .box .item .orderInfo .info .orderName.data-v-24e41399 {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.list .box .item .orderInfo .info .orderType.data-v-24e41399 {
+  background: #f9be5f;
+  color: #fff;
+  padding: 5rpx 18rpx;
+  border-radius: 10rpx;
+}
+.list .box .item .orderInfo .info .orderTime.data-v-24e41399 {
+  color: #999;
+}
+.list .box .item .orderInfo .info .useTime.data-v-24e41399 {
+  color: #999;
+}
+.list .box .item .price.data-v-24e41399 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+}
+.list .box .item .btnGroup.data-v-24e41399 {
+  display: flex;
+  justify-content: flex-end;
+}
+.list .box .item .btnGroup .btn.data-v-24e41399 {
+  font-size: 24rpx;
+  padding: 10rpx 24rpx;
+  border: 1rpx solid #333;
+  border-radius: 30rpx;
+  margin: 0 10rpx;
+}
+.list .box .item .btnGroup .btn.data-v-24e41399:last-child {
+  margin-right: 0;
+}
+.list .box .item .btnGroup .full.data-v-24e41399 {
+  border: none;
+  background: linear-gradient(145deg, #291507, #86582a);
+  color: #faf0d3;
+}
+.list .box .loadingText.data-v-24e41399 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx 0;
+  color: #999;
+  font-size: 26rpx;
+}
+.list .box .loadingText .loadingIcon.data-v-24e41399 {
+  width: 30rpx;
+  height: 30rpx;
+  border: 3rpx solid #e0e0e0;
+  border-top-color: #f9be5f;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  animation: spin 1s linear infinite;
+}
+.list .box .noMoreText.data-v-24e41399 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx 0;
+  color: #999;
+  font-size: 26rpx;
+}
+.list .box .empty.data-v-24e41399 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 200rpx 0;
+  flex-direction: column;
+}
+.list .box .empty .empty-img.data-v-24e41399 {
+  width: 240rpx;
+  height: 240rpx;
+}
+.list .box .empty .emptyText.data-v-24e41399 {
+  margin-top: 20rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+.list .custom-content.data-v-24e41399 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.list .custom-content .icon.data-v-24e41399 {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.list .custom-content .text.data-v-24e41399 {
+  margin-top: 8rpx;
+  font-size: 20rpx;
+}

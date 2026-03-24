@@ -1,0 +1,33 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.price-display.data-v-fb9211fe {
+  display: flex;
+  align-items: baseline;
+  justify-content: var(--51b4179d);
+  flex-wrap: wrap;
+  line-height: 1.2;
+}
+.price-display .price-symbol.data-v-fb9211fe {
+  margin-right: 4rpx;
+}
+.price-display .price-integer.data-v-fb9211fe {
+  font-family: "Arial", sans-serif;
+}
+.price-display .price-decimal.data-v-fb9211fe {
+  font-family: "Arial", sans-serif;
+}
+.price-display .price-unit.data-v-fb9211fe {
+  opacity: 0.9;
+}
+.price-display .price-original.data-v-fb9211fe {
+  opacity: 0.7;
+}
+.price-display .discount-tag .discount-text.data-v-fb9211fe {
+  color: var(--8e57598c);
+  font-size: var(--5efe2a0e);
+  font-weight: bold;
+  line-height: 1;
+  white-space: nowrap;
+}

@@ -1,0 +1,233 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.orderDetail.data-v-2761906a {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f6f4f2;
+}
+.content.data-v-2761906a {
+  width: 92%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  margin-top: 30rpx;
+  position: relative;
+}
+.zuoyuan.data-v-2761906a {
+  position: absolute;
+  bottom: 296rpx;
+  left: 20rpx;
+  margin-top: -20rpx;
+  content: "";
+  width: 32rpx;
+  height: 32rpx;
+  background-color: #f6f4f2;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  left: -19rpx;
+}
+.youyuan.data-v-2761906a {
+  position: absolute;
+  bottom: 296rpx;
+  margin-top: -20rpx;
+  content: "";
+  width: 32rpx;
+  height: 32rpx;
+  background-color: #f6f4f2;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  right: -16rpx;
+}
+.card.data-v-2761906a {
+  background: #fff;
+  padding: 28rpx;
+}
+
+/* 电影信息卡片 */
+.movie-card.data-v-2761906a {
+  border-bottom: 1px #eee dotted;
+}
+.movie-card .movie-info.data-v-2761906a {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+}
+.movie-card .dyimg.data-v-2761906a {
+  width: 140rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  flex-shrink: 0;
+}
+.movie-card .dyimg .poster.data-v-2761906a {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.movie-card .movie-detail.data-v-2761906a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+.movie-card .movie-name.data-v-2761906a {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #222;
+}
+.movie-card .movie-time.data-v-2761906a {
+  font-size: 22rpx;
+  color: #333;
+  font-weight: 500;
+}
+.movie-card .cinema-name.data-v-2761906a {
+  font-size: 22rpx;
+  color: #555;
+}
+.movie-card .hall-info-content.data-v-2761906a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  align-items: center;
+}
+.movie-card .hall-info-content .hall-info.data-v-2761906a {
+  font-size: 20rpx;
+  color: #333;
+  font-weight: 600;
+}
+.movie-card .hall-info-content .seat-tags.data-v-2761906a {
+  display: flex;
+  flex-direction: row;
+  gap: 10rpx;
+}
+.movie-card .hall-info-content .seat-tag.data-v-2761906a {
+  background: #ffe3dd;
+  color: #ff471f;
+  font-size: 20rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 5rpx;
+  font-weight: 550;
+}
+
+/* 待支付状态 */
+.status-card.data-v-2761906a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 41px 0 62px 0;
+  border-bottom: 2px solid #f1f1f1;
+  width: 92%;
+  margin: 0 auto;
+}
+.status-card .status-img.data-v-2761906a {
+  width: 260rpx;
+  height: 260rpx;
+  margin-bottom: 20rpx;
+}
+.status-card .status-title.data-v-2761906a {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ff6b35;
+  margin-bottom: 12rpx;
+}
+.status-card .status-desc.data-v-2761906a {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 订单详情 */
+.detail-card .detail-title.data-v-2761906a {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+  display: block;
+  margin-bottom: 20rpx;
+}
+.detail-card .detail-row.data-v-2761906a {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+}
+.detail-card .detail-label.data-v-2761906a {
+  font-size: 26rpx;
+  white-space: nowrap;
+  font-weight: 550;
+  color: #666;
+  flex-shrink: 0;
+}
+.detail-card .detail-value.data-v-2761906a {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 550;
+  color: #666;
+  flex: 1;
+}
+.detail-card .detail-value.addr.data-v-2761906a {
+  line-height: 1.6;
+}
+.detail-card .copy-btn.data-v-2761906a {
+  font-size: 26rpx;
+  color: #ff471f;
+  margin-left: 16rpx;
+  font-weight: 550;
+  flex-shrink: 0;
+}
+
+/* 底部操作栏 */
+.bottom-bar.data-v-2761906a {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 32rpx;
+  gap: 20rpx;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+.bottom-bar .action-btn.data-v-2761906a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+  width: 90rpx;
+}
+.bottom-bar .action-btn .action-icon.data-v-2761906a {
+  width: 56rpx;
+  height: 56rpx;
+}
+.bottom-bar .action-btn .action-text.data-v-2761906a {
+  font-size: 22rpx;
+  color: #666;
+}
+.bottom-bar .pay-btn.data-v-2761906a {
+  flex: 1;
+  background: #ff6b35;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 0;
+  width: 436rpx;
+  height: 75rpx;
+  border-radius: 46px;
+}
+.bottom-bar .pay-btn .pay-text.data-v-2761906a {
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.bottom-bar .pay-btn .pay-countdown.data-v-2761906a {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 24rpx;
+  margin-top: 4rpx;
+}

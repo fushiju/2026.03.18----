@@ -1,0 +1,52 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.detail.data-v-aa7cdea3 {
+  background: #fff;
+  padding: 20rpx;
+}
+.detail .item.data-v-aa7cdea3 {
+  margin-top: 20rpx;
+}
+.detail .item .title.data-v-aa7cdea3 {
+  font-size: 26rpx;
+  font-weight: bold;
+}
+.detail .item .value.data-v-aa7cdea3 {
+  font-size: 24rpx;
+  color: #a3a3a3;
+  margin-top: 8rpx;
+}
+.detail .item .t.data-v-aa7cdea3 {
+  display: inline-block;
+  padding: 6rpx 14rpx;
+  font-size: 24rpx;
+  color: #f1af45;
+  background: #ffefd6;
+  border-radius: 10rpx;
+}
+.detail .item .b.data-v-aa7cdea3 {
+  background: #eee;
+  padding: 20rpx;
+  color: #969696 !important;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+}
+.detail .item .pic.data-v-aa7cdea3 {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+.detail .item .pic image.data-v-aa7cdea3 {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+.detail .tip.data-v-aa7cdea3 {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 14rpx;
+}

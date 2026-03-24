@@ -1,0 +1,27 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.seat-selection.data-v-30c121e5 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.seat-selection .title.data-v-30c121e5 {
+  margin-right: 40rpx;
+}
+.seat-selection.data-v-30c121e5 {
+  /* 穿透修改：强制让 anil-seat 撑开 */
+}
+.seat-selection anil-seat.data-v-30c121e5 {
+  flex: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}

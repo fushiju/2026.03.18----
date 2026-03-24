@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "三万资料免费下载",
+  "usingComponents": {
+    "swiper-category": "../components/SwiperCategory/SwiperCategory",
+    "category": "../components/Category/Category"
+  }
+}

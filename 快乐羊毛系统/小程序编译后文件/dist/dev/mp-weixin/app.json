@@ -1,0 +1,121 @@
+{
+  "pages": [
+    "pages/index",
+    "pages/my"
+  ],
+  "subPackages": [
+    {
+      "root": "subPages",
+      "pages": [
+        "login",
+        "bindPhone",
+        "search/search",
+        "search/searchResult",
+        "order/list",
+        "order/detail",
+        "collect",
+        "distributor/index",
+        "distributor/invitation",
+        "distributor/myMembers",
+        "coupon/list",
+        "coupon/record",
+        "setting/list",
+        "webview",
+        "selCity",
+        "addressAccount/list",
+        "addressAccount/update",
+        "refund/apply",
+        "myPrice",
+        "refund/list",
+        "refund/detail",
+        "returnGoods/orderStatusDetail",
+        "complaints/complaints",
+        "complaints/list",
+        "complaints/detail",
+        "evaluate",
+        "alipay",
+        "car"
+      ]
+    },
+    {
+      "root": "blcokApplianceRebate",
+      "pages": [
+        "index",
+        "applicanceList"
+      ]
+    },
+    {
+      "root": "blcokDiscount",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "blockFreeSouce",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "blockMemberRecharge",
+      "pages": [
+        "index",
+        "recharge",
+        "orderConfirm"
+      ]
+    },
+    {
+      "root": "blockTakeoutDiscount",
+      "pages": [
+        "index",
+        "discountDetail"
+      ]
+    },
+    {
+      "root": "blockTaxi",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "endAgent",
+      "pages": [
+        "index",
+        "agent/index",
+        "order/list",
+        "addBrand/list",
+        "addBrand/add",
+        "order/ordertui"
+      ]
+    },
+    {
+      "root": "blockMovie",
+      "pages": [
+        "index",
+        "selCinema",
+        "selTime",
+        "seatSelection",
+        "myOrder",
+        "myOrders",
+        "orderDetail"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于获取周边服务"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "usingComponents": {}
+}

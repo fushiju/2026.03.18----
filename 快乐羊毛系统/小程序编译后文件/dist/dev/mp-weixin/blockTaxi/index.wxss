@@ -1,0 +1,62 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.taxi-page.data-v-a5a2e46e {
+  min-height: 100vh;
+  background-color: #f7f8fa;
+  padding: 20rpx;
+}
+.taxi-page .grid-box.data-v-a5a2e46e {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 20rpx 10rpx;
+  /* 如果想让宫格之间有细微间距，可以取消下面注释 */
+  /* grid-gap: 10rpx; */
+}
+.taxi-page .grid-box .grid-item.data-v-a5a2e46e {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 0;
+}
+.taxi-page .grid-box .grid-item.data-v-a5a2e46e:active {
+  background-color: #f2f3f5;
+  border-radius: 12rpx;
+}
+.taxi-page .grid-box .grid-item .image-wrapper.data-v-a5a2e46e {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.taxi-page .grid-box .grid-item .image-wrapper .item-image.data-v-a5a2e46e {
+  width: 100%;
+  height: 100%;
+  border: 1rpx solid #E5E5E5;
+  border-radius: 10rpx;
+}
+.taxi-page .grid-box .grid-item .item-title.data-v-a5a2e46e {
+  font-size: 26rpx;
+  color: #323233;
+  font-weight: 400;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.taxi-page .grid-box .empty-page.data-v-a5a2e46e {
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+}

@@ -1,0 +1,231 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.applyRefund.data-v-0b0e8c80 {
+  padding: 20rpx;
+}
+.applyRefund .goodsInfo.data-v-0b0e8c80 {
+  width: 100%;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.applyRefund .goodsInfo .orderNo.data-v-0b0e8c80 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20rpx;
+}
+.applyRefund .goodsInfo .orderNo .no.data-v-0b0e8c80 {
+  font-size: 24rpx;
+  color: #333;
+}
+.applyRefund .goodsInfo .orderNo .status.data-v-0b0e8c80 {
+  font-size: 24rpx;
+  color: #f9be5f;
+}
+.applyRefund .goodsInfo .info.data-v-0b0e8c80 {
+  border-top: 1rpx solid #ededed;
+  border-bottom: 1rpx solid #ededed;
+  padding: 10rpx 0;
+}
+.applyRefund .goodsInfo .info .item.data-v-0b0e8c80 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.applyRefund .goodsInfo .info .item.data-v-0b0e8c80:last-child {
+  margin-bottom: 0;
+}
+.applyRefund .goodsInfo .info .item image.data-v-0b0e8c80 {
+  width: 20%;
+  height: 130rpx;
+  border-radius: 20rpx;
+  margin: 0 20rpx;
+}
+.applyRefund .goodsInfo .info .item .goodsInfo.data-v-0b0e8c80 {
+  width: 80%;
+  height: 130rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.applyRefund .goodsInfo .info .item .goodsInfo .name.data-v-0b0e8c80 {
+  display: flex;
+  justify-content: space-between;
+}
+.applyRefund .goodsInfo .info .item .goodsInfo .name .text.data-v-0b0e8c80 {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+.applyRefund .goodsInfo .info .item .goodsInfo .name .num.data-v-0b0e8c80 {
+  font-size: 24rpx;
+  color: #999;
+}
+.applyRefund .goodsInfo .info .item .goodsInfo .type.data-v-0b0e8c80 {
+  width: 100rpx;
+  height: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20rpx;
+  background: #f9be5f;
+  color: #fff;
+  border-radius: 10rpx;
+}
+.applyRefund .goodsInfo .total.data-v-0b0e8c80 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+}
+.applyRefund .goodsInfo .total .tit.data-v-0b0e8c80 {
+  font-size: 24rpx;
+  color: #333;
+}
+.applyRefund .refundReason.data-v-0b0e8c80 {
+  width: 100%;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.applyRefund .refundReason .title.data-v-0b0e8c80 {
+  font-size: 34rpx;
+  color: 24rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.applyRefund .refundReason .box .item.data-v-0b0e8c80 {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  padding: 12rpx 0;
+}
+.applyRefund .refundReason .box .item .custom-radio.data-v-0b0e8c80 {
+  transform: scale(0.8);
+  transform-origin: left center;
+  margin-right: 8rpx;
+}
+.applyRefund .refundReason .box .item .label-text.data-v-0b0e8c80 {
+  flex: 1;
+}
+.applyRefund .refundReason .box .textarea.data-v-0b0e8c80 {
+  box-shadow: 0 0 8rpx 6rpx #ededed;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-top: 14rpx;
+}
+.applyRefund .refundReason .box .textarea textarea.data-v-0b0e8c80 {
+  color: #787878;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  height: 150rpx;
+}
+.applyRefund .refundReason .box .textarea text.data-v-0b0e8c80 {
+  color: #787878;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.applyRefund .updatePic.data-v-0b0e8c80 {
+  width: 100%;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.applyRefund .updatePic .tit.data-v-0b0e8c80 {
+  font-size: 34rpx;
+  color: 24rpx;
+  font-weight: bold;
+}
+.applyRefund .updatePic .box.data-v-0b0e8c80 {
+  margin-top: 20rpx;
+}
+.applyRefund .updatePic .box .notPic.data-v-0b0e8c80 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150rpx;
+  height: 150rpx;
+  background: #ededed;
+  font-size: 60rpx;
+  border-radius: 20rpx;
+  color: #afafaf;
+}
+.applyRefund .refundTip.data-v-0b0e8c80 {
+  width: 100%;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.applyRefund .refundTip .tit.data-v-0b0e8c80 {
+  font-size: 34rpx;
+  color: 24rpx;
+  font-weight: bold;
+}
+.applyRefund .refundTip .box.data-v-0b0e8c80 {
+  margin-top: 20rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.applyRefund .handly.data-v-0b0e8c80 {
+  height: 120rpx;
+  width: 100vw;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 20rpx;
+  box-sizing: border-box;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.applyRefund .handly .allSelBtn.data-v-0b0e8c80 {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.applyRefund .handly .left.data-v-0b0e8c80 {
+  display: flex;
+  align-items: center;
+}
+.applyRefund .handly .left .total.data-v-0b0e8c80 {
+  display: flex;
+  align-items: center;
+}
+.applyRefund .handly .left .total .num.data-v-0b0e8c80 {
+  font-size: 22rpx;
+  color: #999;
+}
+.applyRefund .handly .left .total .price.data-v-0b0e8c80 {
+  font-size: 24rpx;
+  margin-left: 12rpx;
+  display: flex;
+  align-items: center;
+}
+.applyRefund .handly .left .btn.data-v-0b0e8c80 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  background: #e4e4e4;
+  padding: 12rpx 20rpx;
+  margin-left: 20rpx;
+  border-radius: 50rpx;
+}
+.applyRefund .handly .left .btn.data-v-0b0e8c80:last-child {
+  background: #f9be5f;
+  color: #fff;
+}

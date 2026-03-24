@@ -1,0 +1,140 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.evaluate.data-v-148e7851 {
+  padding: 20rpx;
+}
+.evaluate .loading.data-v-148e7851 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 200rpx 0;
+  flex-direction: column;
+  color: #999;
+  font-size: 28rpx;
+}
+.evaluate .loading .loadingIcon.data-v-148e7851 {
+  width: 40rpx;
+  height: 40rpx;
+  border: 4rpx solid #e0e0e0;
+  border-top-color: #f9be5f;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+  animation: spin-148e7851 1s linear infinite;
+}
+@keyframes spin-148e7851 {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+.evaluate .card.data-v-148e7851 {
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+.evaluate .card .title.data-v-148e7851 {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #333;
+}
+.evaluate .card .main.data-v-148e7851 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.evaluate .card .main .goods.data-v-148e7851 {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+.evaluate .card .main .goods image.data-v-148e7851 {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+}
+.evaluate .card .main .goods .goodsInfo.data-v-148e7851 {
+  width: 145rpx;
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.evaluate .card .main .goods .goodsInfo .name .text.data-v-148e7851 {
+  width: 170rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.evaluate .card .main .goods .goodsInfo .type.data-v-148e7851 {
+  width: 100rpx;
+  height: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20rpx;
+  background: #f9be5f;
+  color: #fff;
+  border-radius: 10rpx;
+}
+.evaluate .card .textarea.data-v-148e7851 {
+  box-shadow: 0 0 8rpx 6rpx #ededed;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.evaluate .card .textarea textarea.data-v-148e7851 {
+  color: #787878;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  height: 150rpx;
+}
+.evaluate .card .textarea text.data-v-148e7851 {
+  color: #787878;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.evaluate .card .tagBox.data-v-148e7851 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+.evaluate .card .tagBox .item.data-v-148e7851 {
+  background: #ededed;
+  padding: 12rpx 24rpx;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  color: #787878;
+  transition: all 0.2s ease;
+  /* 添加：选中状态样式 */
+}
+.evaluate .card .tagBox .item.active.data-v-148e7851 {
+  background: #ff9800;
+  color: #fff;
+}
+.evaluate .btn.data-v-148e7851 {
+  background: #f9be5f;
+  width: 400rpx;
+  height: 60rpx;
+  border-radius: 50rpx;
+  color: #fff;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  margin-left: -200rpx;
+}

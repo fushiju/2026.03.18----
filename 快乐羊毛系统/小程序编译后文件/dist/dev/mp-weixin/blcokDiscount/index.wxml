@@ -1,0 +1,1 @@
+<view class="charging"><view class="chargingBox"><view wx:for="{{a}}" wx:for-item="item" wx:key="c" class="item" bindtap="{{item.d}}"><image src="{{item.a}}" mode="scaleToFill"/><view class="name">{{item.b}}</view></view></view></view>

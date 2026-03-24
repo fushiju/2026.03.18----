@@ -1,0 +1,110 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.image-uploader.data-v-d7109c73 {
+  padding: 20rpx;
+}
+.image-uploader .image-list.data-v-d7109c73 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+.image-uploader .image-list .image-item.data-v-d7109c73 {
+  position: relative;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+  background-color: #F5F5F5;
+}
+.image-uploader .image-list .image-item.upload-error.data-v-d7109c73 {
+  border: 2rpx solid #FF6B6B;
+}
+.image-uploader .image-list .image-item .preview-image.data-v-d7109c73 {
+  width: 100%;
+  height: 100%;
+}
+.image-uploader .image-list .image-item .uploading-mask.data-v-d7109c73 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx;
+}
+.image-uploader .image-list .image-item .uploading-mask .progress-text.data-v-d7109c73 {
+  color: #FFFFFF;
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+}
+.image-uploader .image-list .image-item .uploading-mask progress.data-v-d7109c73 {
+  width: 80%;
+}
+.image-uploader .image-list .image-item .error-mask.data-v-d7109c73 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.image-uploader .image-list .image-item .error-mask .retry-text.data-v-d7109c73 {
+  font-size: 20rpx;
+  color: #FF6B6B;
+  margin-top: 10rpx;
+}
+.image-uploader .image-list .image-item .delete-btn.data-v-d7109c73 {
+  position: absolute;
+  top: 4rpx;
+  right: 4rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.image-uploader .image-list .image-item .delete-btn.data-v-d7109c73:active {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.image-uploader .image-list .upload-btn.data-v-d7109c73 {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #F5F5F5;
+  border: 2rpx dashed #CCCCCC;
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image-uploader .image-list .upload-btn.data-v-d7109c73:active {
+  background-color: #EEEEEE;
+}
+.image-uploader .image-list .upload-btn .upload-text.data-v-d7109c73 {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 10rpx;
+}
+.image-uploader .error-msg.data-v-d7109c73 {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: #FFEEEE;
+  color: #FF6B6B;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+  text-align: center;
+}

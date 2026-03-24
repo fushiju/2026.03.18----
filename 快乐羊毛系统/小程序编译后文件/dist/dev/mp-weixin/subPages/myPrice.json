@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的余额",
+  "usingComponents": {
+    "icon": "../components/Icon/Icon",
+    "recharge-tab": "../pages/components/RechargeTab",
+    "consume-tab": "../pages/components/ConsumeTab"
+  }
+}

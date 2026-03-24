@@ -1,0 +1,63 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.login-container.data-v-9b9d0d4c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 40rpx;
+}
+.content.data-v-9b9d0d4c {
+  padding-top: 300rpx;
+  flex: 1;
+}
+.logo.data-v-9b9d0d4c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+.logo .logo-icon.data-v-9b9d0d4c {
+  width: 200rpx;
+  height: 200rpx;
+  background: #d7d7d7;
+  border-radius: 20rpx;
+}
+.title.data-v-9b9d0d4c {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.title text.data-v-9b9d0d4c {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+}
+.wechat-login-btn.data-v-9b9d0d4c {
+  width: 300rpx;
+  height: 80rpx;
+  background-color: #9c8976;
+  color: #fff;
+  border: none;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wechat-login-btn.data-v-9b9d0d4c:active {
+  opacity: 0.8;
+}
+.agreement.data-v-9b9d0d4c {
+  padding: 40rpx 0;
+  text-align: center;
+}
+.agreement text.data-v-9b9d0d4c {
+  font-size: 24rpx;
+  color: #999;
+}
+.agreement .agreement-link.data-v-9b9d0d4c {
+  color: #ed9e71;
+  font-size: 24rpx;
+}

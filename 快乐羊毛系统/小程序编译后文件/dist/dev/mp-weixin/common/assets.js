@@ -1,0 +1,15 @@
+"use strict";
+const _imports_0 = "/uni_modules/anil-seat/static/unselected.png";
+const _imports_1 = "/uni_modules/anil-seat/static/bought.png";
+const _imports_2 = "/uni_modules/anil-seat/static/selected.png";
+const _imports_3 = "/uni_modules/anil-seat/static/unselected-l.png";
+const _imports_4 = "/uni_modules/anil-seat/static/selected-l.png";
+const _imports_5 = "/uni_modules/anil-seat/static/unselected-r.png";
+const _imports_6 = "/uni_modules/anil-seat/static/selected-r.png";
+exports._imports_0 = _imports_0;
+exports._imports_1 = _imports_1;
+exports._imports_2 = _imports_2;
+exports._imports_3 = _imports_3;
+exports._imports_4 = _imports_4;
+exports._imports_5 = _imports_5;
+exports._imports_6 = _imports_6;

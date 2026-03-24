@@ -1,0 +1,473 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.orderList.data-v-85e738d6 {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.content.data-v-85e738d6 {
+  flex: 1;
+  padding: 20rpx 0rpx;
+  width: 92%;
+  margin: 0 auto;
+}
+.card.data-v-85e738d6 {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+/* 电影信息卡片 */
+.movie-card .movie-info.data-v-85e738d6 {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+}
+.movie-card .dyimg.data-v-85e738d6 {
+  width: 162rpx;
+  height: 236rpx;
+  border-radius: 10rpx;
+  flex-shrink: 0;
+}
+.movie-card .dyimg .poster.data-v-85e738d6 {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.movie-card .movie-detail.data-v-85e738d6 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+.movie-card .movie-header.data-v-85e738d6 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.movie-card .movie-name.data-v-85e738d6 {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #222;
+}
+.movie-card .countdown-badge.data-v-85e738d6 {
+  background: #ff6b35;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 82rpx;
+  height: 46rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 20rpx 0 0;
+  font-size: 20rpx;
+}
+.movie-card .zuoyuan.data-v-85e738d6 {
+  position: absolute;
+  bottom: 76rpx;
+  left: 20rpx;
+  margin-top: -20rpx;
+  content: "";
+  width: 32rpx;
+  height: 32rpx;
+  background-color: #f6f4f2;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  left: -19rpx;
+}
+.movie-card .youyuan.data-v-85e738d6 {
+  position: absolute;
+  bottom: 76rpx;
+  margin-top: -20rpx;
+  content: "";
+  width: 32rpx;
+  height: 32rpx;
+  background-color: #f6f4f2;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  right: -16rpx;
+}
+.movie-card .countdown-text.data-v-85e738d6 {
+  font-size: 22rpx;
+  color: #fff;
+}
+.movie-card .movie-time.data-v-85e738d6 {
+  font-size: 20rpx;
+  color: #999;
+}
+.movie-card .hall-info-content.data-v-85e738d6 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movie-card .hall-info-content .hall-info.data-v-85e738d6 {
+  font-size: 20rpx;
+  color: #333;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.movie-card .hall-info-content .seat-tags.data-v-85e738d6 {
+  display: flex;
+  flex-direction: row;
+  gap: 12rpx;
+  flex-wrap: wrap;
+}
+.movie-card .hall-info-content .seat-tag.data-v-85e738d6 {
+  background: #ffe3dd;
+  color: #ff471f;
+  font-size: 20rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 5rpx;
+  font-weight: 550;
+}
+.movie-card .cinema-name.data-v-85e738d6 {
+  font-size: 20rpx;
+  color: #999;
+}
+.movie-card .cinema-addr.data-v-85e738d6 {
+  font-size: 20rpx;
+  color: #999;
+  line-height: 1.5;
+}
+.movie-card .refund-tips.data-v-85e738d6 {
+  display: flex;
+  flex-direction: row;
+  gap: 30rpx;
+  margin-top: 24rpx;
+  padding-top: 27rpx;
+  border-top: 2px solid #f1f1f1;
+}
+.movie-card .tip-item.data-v-85e738d6 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6rpx;
+}
+.movie-card .tip-icon.data-v-85e738d6 {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  background: #ff6b35;
+  color: #fff;
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 28rpx;
+}
+.movie-card .tip-text.data-v-85e738d6 {
+  font-size: 26rpx;
+  color: #ff6b35;
+  font-weight: 500;
+}
+
+/* 特惠购票+票价合计 */
+.price-card .ticket-header.data-v-85e738d6 {
+  display: flex;
+  flex-direction: row;
+  gap: 12rpx;
+  margin-bottom: 16rpx;
+}
+.price-card .check-icon.data-v-85e738d6 {
+  width: 45rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: #ff6b35;
+  color: #fff;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 30rpx;
+  margin-top: 6rpx;
+}
+.price-card .ticket-title.data-v-85e738d6 {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+}
+.price-card .ticket-desc.data-v-85e738d6 {
+  font-size: 20rpx;
+  color: #666;
+  line-height: 1.8;
+  margin-top: 18rpx;
+}
+.price-card .highlight.data-v-85e738d6 {
+  color: #ff6b35;
+}
+.price-card .highlight-red.data-v-85e738d6 {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+.price-card .price-row.data-v-85e738d6 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+.price-card .price-row.total.data-v-85e738d6 {
+  padding-bottom: 16rpx;
+  margin-bottom: 8rpx;
+  border-top: 2rpx solid #f1f1f1;
+}
+.price-card .price-label.data-v-85e738d6 {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+}
+.price-card .price-label.sub.data-v-85e738d6 {
+  font-size: 24rpx;
+  font-weight: normal;
+  color: #666;
+}
+.price-card .price-value.data-v-85e738d6 {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+}
+.price-card .price-value.orange.data-v-85e738d6 {
+  color: #ff6b35;
+  font-size: 34rpx;
+}
+.price-card .price-value.sub.data-v-85e738d6 {
+  font-size: 24rpx;
+  font-weight: normal;
+  color: #333;
+}
+.price-card .price-value.discount.data-v-85e738d6 {
+  font-size: 24rpx;
+  color: #ff6b35;
+}
+.price-card .zuoyuan.data-v-85e738d6 {
+  position: absolute;
+  bottom: 197rpx;
+  left: 20rpx;
+  margin-top: -20rpx;
+  content: "";
+  width: 32rpx;
+  height: 32rpx;
+  background-color: #f6f4f2;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  left: -19rpx;
+}
+.price-card .youyuan.data-v-85e738d6 {
+  position: absolute;
+  bottom: 197rpx;
+  margin-top: -20rpx;
+  content: "";
+  width: 32rpx;
+  height: 32rpx;
+  background-color: #f6f4f2;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  right: -16rpx;
+}
+
+/* 手机号 */
+.phone-card.data-v-85e738d6 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.phone-card .phone-label.data-v-85e738d6 {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+}
+.phone-card .phone-input.data-v-85e738d6 {
+  background: #fff0eb;
+  border-radius: 10rpx;
+  padding: 12rpx 24rpx;
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+  width: 210rpx;
+}
+
+/* 自动换座 */
+.switch-card .switch-row.data-v-85e738d6 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.switch-card .switch-label.data-v-85e738d6 {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+}
+.switch-card .switch-desc.data-v-85e738d6 {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 购票须知 */
+.notice-card.data-v-85e738d6 {
+  margin-bottom: 20rpx;
+}
+.notice-card .notice-title.data-v-85e738d6 {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 16rpx;
+}
+.notice-card .notice-item.data-v-85e738d6 {
+  font-size: 22rpx;
+  color: #696969;
+  line-height: 1.8;
+  display: block;
+}
+.bottom-placeholder.data-v-85e738d6 {
+  height: 160rpx;
+}
+
+/* 底部支付栏 */
+.bottom-bar.data-v-85e738d6 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+.bottom-bar .total-price.data-v-85e738d6 {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #ff6b35;
+}
+.bottom-bar .pay-btn.data-v-85e738d6 {
+  background: #ff6b35;
+  border-radius: 50rpx;
+  padding: 20rpx 80rpx;
+}
+.bottom-bar .pay-text.data-v-85e738d6 {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+/* 购票须知弹框样式 */
+.notice-mask.data-v-85e738d6 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.notice-dialog.data-v-85e738d6 {
+  width: 600rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 40rpx 32rpx 32rpx;
+  position: relative;
+}
+.notice-title.data-v-85e738d6 {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 32rpx;
+}
+.notice-content.data-v-85e738d6 {
+  max-height: 600rpx;
+  overflow-y: auto;
+  margin-bottom: 32rpx;
+}
+.notice-item.data-v-85e738d6 {
+  display: flex;
+  line-height: 1.6;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #616161;
+  line-height: 2;
+  padding: 4rpx 0;
+}
+.notice-number.data-v-85e738d6 {
+  font-size: 26rpx;
+  color: #616161;
+  flex-shrink: 0;
+}
+.notice-text.data-v-85e738d6 {
+  font-size: 26rpx;
+  color: #616161;
+  flex: 1;
+}
+.highlight.data-v-85e738d6 {
+  color: #ff471f;
+  font-weight: 600;
+}
+.notice-checkbox.data-v-85e738d6 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32rpx;
+  padding: 5rpx 0;
+  justify-content: center;
+}
+.checkbox.data-v-85e738d6 {
+  width: 32rpx;
+  height: 32rpx;
+  border: 2rpx solid #ddd;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.checkbox.checked.data-v-85e738d6 {
+  background-color: #ff471f;
+  border-color: #ff471f;
+}
+.checkbox-icon.data-v-85e738d6 {
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: bold;
+}
+.checkbox-label.data-v-85e738d6 {
+  font-size: 24rpx;
+  color: #666;
+}
+.notice-buttons.data-v-85e738d6 {
+  margin-bottom: 20rpx;
+}
+.btn-continue.data-v-85e738d6 {
+  width: 100%;
+  height: 88rpx;
+  background: linear-gradient(135deg, #ff6a3c 0%, #ff471f 100%);
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: 600;
+}
+.btn-cancel.data-v-85e738d6 {
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  padding: 16rpx 0;
+}

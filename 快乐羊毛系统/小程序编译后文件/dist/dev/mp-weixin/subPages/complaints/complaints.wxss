@@ -1,0 +1,126 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.complaints.data-v-5710efb1 {
+  padding: 20rpx;
+}
+.complaints .card.data-v-5710efb1 {
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+.complaints .card .title.data-v-5710efb1 {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+.complaints .card .title .req.data-v-5710efb1 {
+  color: red;
+  margin-right: 10rpx;
+}
+.complaints .card .desc.data-v-5710efb1 {
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+.complaints .card .selType.data-v-5710efb1 {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+.complaints .card .selType .item.data-v-5710efb1 {
+  background: #ededed;
+  padding: 12rpx 24rpx;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  color: #787878;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 添加：选中状态样式 */
+}
+.complaints .card .selType .item.active.data-v-5710efb1 {
+  background: #ff9800;
+  color: #fff;
+}
+.complaints .card .orderNo.data-v-5710efb1 {
+  margin-top: 18rpx;
+  box-shadow: 0 0 8rpx 6rpx #ededed;
+  border-radius: 10rpx;
+  padding: 20rpx;
+}
+.complaints .card .orderNo input.data-v-5710efb1 {
+  color: #787878;
+  font-size: 24rpx;
+}
+.complaints .card .textarea.data-v-5710efb1 {
+  box-shadow: 0 0 8rpx 6rpx #ededed;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin: 20rpx 0;
+}
+.complaints .card .textarea textarea.data-v-5710efb1 {
+  color: #787878;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  height: 120rpx;
+}
+.complaints .card .textarea text.data-v-5710efb1 {
+  color: #787878;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.complaints .card .upload.data-v-5710efb1 {
+  margin-bottom: 20rpx;
+}
+.complaints .card .upload .pic.data-v-5710efb1,
+.complaints .card .upload .video.data-v-5710efb1 {
+  width: 180rpx;
+  height: 180rpx;
+  background: #f7f7f7;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.complaints .card .upload text.data-v-5710efb1 {
+  font-size: 24rpx;
+  color: #999;
+}
+.complaints .tip.data-v-5710efb1 {
+  font-size: 20rpx;
+  color: #f96c26;
+  margin: 20rpx 0;
+}
+.complaints .btnGroup.data-v-5710efb1 {
+  width: 100vw;
+  height: 120rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.complaints .btnGroup .btn.data-v-5710efb1 {
+  border: 1rpx solid #ccc;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  color: 24rpx;
+  padding: 24rpx 100rpx;
+}
+.complaints .btnGroup .btn.data-v-5710efb1:last-child {
+  background: #f9be5f;
+  color: #fff;
+  border: none;
+}

@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "选座",
+  "navigationStyle": "custom",
+  "componentPlaceholder": {
+    "anil-seat": "view"
+  },
+  "usingComponents": {
+    "navbar": "../components/NavBar/Navbar",
+    "icon": "../components/Icon/Icon",
+    "anil-seat": "../uni_modules/anil-seat/components/anil-seat/anil-seat"
+  }
+}

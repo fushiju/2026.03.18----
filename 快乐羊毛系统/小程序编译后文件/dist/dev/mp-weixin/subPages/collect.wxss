@@ -1,0 +1,42 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.collectIndex .box.data-v-7c26c8ea {
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+.collectIndex .box .item.data-v-7c26c8ea {
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.collectIndex .box .item image.data-v-7c26c8ea {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+}
+.collectIndex .box .item .info.data-v-7c26c8ea {
+  margin-left: 20rpx;
+  width: 75%;
+}
+.collectIndex .box .item .info .name.data-v-7c26c8ea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.collectIndex .box .item .info .name .left.data-v-7c26c8ea {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+.collectIndex .box .item .info .desc.data-v-7c26c8ea {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}

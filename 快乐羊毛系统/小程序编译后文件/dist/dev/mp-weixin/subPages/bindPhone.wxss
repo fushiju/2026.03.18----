@@ -1,0 +1,68 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.bindPhone.data-v-fd8f65c4 {
+  min-height: 100vh;
+  background: #fff !important;
+  padding: 40rpx;
+}
+.bindPhone .form-container.data-v-fd8f65c4 {
+  margin-top: 200rpx;
+  padding: 0 30rpx;
+}
+.bindPhone .form-container .title.data-v-fd8f65c4 {
+  font-size: 44rpx;
+  font-weight: bold;
+  margin-bottom: 70rpx;
+}
+.bindPhone .input-group.data-v-fd8f65c4 {
+  margin-bottom: 40rpx;
+}
+.bindPhone .error-tip.data-v-fd8f65c4 {
+  font-size: 22rpx;
+  color: #ff4d4f;
+  margin-top: -16rpx;
+  margin-bottom: 16rpx;
+  padding-left: 10rpx;
+}
+.bindPhone .input-item.data-v-fd8f65c4 {
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  margin-bottom: 20rpx;
+  padding: 20rpx 30rpx;
+  border-radius: 20rpx;
+}
+.bindPhone .input-item .input-field.data-v-fd8f65c4 {
+  flex: 1;
+  height: 60rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.bindPhone .input-item .input-field.verify-input.data-v-fd8f65c4 {
+  width: calc(100% - 200rpx);
+}
+.bindPhone .input-item .verify-code-wrapper.data-v-fd8f65c4 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.bindPhone .input-item .verify-code-wrapper .verify-btn.data-v-fd8f65c4 {
+  width: 180rpx;
+  height: 30rpx;
+  text-align: center;
+  color: #4e4e4e;
+  border-left: 1rpx solid #bbbbbb;
+  font-size: 24rpx;
+}
+.bindPhone .submit-btn.data-v-fd8f65c4 {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #9c8976;
+  color: #ffecd9;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+}

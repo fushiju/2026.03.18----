@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "price": "../components/Price/Price",
+    "icon": "../components/Icon/Icon"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "navbar": "../components/NavBar/Navbar",
+    "icon": "../components/Icon/Icon",
+    "checkbox": "../components/Checkbox/Checkbox",
+    "popup": "../components/Popup/Popup",
+    "price": "../components/Price/Price"
+  }
+}

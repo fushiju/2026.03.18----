@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "家电品牌",
+  "usingComponents": {
+    "category": "../components/Category/Category"
+  }
+}

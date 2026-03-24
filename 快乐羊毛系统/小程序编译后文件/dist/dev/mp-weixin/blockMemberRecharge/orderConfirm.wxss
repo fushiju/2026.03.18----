@@ -1,0 +1,396 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.orderConfirm {
+  padding: 20rpx;
+}
+.orderConfirm .vipInfo {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.orderConfirm .vipInfo image {
+  width: 100rpx;
+  height: 100rpx;
+}
+.orderConfirm .vipInfo .info {
+  margin-left: 30rpx;
+}
+.orderConfirm .vipInfo .info .title {
+  font-weight: bold;
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+}
+.orderConfirm .vipInfo .info .price {
+  color: #ff0000;
+  display: flex;
+  font-size: 34rpx;
+  font-weight: bold;
+  align-items: baseline;
+}
+.orderConfirm .vipInfo .info .price .unit {
+  font-size: 20rpx;
+  font-weight: 400;
+}
+.orderConfirm .phoneInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+}
+.orderConfirm .phoneInfo .tip {
+  display: flex;
+  align-items: baseline;
+}
+.orderConfirm .phoneInfo .tip .icon {
+  color: #b38246;
+  border: 1rpx solid #b38246;
+  font-size: 20rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.orderConfirm .phoneInfo .tip .text {
+  width: 90%;
+  font-size: 24rpx;
+  color: #b38246;
+  margin-left: 10rpx;
+}
+.orderConfirm .phoneInfo .phone {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-top: 20rpx;
+}
+.orderConfirm .discount {
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+}
+.orderConfirm .discount .cp,
+.orderConfirm .discount .ss {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.orderConfirm .discount .cp .title,
+.orderConfirm .discount .ss .title {
+  font-size: 24rpx;
+}
+.orderConfirm .discount .cp .content,
+.orderConfirm .discount .ss .content {
+  color: #ff0000;
+  font-size: 24rpx;
+}
+.orderConfirm .discount .cp {
+  margin-bottom: 30rpx;
+}
+.orderConfirm .discount .cp .content {
+  display: flex;
+}
+.orderConfirm .discount .cp .content .sel {
+  display: flex;
+  align-items: center;
+  background: #ffe0e0;
+  padding: 0 4rpx;
+  border-radius: 4rpx;
+  margin-right: 8rpx;
+  font-size: 20rpx;
+}
+.orderConfirm .discount .ss .title {
+  background-image: radial-gradient(circle, #945e08, #ffd99e, #ad8a53);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: flex;
+  align-items: center;
+}
+.orderConfirm .pay {
+  padding: 0 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+}
+.orderConfirm .pay .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #e9e9e9;
+  padding: 20rpx 0;
+}
+.orderConfirm .pay .item:last-child {
+  border-bottom: none;
+}
+.orderConfirm .pay .item .left {
+  display: flex;
+  align-items: center;
+}
+.orderConfirm .pay .item .left .icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+.orderConfirm .pay .item .left .name {
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+}
+.bottomPay {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+}
+.bottomPay .box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottomPay .box .left .total {
+  display: flex;
+  align-items: baseline;
+  font-size: 20rpx;
+  color: #868686;
+}
+.bottomPay .box .left .total .price {
+  display: flex;
+  font-size: 42rpx;
+  color: #ff0000;
+  font-weight: bold;
+  display: flex;
+  margin: 10rpx 0;
+  align-items: baseline;
+}
+.bottomPay .box .left .total .price .unit {
+  font-size: 28rpx;
+  font-weight: 100;
+}
+.bottomPay .box .left .discount {
+  font-size: 20rpx;
+  color: #868686;
+}
+.bottomPay .box .rightBtn {
+  display: flex;
+  align-items: center;
+}
+.bottomPay .box .rightBtn .detail {
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  color: #838383;
+}
+.bottomPay .box .rightBtn .btn {
+  background: #333;
+  color: #ffdc8f;
+  font-size: 24rpx;
+  padding: 20rpx 80rpx;
+  margin-left: 20rpx;
+  border-radius: 50rpx;
+}
+.subsidyPopup .title {
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+  padding: 30rpx 0 10rpx;
+}
+.subsidyPopup .content {
+  padding: 20rpx;
+  font-size: 24rpx;
+}
+.subsidyPopup .content view {
+  margin-bottom: 20rpx;
+}
+.subsidyPopup .content image {
+  height: 200rpx;
+  width: 100%;
+}
+.subsidyPopup .btn {
+  border-top: 1rpx solid #e6e6e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  padding: 20rpx;
+}
+.couponPopup {
+  margin-top: -50rpx;
+}
+.couponPopup .titleBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.couponPopup .titleBox .act {
+  font-weight: bold;
+  border-bottom: 4rpx solid #333 !important;
+}
+.couponPopup .titleBox .title {
+  font-size: 24rpx;
+  text-align: center;
+  padding: 30rpx 0 10rpx;
+  margin: 0 20rpx;
+  border-bottom: 4rpx solid #fff;
+}
+.couponPopup .content {
+  padding: 20rpx;
+  max-height: 60vh;
+  height: 60vh;
+  overflow-y: auto;
+}
+.couponPopup .content .item {
+  display: flex;
+  flex-direction: column;
+  border: 1rpx solid #dff5ff;
+  border-radius: 14rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.couponPopup .content .item .top {
+  display: flex;
+}
+.couponPopup .content .item .top .left {
+  background: #c0e8fb;
+  color: #145271;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20rpx;
+  width: 20%;
+}
+.couponPopup .content .item .top .left .price {
+  font-size: 38rpx;
+  display: flex;
+  align-items: baseline;
+}
+.couponPopup .content .item .top .left .price .unit {
+  font-size: 24rpx;
+}
+.couponPopup .content .item .top .left .desc {
+  font-size: 20rpx;
+}
+.couponPopup .content .item .top .right {
+  margin: 0 20rpx;
+  width: 80%;
+}
+.couponPopup .content .item .top .right .title {
+  display: flex;
+  align-items: center;
+}
+.couponPopup .content .item .top .right .title .type {
+  background: #b9def0;
+  color: #145271;
+  padding: 2rpx 6rpx;
+  font-size: 24rpx;
+}
+.couponPopup .content .item .top .right .title .t {
+  font-size: 24rpx;
+  font-weight: bold;
+  margin-left: 14rpx;
+}
+.couponPopup .content .item .top .right .time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.couponPopup .content .item .top .right .time .t {
+  font-size: 24rpx;
+  color: #3c3c3c;
+}
+.couponPopup .content .item .top .right .time .btn {
+  background: #87b7cf;
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 50rpx;
+  padding: 4rpx 14rpx;
+}
+.couponPopup .content .item .top .right .detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1rpx dotted #87b7cf;
+  padding: 10rpx 0;
+}
+.couponPopup .content .item .top .right .detail .t {
+  font-size: 24rpx;
+  color: #3c3c3c;
+}
+.couponPopup .content .item .bottom {
+  background: #dff5ff;
+  color: #6f6f6f;
+  font-size: 22rpx;
+  padding: 10rpx;
+}
+.couponPopup .content .item .circle {
+  width: 20rpx;
+  height: 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  position: absolute;
+}
+.couponPopup .content .item .cl {
+  top: -10rpx;
+  left: 22%;
+}
+.couponPopup .content .item .cr {
+  bottom: -10rpx;
+  left: 22%;
+}
+.discountDetail {
+  width: 94vw;
+  background: #fff;
+  position: relative;
+}
+.discountDetail .colse {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.discountDetail .title {
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+  padding: 30rpx 0 10rpx;
+}
+.discountDetail .content {
+  padding: 20rpx;
+  height: 10vh;
+}
+.discountDetail .content .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.discountDetail .content .item .t {
+  font-size: 24rpx;
+  color: #444444;
+  font-weight: bold;
+}
+.discountDetail .content .item .c {
+  font-size: 24rpx;
+  color: #444444;
+}
+.discountDetail .content .item .r {
+  color: #ff0000;
+}

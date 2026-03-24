@@ -1,0 +1,167 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.detail.data-v-a3539db5 {
+  padding: 20rpx;
+  position: relative;
+  height: 100vh;
+}
+.detail .status.data-v-a3539db5 {
+  width: 100vw;
+  height: 120rpx;
+  background: #f9be5f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 20rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.detail .status .text.data-v-a3539db5 {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.detail .status .notPayText.data-v-a3539db5 {
+  font-size: 24rpx;
+  margin-top: 12rpx;
+}
+.detail .status .notPayText .time.data-v-a3539db5 {
+  font-weight: bold;
+  margin: 0 8rpx;
+}
+.detail .info.data-v-a3539db5 {
+  width: 100%;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.detail .info .title.data-v-a3539db5 {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #3e3e3e;
+  margin-bottom: 14rpx;
+}
+.detail .info .main.data-v-a3539db5 {
+  display: flex;
+  align-items: center;
+}
+.detail .info .main image.data-v-a3539db5 {
+  width: 20%;
+  height: 130rpx;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+}
+.detail .info .main .goodsInfo.data-v-a3539db5 {
+  width: 80%;
+  height: 130rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.detail .info .main .goodsInfo .name.data-v-a3539db5 {
+  display: flex;
+  justify-content: space-between;
+}
+.detail .info .main .goodsInfo .name .text.data-v-a3539db5 {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+.detail .info .main .goodsInfo .name .num.data-v-a3539db5 {
+  font-size: 24rpx;
+  color: #999;
+}
+.detail .info .main .goodsInfo .type.data-v-a3539db5 {
+  width: 100rpx;
+  height: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20rpx;
+  background: #f9be5f;
+  color: #fff;
+  border-radius: 10rpx;
+}
+.detail .selfInfo.data-v-a3539db5,
+.detail .order.data-v-a3539db5 {
+  width: 100%;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.detail .selfInfo .item.data-v-a3539db5,
+.detail .order .item.data-v-a3539db5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14rpx;
+}
+.detail .selfInfo .item.data-v-a3539db5:last-child,
+.detail .order .item.data-v-a3539db5:last-child {
+  margin-bottom: 0;
+}
+.detail .selfInfo .item .title.data-v-a3539db5,
+.detail .order .item .title.data-v-a3539db5 {
+  color: #8d8d8d;
+  font-size: 24rpx;
+}
+.detail .selfInfo .item .value.data-v-a3539db5,
+.detail .order .item .value.data-v-a3539db5 {
+  display: flex;
+  align-items: center;
+  display: flex;
+  font-size: 24rpx;
+  color: #333;
+}
+.detail .selfInfo .item .orderNo.data-v-a3539db5,
+.detail .order .item .orderNo.data-v-a3539db5 {
+  display: block;
+  width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.detail .selfInfo .item .copy.data-v-a3539db5,
+.detail .order .item .copy.data-v-a3539db5 {
+  font-size: 20rpx;
+  color: #f9be5f;
+  border-radius: 10rpx;
+  border: 1rpx solid #f9be5f;
+  padding: 4rpx 10rpx;
+  margin-left: 20rpx;
+}
+.detail .btnGroup.data-v-a3539db5 {
+  height: 120rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100vw;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 20rpx;
+  box-sizing: border-box;
+  z-index: 100;
+}
+.detail .btnGroup .btn.data-v-a3539db5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  background: #e4e4e4;
+  padding: 12rpx 20rpx;
+  margin-left: 20rpx;
+  border-radius: 50rpx;
+}
+.detail .btnGroup .btn.data-v-a3539db5:last-child {
+  background: #f9be5f;
+  color: #fff;
+}

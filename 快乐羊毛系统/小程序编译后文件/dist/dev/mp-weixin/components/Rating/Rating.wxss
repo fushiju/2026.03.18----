@@ -1,0 +1,26 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.rating-container.data-v-2fad325c {
+  display: inline-flex;
+  align-items: center;
+  gap: 12rpx;
+}
+.stars.data-v-2fad325c {
+  display: flex;
+  gap: 8rpx;
+}
+.star.data-v-2fad325c {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.star.readonly.data-v-2fad325c {
+  cursor: default;
+}
+.score-text.data-v-2fad325c {
+  font-size: 24rpx;
+  color: #666;
+  font-weight: 500;
+}

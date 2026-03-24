@@ -1,0 +1,60 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.setting.data-v-c078ee0d {
+  padding: 20rpx;
+}
+.setting .userInfo.data-v-c078ee0d {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 20rpx;
+}
+.setting .userInfo .headPic.data-v-c078ee0d {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.setting .userInfo .userName.data-v-c078ee0d {
+  display: flex;
+  flex-direction: column;
+}
+.setting .userInfo .userName .name.data-v-c078ee0d {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+.setting .userInfo .userName .id.data-v-c078ee0d {
+  font-size: 24rpx;
+  color: #999;
+}
+.setting .box.data-v-c078ee0d {
+  background: #ffffff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+.setting .box .item.data-v-c078ee0d {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.setting .box .item.data-v-c078ee0d:last-child {
+  border-bottom: none;
+}
+.setting .logout.data-v-c078ee0d {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  background: #ff7575;
+  color: #fff;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "评价",
+  "usingComponents": {
+    "price": "../components/Price/Price",
+    "rating": "../components/Rating/Rating"
+  }
+}

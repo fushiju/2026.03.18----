@@ -1,0 +1,30 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.charging {
+  padding: 20rpx;
+}
+.charging .chargingBox {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+.charging .chargingBox .item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.charging .chargingBox .item image {
+  width: 200rpx;
+  height: 200rpx;
+  background: #dbdbdb;
+  border-radius: 10rpx;
+}
+.charging .chargingBox .item .name {
+  margin-top: 10rpx;
+  white-space: nowrap;
+  font-size: 24rpx;
+  color: #999;
+}

@@ -1,0 +1,234 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.selBox.data-v-3dd4e0ab {
+  padding: 20rpx;
+}
+.selBox .curCinema.data-v-3dd4e0ab {
+  background: #fff;
+  padding: 20rpx 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20rpx 20rpx 0 0;
+}
+.selBox .curCinema .cinemaInfo .name.data-v-3dd4e0ab {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+.selBox .curCinema .cinemaInfo .location.data-v-3dd4e0ab {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+.selBox .selMovie.data-v-3dd4e0ab {
+  background: #fff;
+  padding: 20rpx;
+}
+.selBox .selMovie .movieScroll.data-v-3dd4e0ab {
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  display: flex;
+}
+.selBox .selMovie .movieScroll .item.data-v-3dd4e0ab {
+  display: inline-block;
+}
+.selBox .selMovie .movieScroll .item.data-v-3dd4e0ab:last-child {
+  margin-right: 0;
+}
+.selBox .selMovie .movieScroll .item .act.data-v-3dd4e0ab {
+  padding: 10rpx;
+  border: 4rpx solid #f9be5f;
+}
+.selBox .selMovie .movieScroll .item image.data-v-3dd4e0ab {
+  width: 200rpx;
+  height: 270rpx;
+  border-radius: 10rpx;
+  padding: 10rpx;
+}
+.selBox .movieInfo.data-v-3dd4e0ab {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20rpx;
+}
+.selBox .movieInfo .name.data-v-3dd4e0ab {
+  display: flex;
+  align-items: center;
+}
+.selBox .movieInfo .name .n.data-v-3dd4e0ab {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.selBox .movieInfo .name .rating.data-v-3dd4e0ab {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #f9be5f;
+  margin-left: 20rpx;
+}
+.selBox .movieInfo .name .rating .t.data-v-3dd4e0ab {
+  color: #333;
+}
+.selBox .movieInfo .desc.data-v-3dd4e0ab {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.selBox .sel.data-v-3dd4e0ab {
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 0 0 20rpx 20rpx;
+  border-top: 1rpx dashed #cecece;
+  position: relative;
+}
+.selBox .sel .c.data-v-3dd4e0ab {
+  width: 30rpx;
+  height: 30rpx;
+  background: #ededed;
+  border-radius: 50rpx;
+  position: absolute;
+  top: -18rpx;
+}
+.selBox .sel .l.data-v-3dd4e0ab {
+  left: -18rpx;
+}
+.selBox .sel .r.data-v-3dd4e0ab {
+  right: -18rpx;
+}
+.selBox .sel .datelist-scroll.data-v-3dd4e0ab {
+  width: 100%;
+  height: 50rpx;
+  white-space: nowrap;
+}
+.selBox .sel .datelist-scroll .datelist.data-v-3dd4e0ab {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  height: 50rpx;
+}
+.selBox .sel .datelist-scroll .datelist .act.data-v-3dd4e0ab {
+  color: #ffdca3 !important;
+  font-weight: bold;
+}
+.selBox .sel .datelist-scroll .datelist .tabItem.data-v-3dd4e0ab {
+  white-space: nowrap;
+  color: #999;
+  font-size: 24rpx;
+  margin: 0 20rpx;
+  padding-bottom: 14rpx;
+}
+.selBox .sel .datelist-scroll .datelist .tabItem.data-v-3dd4e0ab:last-child {
+  margin-right: 0;
+}
+.selBox .sel .datelist-scroll .datelist .tabItem.data-v-3dd4e0ab:first-child {
+  margin-left: 0;
+}
+.selBox .timeList.data-v-3dd4e0ab {
+  margin-top: 20rpx;
+}
+.selBox .timeList .item.data-v-3dd4e0ab {
+  background: #fff;
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+  border-radius: 20rpx;
+}
+.selBox .timeList .item .left.data-v-3dd4e0ab {
+  display: flex;
+}
+.selBox .timeList .item .left .time .start.data-v-3dd4e0ab {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+.selBox .timeList .item .left .time .end.data-v-3dd4e0ab {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.selBox .timeList .item .left .room.data-v-3dd4e0ab {
+  margin-left: 30rpx;
+}
+.selBox .timeList .item .left .room .type.data-v-3dd4e0ab {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+.selBox .timeList .item .left .room .num.data-v-3dd4e0ab {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.selBox .timeList .item .right.data-v-3dd4e0ab {
+  display: flex;
+  align-items: center;
+}
+.selBox .timeList .item .right .price.data-v-3dd4e0ab {
+  display: flex;
+  flex-direction: column;
+}
+.selBox .timeList .item .right .price .top.data-v-3dd4e0ab {
+  display: flex;
+  align-items: baseline;
+}
+.selBox .timeList .item .right .price .top .old.data-v-3dd4e0ab {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+}
+.selBox .timeList .item .right .price .top .sale.data-v-3dd4e0ab {
+  display: flex;
+  align-items: center;
+}
+.selBox .timeList .item .right .price .top .sale .text.data-v-3dd4e0ab {
+  font-size: 24rpx;
+  color: #ff3b30;
+}
+.selBox .timeList .item .right .price .bottom.data-v-3dd4e0ab {
+  width: 110rpx;
+  height: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 20rpx;
+  background: #ff3b30;
+  color: #fff;
+  padding: 4rpx 8rpx;
+  border-radius: 10rpx;
+  white-space: nowrap;
+  margin-top: 14rpx;
+  justify-content: flex-end;
+}
+.selBox .timeList .item .right .price .bottom .economy.data-v-3dd4e0ab {
+  background: #fff;
+  color: #ff3b30;
+  border-radius: 8rpx;
+  padding: 0 4rpx;
+  margin-left: 10rpx;
+}
+.selBox .timeList .item .right .btn.data-v-3dd4e0ab {
+  width: 100rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9be5f;
+  color: #fff;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}

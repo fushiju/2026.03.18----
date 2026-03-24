@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "申诉/反馈",
+  "usingComponents": {
+    "upload-file": "../../components/uploadFile/uploadFile"
+  }
+}

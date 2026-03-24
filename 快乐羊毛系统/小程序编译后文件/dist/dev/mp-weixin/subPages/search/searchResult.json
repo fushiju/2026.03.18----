@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "back-top": "../../components/BackTop/BackTop",
+    "navbar": "../../components/NavBar/Navbar",
+    "icon": "../../components/Icon/Icon",
+    "shop-block": "../../components/SearchShopItem/SearchShopBlock",
+    "shop-row": "../../components/SearchShopItem/SearchShopRow"
+  }
+}

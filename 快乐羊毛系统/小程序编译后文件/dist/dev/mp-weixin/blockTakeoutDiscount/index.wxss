@@ -1,0 +1,80 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.takeoutDiscount {
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  padding-bottom: 30rpx;
+}
+.waterfall-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  align-items: flex-start;
+}
+.waterfall-container .column {
+  width: 48.5%;
+  display: flex;
+  flex-direction: column;
+}
+.waterfall-container .item {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+.waterfall-container .item:active {
+  transform: scale(0.98);
+}
+.waterfall-container .item .item-img {
+  width: 100%;
+  display: block;
+  background-color: #eee;
+}
+.waterfall-container .item .item-info {
+  padding: 20rpx 16rpx;
+}
+.waterfall-container .item .item-info .item-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.waterfall-container .item .item-info .item-text {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.4;
+}
+.waterfall-container .item .item-info .item-desc {
+  font-size: 22rpx;
+  color: #ff471f;
+  margin-top: 12rpx;
+  background-color: #fff1ee;
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 6rpx;
+}
+.load-status {
+  padding: 30rpx 0;
+  text-align: center;
+  color: #bbb;
+  font-size: 24rpx;
+}
+.empty {
+  padding-top: 200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #999;
+  font-size: 26rpx;
+}
+.empty text {
+  margin-top: 20rpx;
+}

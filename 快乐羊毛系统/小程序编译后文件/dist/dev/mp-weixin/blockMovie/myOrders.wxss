@@ -1,0 +1,149 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.container.data-v-7f5281b4 {
+  min-height: 100vh;
+  background-color: #f6f4f2;
+}
+.content.data-v-7f5281b4 {
+  padding: 20rpx 0rpx;
+  width: 92%;
+  margin: 0 auto;
+}
+
+/* 订单卡片样式 */
+.card.data-v-7f5281b4 {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+  position: relative;
+  overflow: hidden;
+}
+.movie-card .zfzt.data-v-7f5281b4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.movie-card .zfzt .dorder.data-v-7f5281b4 {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #ff471f;
+}
+.movie-card .zfzt .dorder.status-gray.data-v-7f5281b4 {
+  color: #999;
+}
+.movie-card .zfzt .cinema-name.data-v-7f5281b4 {
+  font-size: 24rpx;
+  color: #333;
+}
+.movie-card .movie-info.data-v-7f5281b4 {
+  display: flex;
+  flex-direction: row;
+  gap: 20rpx;
+  margin: 20rpx 0 30rpx 0;
+}
+.movie-card .dyimg.data-v-7f5281b4 {
+  height: 180rpx;
+  width: 130rpx;
+  flex-shrink: 0;
+}
+.movie-card .dyimg .poster.data-v-7f5281b4 {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+.movie-card .movie-detail.data-v-7f5281b4 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.movie-card .movie-detail .movie-name.data-v-7f5281b4 {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #222;
+}
+.movie-card .movie-detail .movie-time.data-v-7f5281b4,
+.movie-card .movie-detail .hall-info.data-v-7f5281b4 {
+  font-size: 24rpx;
+  color: #666;
+}
+.movie-card .refund-tips.data-v-7f5281b4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24rpx;
+  padding-top: 24rpx;
+  border-top: 1rpx solid #f1f1f1;
+}
+.movie-card .refund-tips .price.data-v-7f5281b4 {
+  font-size: 32rpx;
+  color: #222;
+  font-weight: bold;
+}
+.movie-card .refund-tips .tip-item.data-v-7f5281b4 {
+  display: flex;
+  gap: 16rpx;
+}
+.movie-card .refund-tips .tip-item .qxdd.data-v-7f5281b4,
+.movie-card .refund-tips .tip-item .ljzf.data-v-7f5281b4 {
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+}
+.movie-card .refund-tips .tip-item .qxdd.data-v-7f5281b4 {
+  border: 1rpx solid #ccc;
+  color: #666;
+}
+.movie-card .refund-tips .tip-item .ljzf.data-v-7f5281b4 {
+  background: #ff471f;
+  color: #fff;
+  border: 1rpx solid #ff471f;
+}
+.movie-card.data-v-7f5281b4 {
+  /* 锯齿圆点效果 */
+}
+.movie-card .zuoyuan.data-v-7f5281b4,
+.movie-card .youyuan.data-v-7f5281b4 {
+  position: absolute;
+  bottom: 96rpx;
+  width: 30rpx;
+  height: 30rpx;
+  background-color: #f6f4f2;
+  border-radius: 50%;
+}
+.movie-card .zuoyuan.data-v-7f5281b4 {
+  left: -15rpx;
+}
+.movie-card .youyuan.data-v-7f5281b4 {
+  right: -15rpx;
+}
+
+/* 加载更多状态 */
+.load-more.data-v-7f5281b4 {
+  text-align: center;
+  padding: 30rpx 0;
+  color: #999;
+  font-size: 24rpx;
+}
+
+/* 空状态 */
+.empty-box.data-v-7f5281b4 {
+  padding-top: 200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.empty-box .empty-img.data-v-7f5281b4 {
+  width: 240rpx;
+  height: 240rpx;
+}
+.empty-box .empty-text.data-v-7f5281b4 {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #999;
+}

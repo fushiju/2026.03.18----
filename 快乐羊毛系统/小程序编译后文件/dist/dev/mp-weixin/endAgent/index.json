@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "代理商",
+  "usingComponents": {
+    "icon": "../components/Icon/Icon"
+  }
+}

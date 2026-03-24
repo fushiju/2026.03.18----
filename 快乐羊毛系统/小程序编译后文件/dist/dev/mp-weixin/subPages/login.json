@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "checkbox": "../components/Checkbox/Checkbox"
+  }
+}

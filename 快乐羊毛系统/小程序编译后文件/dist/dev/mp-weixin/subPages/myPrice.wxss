@@ -1,0 +1,191 @@
+/* 文本溢出 */
+/* 网格布局 */
+/* 弹性盒子 */
+/* 绝对定位 */
+.myPrice.data-v-64ee037c {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+.myPrice .header.data-v-64ee037c {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+  padding: 40rpx 30rpx 80rpx;
+  border-radius: 0 0 30rpx 30rpx;
+}
+.myPrice .header .balanceCard.data-v-64ee037c {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  text-align: center;
+}
+.myPrice .header .balanceCard .balanceAmount.data-v-64ee037c {
+  font-size: 80rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+}
+.myPrice .header .balanceCard .balanceLabel.data-v-64ee037c {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 12rpx;
+}
+.myPrice .tabsContainer.data-v-64ee037c {
+  display: flex;
+  justify-content: space-around;
+  background: #ffffff;
+  margin: -40rpx 30rpx 0;
+  border-radius: 20rpx;
+  padding: 0;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 10;
+}
+.myPrice .tabsContainer .tabItem.data-v-64ee037c {
+  flex: 1;
+  padding: 28rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.myPrice .tabsContainer .tabItem.active.data-v-64ee037c {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+.myPrice .tabsContainer .tabItem.active.data-v-64ee037c::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  right: 15%;
+  height: 5rpx;
+  background: #ff6b6b;
+  border-radius: 3rpx;
+}
+.myPrice .contentArea.data-v-64ee037c {
+  margin-top: 40rpx;
+  padding: 0 30rpx 40rpx;
+}
+.myPrice .contentArea .tabContent.data-v-64ee037c {
+  animation: fadeIn-64ee037c 0.3s ease;
+  padding: 20rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+}
+.myPrice .contentArea .tabContent .itemGrid.data-v-64ee037c {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16rpx;
+  margin-bottom: 30rpx;
+}
+.myPrice .contentArea .tabContent .itemGrid .gridItem.data-v-64ee037c {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 28rpx 20rpx;
+  text-align: center;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+.myPrice .contentArea .tabContent .itemGrid .gridItem.highlight.data-v-64ee037c {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+}
+.myPrice .contentArea .tabContent .itemGrid .gridItem.highlight .itemAmount.data-v-64ee037c {
+  color: #ffffff;
+}
+.myPrice .contentArea .tabContent .itemGrid .gridItem.highlight .itemDesc.data-v-64ee037c {
+  color: rgba(255, 255, 255, 0.9);
+}
+.myPrice .contentArea .tabContent .itemGrid .gridItem .itemAmount.data-v-64ee037c {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+.myPrice .contentArea .tabContent .itemGrid .gridItem .itemDesc.data-v-64ee037c {
+  font-size: 22rpx;
+  color: #999;
+  line-height: 1.4;
+}
+.myPrice .contentArea .tabContent .section.data-v-64ee037c {
+  margin-top: 30rpx;
+}
+.myPrice .contentArea .tabContent .section .section-title.data-v-64ee037c {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 24rpx;
+  position: relative;
+  padding-left: 18rpx;
+}
+.myPrice .contentArea .tabContent .section .pay-methods.data-v-64ee037c {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+.myPrice .contentArea .tabContent .section .pay-methods .pay-item.data-v-64ee037c {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  background: #f9f9f9;
+  border-radius: 12rpx;
+  border: 2rpx solid #e5e5e5;
+  transition: all 0.3s ease;
+}
+.myPrice .contentArea .tabContent .section .pay-methods .pay-item.active.data-v-64ee037c {
+  background: #fff5f0;
+  border-color: #ff471f;
+}
+.myPrice .contentArea .tabContent .section .pay-methods .pay-item .pay-label.data-v-64ee037c {
+  flex: 1;
+  margin-left: 16rpx;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+.myPrice .rechargeFooter.data-v-64ee037c {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 40rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+.myPrice .rechargeFooter .rechargeInfo.data-v-64ee037c {
+  display: flex;
+  align-items: center;
+}
+.myPrice .rechargeFooter .rechargeInfo .label.data-v-64ee037c {
+  font-size: 28rpx;
+  color: #999;
+  margin-right: 12rpx;
+}
+.myPrice .rechargeFooter .rechargeInfo .amount.data-v-64ee037c {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+.myPrice .rechargeFooter .rechargeBtn.data-v-64ee037c {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: bold;
+  padding: 20rpx 70rpx;
+  border-radius: 50rpx;
+  white-space: nowrap;
+}
+@keyframes fadeIn-64ee037c {
+from {
+    opacity: 0;
+    transform: translateY(10rpx);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "订单列表",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "back-top": "../../components/BackTop/BackTop",
+    "price": "../../components/Price/Price"
+  }
+}
