@@ -39,7 +39,7 @@ class LoginPage(BasePage):
 
     def fill_captcha(self, value: str):
         loc = self.page.locator(self.SEL_CAPTCHA_INPUT)
-        loc.wait_for(state="visible", timeout=10000)
+        loc.wait_for(state="visible", timeout=20000)
         loc.fill(value)
 
     def click_login(self):
@@ -57,8 +57,17 @@ class LoginPage(BasePage):
 
     def click_captcha_image(self):
         """点击验证码 canvas 刷新验证码"""
-        self.page.locator(self.SEL_CAPTCHA_CANVAS).click()
-        time.sleep(0.5)
+        canvas = self.page.locator(self.SEL_CAPTCHA_CANVAS)
+        try:
+            canvas.wait_for(state="visible", timeout=10000)
+            canvas.click()
+            time.sleep(0.5)
+        except Exception:
+            # canvas 不可见时尝试备用容器选择器
+            container = self.page.locator(self.SEL_CAPTCHA_CONTAINER)
+            if container.count() > 0:
+                container.click()
+                time.sleep(0.5)
 
     def get_error_message(self, timeout: int = 3000) -> str:
         try:
@@ -84,11 +93,27 @@ class LoginPage(BasePage):
                 return "other_error"
         return "unknown"
 
+    def _ensure_on_login_page(self):
+        """确保当前处于登录页且表单元素可用，否则重新导航"""
+        try:
+            if "login" not in self.current_url:
+                self.goto_login()
+                return
+            # 检查关键元素是否可见
+            captcha_input = self.page.locator(self.SEL_CAPTCHA_INPUT)
+            if captcha_input.count() == 0 or not captcha_input.is_visible():
+                self.page.reload(wait_until="domcontentloaded")
+                self.page.wait_for_selector(self.SEL_CAPTCHA_INPUT, state="visible", timeout=15000)
+        except Exception:
+            self.goto_login()
+
     def login_with_captcha(self, username: str, password: str, max_retries: int = 3) -> bool:
         """完整登录流程：填写用户名/密码 + OCR 识别验证码 + 点击登录，支持验证码重试"""
-        self.fill_username(username)
-        self.fill_password(password)
         for attempt in range(max_retries):
+            # 每次重试前确保登录页处于可用状态
+            self._ensure_on_login_page()
+            self.fill_username(username)
+            self.fill_password(password)
             # 识别验证码
             img_bytes = self.get_captcha_image_bytes()
             captcha_text = solve_captcha(img_bytes)

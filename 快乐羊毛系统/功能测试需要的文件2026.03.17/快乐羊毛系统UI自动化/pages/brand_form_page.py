@@ -155,18 +155,24 @@ class BrandFormPage(BasePage):
         label = "售罄" if sold_out else "未售罄"
         self.page.locator(f'.el-radio__label:text-is("{label}")').click()
 
-    def upload_brand_icon(self, file_path: str = ""):
+    def upload_brand_icon(self, file_path: str = "", force_upload: bool = False):
         """上传品牌ICON（从图片选择弹窗中选择或上传）"""
         trigger = self._locate_form_item("品牌ICON").locator('.upload-container .img-wrap')
-        self._pick_image_from_dialog_el(trigger, file_path)
+        self._pick_image_from_dialog_el(trigger, file_path, force_upload=force_upload)
 
-    def upload_brand_image(self, file_path: str = ""):
+    def upload_brand_image(self, file_path: str = "", force_upload: bool = False):
         """上传品牌图片（从图片选择弹窗中选择或上传）"""
         trigger = self._locate_form_item("品牌图片").locator('.upload-container .img-wrap')
-        self._pick_image_from_dialog_el(trigger, file_path)
+        self._pick_image_from_dialog_el(trigger, file_path, force_upload=force_upload)
 
-    def _pick_image_from_dialog_el(self, trigger_locator, file_path: str = ""):
-        """通用图片上传（接收 locator 对象）"""
+    def _pick_image_from_dialog_el(self, trigger_locator, file_path: str = "",
+                                    force_upload: bool = False):
+        """通用图片上传（接收 locator 对象）
+
+        Args:
+            force_upload: 为 True 时跳过已有图片，强制通过 file input 上传指定文件。
+                          用于测试文件格式/大小校验等场景。
+        """
         trigger_locator.click()
         upload_dialog = self.page.locator('.el-dialog:visible:has-text("图片上传"), .el-dialog:visible:has-text("图片选择")')
         upload_dialog.wait_for(state="visible", timeout=10000)
@@ -174,7 +180,7 @@ class BrandFormPage(BasePage):
 
         # 尝试多种选择器匹配图片项
         img_items = upload_dialog.locator('.imgItem, .img-item, .image-item')
-        if img_items.count() > 0:
+        if not force_upload and img_items.count() > 0:
             img_items.first.click()
             self.page.wait_for_timeout(500)
             # 双击确保选中（某些UI需要）
@@ -183,13 +189,8 @@ class BrandFormPage(BasePage):
                 self.page.wait_for_timeout(500)
         elif file_path:
             # 点击"上传"按钮或直接设置文件
-            upload_btn = upload_dialog.locator('button:has-text("上传")')
-            if upload_btn.count() > 0:
-                file_input = upload_dialog.locator('input[type="file"]')
-                file_input.set_input_files(file_path)
-            else:
-                file_input = upload_dialog.locator('input[type="file"]')
-                file_input.set_input_files(file_path)
+            file_input = upload_dialog.locator('input[type="file"]')
+            file_input.set_input_files(file_path)
             self.page.wait_for_timeout(3000)
             new_items = upload_dialog.locator('.imgItem, .img-item, .image-item')
             if new_items.count() > 0:
